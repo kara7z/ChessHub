@@ -34,7 +34,7 @@ function isCurrentSection(path: string) {
         <button
           v-preview-disclosure="'dashboard-sidebar'"
           aria-label="Close dashboard navigation"
-          class="p-space-xs text-outline hover:text-on-surface md:hidden"
+          class="p-space-xs text-outline hover:text-on-surface lg:hidden"
           data-preview-dismiss
           type="button"
         >

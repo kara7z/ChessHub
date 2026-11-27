@@ -9,14 +9,14 @@ import AppIcon from '../ui/AppIcon.vue'
     data-preview-screen
   >
     <DashboardSidebar />
-    <div class="md:pl-64">
+    <div class="lg:pl-64">
       <header
-        class="fixed top-0 left-0 md:left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin md:px-margin-desktop"
+        class="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin md:px-margin-desktop"
       >
         <button
           aria-label="Open dashboard navigation"
           type="button"
-          class="mr-2 shrink-0 rounded p-2 text-primary md:hidden"
+          class="mr-2 shrink-0 rounded p-2 text-primary lg:hidden"
           v-preview-disclosure="'dashboard-sidebar'"
         >
           <span aria-hidden="true" class="text-lg leading-none">☰</span>

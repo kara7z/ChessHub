@@ -4,10 +4,10 @@ import AppIcon from '../ui/AppIcon.vue'
 
 <template>
   <div
-    class="bg-surface bg-chess-grid font-body-md text-body-md text-on-surface antialiased min-h-dvh min-w-0"
+    class="flex min-h-dvh min-w-0 flex-col bg-surface bg-chess-grid font-body-md text-body-md text-on-surface antialiased [&>main]:min-h-0 [&>main]:flex-1"
     data-preview-screen
   >
-    <div class="fixed top-0 left-0 z-50 px-margin-desktop py-space-lg">
+    <header class="px-margin py-space-md md:px-margin-desktop">
       <RouterLink
         class="inline-flex items-center gap-space-sm text-on-surface hover:text-primary transition-colors"
         to="/home"
@@ -19,7 +19,7 @@ import AppIcon from '../ui/AppIcon.vue'
         </span>
         <span class="font-title-md text-title-md tracking-tight">ChessHub Academy</span>
       </RouterLink>
-    </div>
+    </header>
     <slot />
   </div>
 </template>

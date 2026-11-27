@@ -23,7 +23,7 @@ const sections = [
 
 <template>
   <footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl px-margin-desktop">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-space-xl">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-space-xl">
       <div class="max-w-sm">
         <div class="flex items-center gap-space-sm mb-space-sm">
           <div

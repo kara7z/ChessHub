@@ -78,7 +78,13 @@
   display: flex;
 }
 
-@media (width < 48rem) {
+.preview-disclosure-flex[aria-modal='true'][data-open] {
+  align-items: safe center;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+@media (width < 64rem) {
   .dashboard-sidebar:not([data-open]) {
     display: none;
   }
