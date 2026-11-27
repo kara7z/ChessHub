@@ -21,7 +21,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   >FIDE ID: 8492014</span
                 >
               </div>
-              <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+              <h1 class="app-page-title">
                 My Events
               </h1>
               <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">

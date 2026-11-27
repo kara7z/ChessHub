@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import ClubLayout from '../../components/layout/ClubLayout.vue'
+import SettingsContextBar from '../../components/navigation/SettingsContextBar.vue'
+import SettingsSidebar from '../../components/navigation/SettingsSidebar.vue'
 import PasswordToggle from '../../components/ui/PasswordToggle.vue'
 </script>
 
@@ -7,117 +9,20 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
   <ClubLayout academy>
     <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
       <div class="flex flex-col w-full">
-        <div class="w-full px-margin md:px-margin-tablet xl:px-margin-desktop py-space-xl">
-          <div class="flex flex-col lg:flex-row gap-space-xl items-start">
-            <aside class="w-full lg:w-[260px] shrink-0 flex flex-col gap-space-lg">
-              <div class="bg-surface-container-low rounded-xl p-space-md shadow-md">
-                <div class="px-space-sm pb-space-md flex items-center justify-between">
-                  <span
-                    class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
-                    >Settings // 02</span
-                  >
-                  <span class="font-label-badge text-label-badge text-primary">FIDE-ID</span>
-                </div>
-                <nav class="flex flex-row lg:flex-col gap-space-xs overflow-x-auto">
-                  <RouterLink
-                    class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors whitespace-nowrap"
-                    to="/settings/profile"
-                  >
-                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                      >person</span
-                    >
-                    <span>Profile</span>
-                  </RouterLink>
-                  <RouterLink
-                    class="flex items-center justify-between gap-space-sm px-space-md py-space-sm rounded-lg font-title-md text-body-md bg-surface-container-highest text-primary shadow-sm whitespace-nowrap"
-                    to="/settings/security"
-                  >
-                    <span class="flex items-center gap-space-sm">
-                      <span
-                        class="material-symbols-outlined text-[20px]"
-                        style="font-variation-settings: 'FILL' 1"
-                        aria-hidden="true"
-                        >shield_lock</span
-                      >
-                      <span>Security</span>
-                    </span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-primary hidden lg:block"></span>
-                  </RouterLink>
-                  <RouterLink
-                    class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors whitespace-nowrap"
-                    to="/settings/notifications"
-                  >
-                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                      >notifications</span
-                    >
-                    <span>Notifications</span>
-                  </RouterLink>
-                  <RouterLink
-                    class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors whitespace-nowrap"
-                    to="/settings/appearance"
-                  >
-                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                      >palette</span
-                    >
-                    <span>Appearance</span>
-                  </RouterLink>
-                </nav>
-              </div>
-              <div
-                class="hidden lg:flex flex-col gap-space-md bg-surface-container rounded-xl p-space-lg shadow-md relative overflow-hidden"
-              >
-                <div
-                  class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-primary/10 blur-xl pointer-events-none"
-                ></div>
-                <div class="flex items-center justify-between">
-                  <span
-                    class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
-                    >Defense Rating</span
-                  >
-                  <span class="font-label-numeric-md text-label-numeric-md text-primary">92%</span>
-                </div>
-                <div class="flex items-center gap-space-md">
-                  <svg class="w-12 h-12 shrink-0 text-primary -rotate-90" viewBox="0 0 48 48">
-                    <circle
-                      cx="24"
-                      cy="24"
-                      fill="none"
-                      r="20"
-                      stroke="currentColor"
-                      stroke-opacity="0.15"
-                      stroke-width="4"
-                    ></circle>
-                    <circle
-                      cx="24"
-                      cy="24"
-                      fill="none"
-                      r="20"
-                      stroke="currentColor"
-                      stroke-dasharray="125.6"
-                      stroke-dashoffset="10"
-                      stroke-linecap="round"
-                      stroke-width="4"
-                    ></circle>
-                  </svg>
-                  <div class="flex flex-col min-w-0">
-                    <span class="font-title-md text-title-md text-on-surface">Fortress Active</span>
-                    <span class="font-body-sm text-body-sm text-on-surface-variant"
-                      >Email verified &amp; strong cipher</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </aside>
-            <section class="flex-1 w-full min-w-0 flex flex-col gap-space-xl">
+        <div class="w-full px-margin pb-space-xl md:px-margin-desktop">
+          <SettingsContextBar />
+          <div class="grid grid-cols-1 items-start gap-space-lg lg:grid-cols-12">
+            <SettingsSidebar />
+            <section class="flex min-w-0 flex-col gap-space-xl lg:col-span-9">
               <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md">
                 <div class="flex flex-col gap-space-xs">
                   <span
                     class="font-label-badge text-label-badge uppercase tracking-wider text-primary"
                     >Account Protection</span
                   >
-                  <h2 class="font-headline-md text-headline-md text-on-surface">
+                  <h1 class="app-page-title">
                     Security &amp; Authentication
-                  </h2>
+                  </h1>
                   <p class="font-body-md text-body-md text-on-surface-variant">
                     Manage your verified federation email, password credentials, and active
                     tournament terminal sessions.
@@ -138,7 +43,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                 </div>
               </div>
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+                class="app-panel flex flex-col gap-space-lg p-space-lg"
               >
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
                   <div class="flex items-center gap-space-sm">
@@ -203,7 +108,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                 ></div>
               </div>
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+                class="app-panel flex flex-col gap-space-lg p-space-lg"
               >
                 <div class="flex items-center gap-space-sm">
                   <div
@@ -323,7 +228,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                 </form>
               </div>
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+                class="app-panel flex flex-col gap-space-lg p-space-lg"
               >
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
                   <div class="flex items-center gap-space-sm">

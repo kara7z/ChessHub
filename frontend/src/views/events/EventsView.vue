@@ -4,8 +4,8 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
-      <div class="flex flex-col w-full pb-space-xl">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
+      <div class="flex w-full flex-col pb-space-xl lg:pt-space-lg">
         <!-- Top Navigation Sub-Bar & Direct Access -->
         <div
           class="w-full flex flex-col md:flex-row md:items-end justify-between gap-space-md pt-space-md mb-space-lg"
@@ -17,7 +17,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               Federation Schedule • Season 2025
             </div>
-            <h1 class="font-headline-lg text-headline-lg text-on-surface">
+            <h1 class="app-page-title lg:text-display-lg">
               Club Events &amp; Tournaments
             </h1>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
@@ -26,10 +26,10 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </p>
           </div>
           <!-- Quick Navigation to My Events -->
-          <div class="flex items-center gap-space-sm self-start md:self-auto">
-            <span
-              class="group flex items-center gap-space-sm px-space-md py-space-sm bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded-lg transition-all shadow-sm"
-              data-path="my-events"
+          <div class="flex items-center gap-space-sm self-start md:self-auto lg:shrink-0">
+            <RouterLink
+              class="app-action-secondary group"
+              to="/my-events"
             >
               <span
                 class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform"
@@ -41,12 +41,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 class="px-space-xs py-0.5 rounded text-[11px] font-label-badge bg-primary-container/30 text-primary-fixed"
                 >3 Active</span
               >
-            </span>
+            </RouterLink>
           </div>
         </div>
         <!-- Featured Event Banner (Spring Swiss Championship 2025) -->
         <section
-          class="relative w-full rounded-xl overflow-hidden bg-surface-container mb-space-xl shadow-xl"
+          class="app-panel relative mb-space-xl w-full overflow-hidden"
         >
           <!-- Visual Background with Scrim -->
           <div
@@ -61,10 +61,10 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"
           ></div>
           <div
-            class="relative z-10 p-space-lg md:p-space-xl flex flex-col justify-between min-h-[380px] max-w-3xl"
+            class="relative z-10 flex min-h-[380px] max-w-3xl flex-col justify-between p-space-lg md:p-space-xl lg:grid lg:max-w-none lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:content-center lg:items-center lg:gap-x-space-xl lg:p-10"
           >
             <!-- Top Tag Array -->
-            <div class="flex flex-wrap items-center gap-space-xs">
+            <div class="flex flex-wrap items-center gap-space-xs lg:col-span-2">
               <span
                 class="px-space-sm py-0.5 rounded-full bg-primary/20 text-primary font-label-badge text-label-badge uppercase tracking-wider flex items-center gap-1"
               >
@@ -117,36 +117,34 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   <span class="font-body-md text-body-md">Grandmaster Hall, Main Club Lounge</span>
                 </div>
               </div>
-              <!-- Capacity Gauge -->
-              <div
-                class="mt-space-md max-w-md bg-surface-container-high/80 backdrop-blur p-space-sm rounded-lg"
-              >
-                <div class="flex items-center justify-between text-body-sm font-body-sm mb-1.5">
-                  <span class="text-on-surface font-title-md text-title-md"
-                    >Registration Status</span
-                  >
-                  <span class="text-primary font-label-numeric-md text-label-numeric-md"
-                    >48 / 64 Registered</span
-                  >
-                </div>
-                <div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
-                  <div
-                    class="h-full bg-primary rounded-full transition-all duration-500"
-                    style="width: 75%"
-                  ></div>
-                </div>
-                <div
-                  class="flex items-center justify-between text-[11px] text-on-surface-variant font-body-sm mt-1"
+            </div>
+            <!-- Capacity Gauge -->
+            <div
+              class="mb-space-md w-full max-w-md rounded-lg bg-surface-container-high/80 p-space-sm backdrop-blur lg:mb-0 lg:p-space-md"
+            >
+              <div class="flex flex-wrap items-center justify-between gap-1 text-body-sm font-body-sm mb-1.5">
+                <span class="text-on-surface font-title-md text-title-md">Registration Status</span>
+                <span class="text-primary font-label-numeric-md text-label-numeric-md"
+                  >48 / 64 Registered</span
                 >
-                  <span>Club verification required</span>
-                  <span class="text-secondary font-semibold">16 Seats Remaining</span>
-                </div>
+              </div>
+              <div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+                <div
+                  class="h-full bg-primary rounded-full transition-all duration-500"
+                  style="width: 75%"
+                ></div>
+              </div>
+              <div
+                class="flex flex-wrap items-center justify-between gap-1 text-[11px] text-on-surface-variant font-body-sm mt-1"
+              >
+                <span>Club verification required</span>
+                <span class="text-secondary font-semibold">16 Seats Remaining</span>
               </div>
             </div>
             <!-- Action Buttons -->
             <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
               <button
-                class="px-space-lg py-space-sm bg-primary hover:bg-primary-container text-on-primary rounded-lg font-title-md text-title-md flex items-center gap-space-xs shadow-md transition-all active:scale-[0.98]"
+                class="app-action-primary px-space-lg"
                 type="button"
                 disabled
                 title="Design preview"
@@ -156,26 +154,24 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 >
                 Register for Tournament
               </button>
-              <button
-                class="px-space-lg py-space-sm bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded-lg font-title-md text-title-md flex items-center gap-space-xs transition-colors"
-                type="button"
-                disabled
-                title="Design preview"
+              <RouterLink
+                class="app-action-secondary px-space-lg"
+                to="/events/spring-rapid-open"
               >
                 <span class="material-symbols-outlined text-[20px]" aria-hidden="true">info</span>
                 View Details &amp; Regulations
-              </button>
+              </RouterLink>
             </div>
           </div>
         </section>
         <!-- Filter & Control Toolbar -->
         <section
-          class="w-full bg-surface-container-low p-space-md rounded-xl shadow-sm mb-space-lg"
+          class="app-panel mb-space-lg w-full p-space-md"
         >
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+          <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
             <!-- Category Tabs (Desktop Overflow Handled) -->
             <div
-              class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0 scrollbar-none"
+              class="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-none lg:flex-wrap lg:overflow-visible lg:pb-0"
               id="categoryFilterBar"
             >
               <button
@@ -223,7 +219,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </button>
             </div>
             <!-- Right Hand Controls: Time Status Toggle + Date Filter + Search Input -->
-            <div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm">
+            <div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm xl:shrink-0">
               <!-- Status Toggle (Upcoming vs Past) -->
               <div class="bg-surface-container-lowest p-1 rounded-lg flex items-center">
                 <button
@@ -274,7 +270,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   >search</span
                 >
                 <input
-                  class="w-full bg-surface-container pl-9 pr-space-md py-space-xs rounded-lg text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-all"
+                  class="app-field py-space-xs pr-space-md pl-9"
                   id="eventSearchInput"
                   placeholder="Search by event, title, master..."
                   type="text"
@@ -290,7 +286,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
         >
           <!-- Card 1: Rapid Grand Prix — Stage 2 -->
           <article
-            class="event-card group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-lg"
+            class="app-panel event-card group flex flex-col justify-between overflow-hidden transition-colors hover:bg-surface-container-high"
             data-category="tournaments"
             data-title="Rapid Grand Prix Stage 2"
           >
@@ -394,7 +390,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           </article>
           <!-- Card 2: Simultaneous Exhibition w/ GM Marcus Vance -->
           <article
-            class="event-card group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-lg"
+            class="app-panel event-card group flex flex-col justify-between overflow-hidden transition-colors hover:bg-surface-container-high"
             data-category="simuls"
             data-title="Simultaneous Exhibition Marcus Vance"
           >
@@ -493,7 +489,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           </article>
           <!-- Card 3: Casual Blitz Night & Social Pairing -->
           <article
-            class="event-card group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-lg"
+            class="app-panel event-card group flex flex-col justify-between overflow-hidden transition-colors hover:bg-surface-container-high"
             data-category="socials"
             data-title="Casual Blitz Night Social Pairing"
           >
@@ -594,7 +590,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           </article>
           <!-- Card 4: Junior & Beginner Club Open -->
           <article
-            class="event-card group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-lg"
+            class="app-panel event-card group flex flex-col justify-between overflow-hidden transition-colors hover:bg-surface-container-high"
             data-category="friendly"
             data-title="Junior Beginner Club Open"
           >
@@ -691,7 +687,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           </article>
           <!-- Card 5: Classical Invitational — Round 6 -->
           <article
-            class="event-card group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-lg"
+            class="app-panel event-card group flex flex-col justify-between overflow-hidden transition-colors hover:bg-surface-container-high"
             data-category="tournaments"
             data-title="Classical Invitational Round 6"
           >
@@ -790,7 +786,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           </article>
           <!-- Card 6: End-of-Spring Club Awards Gala & Rapid Cup -->
           <article
-            class="event-card group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-lg"
+            class="app-panel event-card group flex flex-col justify-between overflow-hidden transition-colors hover:bg-surface-container-high"
             data-category="socials"
             data-title="End-of-Spring Club Awards Gala Rapid Cup"
           >

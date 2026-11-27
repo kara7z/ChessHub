@@ -1,30 +1,16 @@
 <script setup lang="ts">
-import CompactLayout from '../../components/layout/CompactLayout.vue'
+import DashboardLayout from '../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
-  <CompactLayout title="Dashboard" dashboard>
-    <main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-background">
-      <div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
-        <!-- Breadcrumbs & Dynamic Operational Header -->
-        <div class="flex flex-col space-y-space-xs pt-space-sm">
-          <div
-            class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"
-          >
-            <RouterLink class="hover:text-primary transition-colors flex items-center gap-1" to="/">
-              <span class="material-symbols-outlined text-[14px]" aria-hidden="true">home</span>
-              <span>Home</span>
-            </RouterLink>
-            <span class="text-outline-variant">/</span>
-            <span class="text-on-surface font-title-md">Dashboard</span>
-          </div>
-          <div class="flex items-start justify-between gap-space-sm pt-space-xs">
-            <div class="flex flex-col min-w-0">
-              <h1
-                class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight"
-              >
-                Admin Operations
-              </h1>
+  <DashboardLayout>
+    <main class="relative w-full bg-surface pt-16">
+      <div
+        class="flex w-full flex-col gap-space-md pb-space-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-space-lg"
+      >
+        <DashboardPageHeader class="lg:col-span-2" section="Overview" title="Admin Operations">
+          <template #meta>
               <div class="flex items-center gap-2 mt-1.5 flex-wrap">
                 <span
                   class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-secondary font-label-badge text-label-badge shadow-sm"
@@ -34,12 +20,12 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
                 </span>
                 <span class="font-body-sm text-body-sm text-outline">System Clock: 14:38 UTC</span>
               </div>
-            </div>
-            <!-- Quick Actions Dropdown Trigger -->
+          </template>
+          <template #actions>
             <div class="relative shrink-0">
               <button
                 aria-expanded="false"
-                class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-primary hover:bg-secondary text-on-primary font-title-md text-body-md transition-all shadow-md active:scale-95"
+                class="dashboard-primary-action"
                 id="quick-action-btn"
                 type="button"
                 v-preview-disclosure="'quick-action-menu'"
@@ -47,8 +33,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
                 <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
                   >add_circle</span
                 >
-                <span class="hidden sm:inline">Quick Actions</span>
-                <span class="sm:hidden">Actions</span>
+                <span>Quick Actions</span>
                 <span
                   class="material-symbols-outlined text-[18px] transition-transform duration-200"
                   id="quick-action-chevron"
@@ -58,7 +43,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
               </button>
               <!-- Dropdown Menu -->
               <div
-                class="hidden absolute right-0 mt-2 w-56 rounded-xl bg-surface-container-high shadow-xl p-1.5 z-40 preview-disclosure"
+                class="hidden absolute left-0 mt-2 w-56 rounded-xl bg-surface-container-high shadow-xl p-1.5 z-40 preview-disclosure @min-[50rem]:right-0 @min-[50rem]:left-auto"
                 id="quick-action-menu"
               >
                 <RouterLink
@@ -107,11 +92,11 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
                 </RouterLink>
               </div>
             </div>
-          </div>
-        </div>
+          </template>
+        </DashboardPageHeader>
         <!-- Operational Action Shortcut Strip -->
         <div
-          class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin px-margin scrollbar-none"
+          class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin px-margin scrollbar-none lg:col-span-2 lg:mx-0 lg:flex-wrap lg:px-0"
         >
           <RouterLink
             class="shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface shadow-sm active:scale-98"
@@ -155,10 +140,10 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </RouterLink>
         </div>
         <!-- 4-Tile KPI Metric Matrix -->
-        <div class="grid grid-cols-2 gap-space-sm">
+        <div class="grid grid-cols-2 gap-space-sm lg:col-span-2 lg:grid-cols-4">
           <!-- Active Players -->
           <div
-            class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container shadow-sm relative overflow-hidden"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-body-sm text-body-sm text-on-surface-variant font-medium"
@@ -187,7 +172,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Pending Registrations -->
           <div
-            class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container shadow-sm relative overflow-hidden"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-body-sm text-body-sm text-on-surface-variant font-medium"
@@ -216,7 +201,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Scheduled Matches -->
           <div
-            class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container shadow-sm relative overflow-hidden"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-body-sm text-body-sm text-on-surface-variant font-medium"
@@ -242,7 +227,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Active Season Matches -->
           <div
-            class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container shadow-sm relative overflow-hidden"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-body-sm text-body-sm text-on-surface-variant font-medium"
@@ -269,7 +254,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
         </div>
         <!-- Season Progression Micro-Widget -->
         <div
-          class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col space-y-space-sm"
+          class="dashboard-panel flex flex-col space-y-space-sm p-space-md lg:col-span-2"
         >
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -317,7 +302,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Registration Card 1 -->
           <div
-            class="p-3.5 rounded-xl bg-surface-container flex flex-col space-y-space-sm shadow-sm transition-all duration-300"
+            class="dashboard-panel flex flex-col space-y-space-sm p-3.5 transition-all duration-300"
             id="reg-card-1"
           >
             <div class="flex items-start justify-between gap-space-sm">
@@ -366,7 +351,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Registration Card 2 -->
           <div
-            class="p-3.5 rounded-xl bg-surface-container flex flex-col space-y-space-sm shadow-sm transition-all duration-300"
+            class="dashboard-panel flex flex-col space-y-space-sm p-3.5 transition-all duration-300"
             id="reg-card-2"
           >
             <div class="flex items-start justify-between gap-space-sm">
@@ -425,7 +410,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Match 1: Confirmed & Completed Result Pending Entry -->
           <div
-            class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm shadow-sm"
+            class="dashboard-panel flex flex-col space-y-space-sm p-space-md"
           >
             <div class="flex items-center justify-between text-body-sm font-body-sm">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -522,7 +507,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Match 2: Awaiting Black Confirmation -->
           <div
-            class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm shadow-sm"
+            class="dashboard-panel flex flex-col space-y-space-sm p-space-md"
           >
             <div class="flex items-center justify-between text-body-sm font-body-sm">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -601,7 +586,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
         </div>
         <!-- Operational Audit & Activity Stream -->
-        <div class="flex flex-col space-y-space-sm pt-space-xs">
+        <div class="flex flex-col space-y-space-sm pt-space-xs lg:col-span-2">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <span class="material-symbols-outlined text-outline text-[18px]" aria-hidden="true"
@@ -617,7 +602,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
               Filter
             </button>
           </div>
-          <div class="rounded-xl bg-surface-container-low p-space-sm space-y-2">
+          <div class="dashboard-panel space-y-2 p-space-sm">
             <!-- Log 1 -->
             <div
               class="flex items-start gap-3 p-2 rounded-lg hover:bg-surface-container transition-colors"
@@ -678,5 +663,5 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
         </div>
       </div>
     </main>
-  </CompactLayout>
+  </DashboardLayout>
 </template>

@@ -1,31 +1,21 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
   <DashboardLayout>
     <main class="w-full pt-16 px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-space-xl">
-        <!-- Interactive Navigation Fix Script to highlight 'Activity Logs' in sidebar shell -->
-
-        <!-- Breadcrumbs & Tactical Overline -->
-        <div
-          class="flex flex-wrap items-center justify-between gap-space-xs pt-space-md mb-space-sm"
+        <DashboardPageHeader
+          section="Activity Logs"
+          title="Administration Activity Logs"
+          badge="Audit Feed v2.4"
+          description="Complete audit trail of administrative operations, match validations, account moderation, and club governance. Every entry is cryptographically tracked to authenticated administrators."
+          class="mb-space-md"
         >
-          <div
-            class="flex flex-wrap items-center gap-space-xs text-outline font-body-sm text-body-sm"
-          >
-            <span class="hover:text-on-surface cursor-pointer transition-colors">Dashboard</span>
-            <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
-              >chevron_right</span
-            >
-            <span class="text-primary font-title-md text-title-md">Activity Logs</span>
-            <span class="mx-space-xs text-outline-variant">•</span>
-            <span class="font-label-badge text-label-badge uppercase tracking-widest text-outline"
-              >Audit Feed v2.4</span
-            >
-          </div>
-          <div class="flex items-center gap-space-sm">
+          <template #meta>
+          <div class="flex flex-wrap items-center gap-space-sm">
             <span
               class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-badge text-label-badge tracking-wider border-0"
             >
@@ -36,41 +26,10 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               >Immutable Journal</span
             >
           </div>
-        </div>
-        <!-- Header Section with Distinct Asymmetric Layout -->
-        <div
-          class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg mb-space-lg shadow-sm"
-        >
-          <div
-            class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-primary/10 via-secondary-container/5 to-transparent blur-3xl pointer-events-none"
-          ></div>
-          <div
-            class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-space-md"
-          >
-            <div class="max-w-3xl">
-              <div class="flex items-center gap-space-xs text-secondary mb-space-xs">
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                  >verified_user</span
-                >
-                <span
-                  class="font-label-badge text-label-badge tracking-widest uppercase font-semibold"
-                  >Governance &amp; Oversight</span
-                >
-              </div>
-              <h1
-                class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-none mb-space-xs"
-              >
-                Administration Activity Logs
-              </h1>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Complete audit trail of administrative operations, match validations, account
-                moderation, and club governance. Every entry is cryptographically tracked to
-                authenticated administrators.
-              </p>
-            </div>
-            <div class="flex items-center gap-space-sm flex-shrink-0">
+          </template>
+          <template #actions>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors shadow-sm text-body-md font-body-md"
+                class="dashboard-action"
                 id="refreshLogsBtn"
                 disabled
                 title="Design preview"
@@ -81,7 +40,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 <span>Refresh</span>
               </button>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-colors font-title-md text-title-md shadow-md"
+                class="dashboard-primary-action"
                 disabled
                 title="Design preview"
               >
@@ -90,14 +49,13 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 >
                 <span>Export CSV</span>
               </button>
-            </div>
-          </div>
-        </div>
+          </template>
+        </DashboardPageHeader>
         <!-- Metrics Overview (4 Distinct Bento Cards) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-lg">
+        <div class="dashboard-metrics mb-space-lg">
           <!-- Metric 1: Total Logged Actions -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex flex-col">
@@ -148,7 +106,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Metric 2: Validated Results -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex flex-col">
@@ -182,7 +140,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Metric 3: Account Actions -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex flex-col">
@@ -216,7 +174,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Metric 4: Active Admins -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex flex-col">
@@ -265,7 +223,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Filter & Search Console Section -->
         <div
-          class="rounded-xl bg-surface-container-low p-space-md mb-space-md shadow-sm flex flex-col gap-space-md"
+          class="dashboard-toolbar mb-space-md flex flex-col gap-space-md"
         >
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-sm items-center">
             <!-- Search Input -->
@@ -415,7 +373,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </div>
         <!-- Detailed Audit Log Table -->
-        <div class="rounded-xl bg-surface-container-low overflow-hidden shadow-sm">
+        <div class="dashboard-table">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse" id="auditTable">
               <thead>

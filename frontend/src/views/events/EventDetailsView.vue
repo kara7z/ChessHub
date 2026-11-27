@@ -4,7 +4,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full">
         <!-- Subtle Ambient Glow Overlay -->
         <div class="relative w-full overflow-hidden">
@@ -508,7 +508,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     </p>
                   </div>
                   <!-- Participant Search Input -->
-                  <div class="relative min-w-[260px]">
+                  <div class="relative w-full sm:w-64 sm:shrink-0">
                     <span
                       class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]"
                       aria-hidden="true"

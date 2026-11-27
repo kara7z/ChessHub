@@ -3,15 +3,17 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
 </script>
 
 <template>
-  <CompactLayout title="Leaderboard">
-    <main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-background">
-      <div class="flex flex-col w-full px-margin py-space-sm space-y-space-md">
+  <CompactLayout>
+    <main class="flex-1 flex flex-col relative w-full pt-16 pb-space-xl bg-background">
+      <div
+        class="flex w-full flex-col gap-space-md px-margin py-space-sm lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center lg:gap-space-lg lg:px-margin-desktop lg:pt-space-xl"
+      >
         <!-- Page Header & Filter Section -->
-        <div class="flex flex-col gap-space-sm">
+        <div class="flex flex-col gap-space-sm lg:col-span-2">
           <div class="flex items-start justify-between gap-space-sm">
             <div class="min-w-0">
               <h1
-                class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight"
+                class="app-page-title"
               >
                 Club Leaderboard
               </h1>
@@ -83,10 +85,10 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
         </div>
         <!-- Top 3 Podium Cards (Visual Delight & Hierarchy) -->
-        <div class="grid grid-cols-3 gap-space-xs items-end pt-2">
+        <div class="grid grid-cols-3 gap-space-xs items-end pt-2 lg:col-span-2 lg:gap-space-md lg:[&_img]:size-16">
           <!-- Rank 2: Silver -->
           <div
-            class="flex flex-col bg-surface-container rounded-xl p-space-sm relative overflow-hidden shadow-sm h-[184px] justify-between"
+            class="app-panel relative flex h-[184px] flex-col justify-between overflow-hidden p-space-sm lg:h-[216px] lg:p-space-md"
           >
             <div
               class="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-slate-300/10 blur-xl pointer-events-none"
@@ -123,7 +125,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Rank 1: Gold Trim (Elevated Center) -->
           <div
-            class="flex flex-col bg-surface-container-high rounded-xl p-space-sm relative overflow-hidden shadow-md h-[208px] justify-between"
+            class="flex flex-col bg-surface-container-high rounded-xl p-space-sm relative overflow-hidden shadow-md h-[208px] justify-between lg:h-[244px] lg:p-space-md"
           >
             <div class="absolute top-0 inset-x-0 h-1 bg-amber-400"></div>
             <div
@@ -169,7 +171,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
           <!-- Rank 3: Bronze -->
           <div
-            class="flex flex-col bg-surface-container rounded-xl p-space-sm relative overflow-hidden shadow-sm h-[174px] justify-between"
+            class="app-panel relative flex h-[174px] flex-col justify-between overflow-hidden p-space-sm lg:h-[216px] lg:p-space-md"
           >
             <div
               class="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-amber-700/10 blur-xl pointer-events-none"
@@ -207,7 +209,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
         </div>
         <!-- Points System Explainer Micro-Card -->
         <div
-          class="bg-surface-container-low rounded-xl p-3 shadow-sm flex items-center justify-between"
+          class="app-panel flex items-center justify-between p-3"
         >
           <div class="flex items-center gap-2">
             <div
@@ -268,7 +270,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
         </div>
         <!-- User Rank Quick Anchor (Pinned Floating Banner) -->
         <div
-          class="bg-gradient-to-r from-secondary-container via-surface-container-high to-surface-container rounded-xl p-space-sm flex items-center justify-between shadow-md"
+          class="bg-gradient-to-r from-secondary-container via-surface-container-high to-surface-container rounded-xl p-space-sm flex items-center justify-between shadow-md lg:col-span-2 lg:px-space-lg"
         >
           <div class="flex items-center gap-space-sm min-w-0">
             <div
@@ -302,7 +304,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
           </div>
         </div>
         <!-- Leaderboard Table Container -->
-        <div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+        <div class="app-panel flex flex-col overflow-hidden lg:col-span-2 lg:[&_.grid]:px-space-lg lg:[&_.player-row]:py-space-sm">
           <!-- Table Header -->
           <div
             class="grid grid-cols-12 px-3 py-2.5 bg-surface-container-lowest font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider items-center"
@@ -574,7 +576,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
         </div>
         <!-- Pagination Controls -->
         <div
-          class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl"
+          class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl lg:col-span-2 lg:px-space-lg"
         >
           <div class="font-body-sm text-body-sm text-on-surface-variant">
             Showing <span class="text-on-surface font-semibold">1-10</span> of

@@ -176,7 +176,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
           <!-- KPI 1: Roster Fill -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between mb-space-sm">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -203,7 +203,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- KPI 2: Remaining Seats -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between mb-space-sm">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -228,7 +228,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- KPI 3: Confirmed Attendance -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between mb-space-sm">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -257,7 +257,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- KPI 4: Cancellation Rate -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between mb-space-sm">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"

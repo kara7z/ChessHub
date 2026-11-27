@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
@@ -14,30 +15,16 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div
             class="absolute top-48 left-1/3 w-64 h-64 bg-tertiary-container/5 rounded-full blur-3xl pointer-events-none -z-10"
           ></div>
-          <!-- Header & Action Section -->
-          <div
-            class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-md pb-space-lg"
+          <DashboardPageHeader
+            section="Chess Tricks"
+            title="Chess Tricks &amp; Tactical Patterns Desk"
+            badge="Tactical Engine v17"
+            description="Curate interactive tactical puzzles, opening traps, and instructional FEN patterns for club players."
+            class="mb-space-md"
           >
-            <div class="flex flex-col gap-space-xs max-w-3xl">
-              <div class="flex items-center gap-space-xs">
-                <span
-                  class="font-label-badge text-label-badge uppercase tracking-wider text-primary font-semibold px-space-xs py-0.5 rounded bg-secondary-container/30"
-                  >Tactical Engine v17</span
-                >
-                <span class="text-outline text-body-sm">•</span>
-                <span class="font-label-badge text-label-badge text-outline">Arbiter Registry</span>
-              </div>
-              <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                Chess Tricks &amp; Tactical Patterns Desk
-              </h1>
-              <p class="font-body-md text-body-md text-on-surface-variant">
-                Curate interactive tactical puzzles, opening traps, and instructional FEN patterns
-                for club players.
-              </p>
-            </div>
-            <div class="flex items-center gap-space-sm self-start lg:self-auto">
+            <template #actions>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-title-md shadow-sm transition-colors cursor-pointer"
+                class="dashboard-action"
                 type="button"
                 disabled
                 title="Design preview"
@@ -48,7 +35,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 <span>Export Lessons CSV</span>
               </button>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-title-md text-title-md font-semibold shadow-md transition-all cursor-pointer"
+                class="dashboard-primary-action"
                 type="button"
                 disabled
                 title="Design preview"
@@ -58,13 +45,13 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 >
                 <span>Create New Trick</span>
               </button>
-            </div>
-          </div>
+            </template>
+          </DashboardPageHeader>
           <!-- 4 Overview Metric Cards -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter mb-space-lg">
+          <div class="dashboard-metrics mb-space-lg">
             <!-- Metric 1 -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden group"
+              class="dashboard-metric group"
             >
               <div class="flex items-start justify-between">
                 <div class="flex flex-col">
@@ -106,7 +93,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Metric 2 -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden group"
+              class="dashboard-metric group"
             >
               <div class="flex items-start justify-between">
                 <div class="flex flex-col">
@@ -145,7 +132,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Metric 3 -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden group"
+              class="dashboard-metric group"
             >
               <div class="flex items-start justify-between">
                 <div class="flex flex-col">
@@ -187,7 +174,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Metric 4 -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden group"
+              class="dashboard-metric group"
             >
               <div class="flex items-start justify-between">
                 <div class="flex flex-col">
@@ -229,7 +216,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Filter & Search Toolbar -->
           <div
-            class="bg-surface-container-low rounded-xl p-space-md mb-space-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md shadow-sm"
+            class="dashboard-toolbar mb-space-md flex flex-col items-stretch justify-between gap-space-md lg:flex-row lg:items-center"
           >
             <!-- Search Input -->
             <div class="relative flex-1">
@@ -309,7 +296,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
           </div>
           <!-- Chess Tricks Management Table -->
-          <div class="bg-surface-container-low rounded-xl shadow-sm overflow-hidden">
+          <div class="dashboard-table">
             <div class="overflow-x-auto">
               <table class="w-full text-left border-collapse">
                 <thead>

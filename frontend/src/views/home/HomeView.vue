@@ -1,479 +1,273 @@
 <script setup lang="ts">
 import CompactLayout from '../../components/layout/CompactLayout.vue'
+import AppIcon from '../../components/ui/AppIcon.vue'
+
+const clubStats = [
+  { label: 'Active Players', value: 142, icon: 'group', note: '+12 this week' },
+  { label: 'Matches Played', value: 890, icon: 'sports_esports', note: 'Club points rules' },
+  { label: 'Seasons Finished', value: 4, icon: 'workspace_premium', note: 'Archive cataloged' },
+  { label: 'Upcoming Events', value: 6, icon: 'event', note: 'Rapid & Blitz next' },
+]
+
+const leaders = [
+  {
+    rank: 1,
+    name: 'Adam Chen',
+    image: '/images/11ca73344b9e.webp',
+    points: 330,
+    wins: 15,
+    card: 'col-start-2 min-h-44 border-amber-400/50 from-amber-400/20 text-amber-200 sm:min-h-48',
+    medal: 'bg-amber-300 text-amber-950',
+    portrait: 'size-12 sm:size-14',
+  },
+  {
+    rank: 2,
+    name: 'Youssef Mansour',
+    image: '/images/aabf90635c8e.webp',
+    points: 280,
+    wins: 12,
+    card: 'col-start-1 min-h-38 border-slate-300/35 from-slate-300/15 text-slate-200 sm:min-h-40',
+    medal: 'bg-slate-300 text-slate-950',
+    portrait: 'size-11 sm:size-13',
+  },
+  {
+    rank: 3,
+    name: 'Omar Farooq',
+    image: '/images/4e180c0793a4.webp',
+    points: 250,
+    wins: 10,
+    card: 'col-start-3 min-h-36 border-orange-400/35 from-orange-400/15 text-orange-200 sm:min-h-38',
+    medal: 'bg-orange-300 text-orange-950',
+    portrait: 'size-10 sm:size-12',
+  },
+]
 </script>
 
 <template>
-  <CompactLayout title="Home">
-    <main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-background">
-      <div class="flex flex-col w-full px-margin space-y-space-lg pb-space-xl">
-        <!-- Hero Section -->
-        <section class="relative w-full rounded-xl overflow-hidden bg-surface-container shadow-xl">
-          <div
-            class="bg-cover bg-center absolute inset-0 w-full h-full opacity-35"
-            data-alt="Cinematic macro shot of an ebony wooden king chess piece standing on a dark minimalist checkered board, dramatic low key green volumetric rim lighting, ambient studio shadows, depth of field, atmospheric haze, tournament grade precision, sleek obsidian and moss green tones"
-            style="background-image: url('/images/1aae3b1bac89.webp')"
-          ></div>
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/80 to-transparent"
-          ></div>
-          <div class="relative p-space-lg flex flex-col space-y-space-md">
-            <div
-              class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-label-badge text-label-badge"
-            >
-              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+  <CompactLayout>
+    <main class="w-full flex-1 pt-16">
+      <div class="flex flex-col gap-space-lg px-margin pt-space-sm pb-space-xl lg:gap-space-xl lg:px-margin-desktop lg:pt-space-lg">
+        <section class="app-panel relative isolate overflow-hidden rounded-2xl">
+          <!-- Chess photograph by franco alva: https://unsplash.com/photos/nn-qVzkOgGw -->
+          <img
+            class="absolute inset-0 size-full object-cover object-[center_55%] opacity-45 lg:opacity-60"
+            src="/images/home-hero-chess.webp"
+            alt=""
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-surface-container via-surface-container/80 to-transparent lg:bg-linear-to-r"></div>
+          <div class="relative z-10 flex max-w-2xl flex-col items-start justify-center gap-space-md p-space-lg sm:p-space-xl lg:min-h-[26rem] lg:p-12">
+            <span class="inline-flex items-center gap-space-sm rounded-full bg-secondary-container/50 px-3 py-1 font-label-badge text-label-badge uppercase tracking-widest text-primary">
+              <span class="size-1.5 rounded-full bg-primary"></span>
               Competitive Season IV
-            </div>
-            <div class="space-y-space-xs">
-              <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
-                Your Next Move Starts Here.
-              </h2>
-              <p class="font-body-md text-body-md text-on-surface-variant">
+            </span>
+            <div class="space-y-space-sm">
+              <h1 class="font-display-lg text-4xl leading-[1.05] font-bold tracking-tight text-on-surface sm:text-5xl lg:text-[clamp(3rem,4.5vw,4.25rem)]">
+                Your Next Move <span class="text-primary lg:block">Starts Here.</span>
+              </h1>
+              <p class="max-w-md font-body-lg text-body-lg text-on-surface-variant">
                 Connect with chess players, compete in exciting matches, improve your skills, and
                 become part of a passionate chess community.
               </p>
             </div>
-            <div class="flex flex-col sm:flex-row gap-space-sm pt-space-xs">
-              <RouterLink
-                class="w-full py-3 px-space-md rounded-lg bg-primary-container text-on-primary-container font-title-md text-title-md flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-transform"
-                to="/register"
-              >
-                <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                  >person_add</span
-                >
-                <span>Join the Club</span>
+            <div class="flex w-full flex-col gap-space-sm pt-space-xs sm:w-auto sm:flex-row">
+              <RouterLink class="app-action-primary py-3" to="/register">
+                <AppIcon class="text-[20px]" name="person_add" />
+                Join the Club
               </RouterLink>
-              <RouterLink
-                class="w-full py-3 px-space-md rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md flex items-center justify-center gap-space-xs hover:bg-surface-bright active:scale-[0.98] transition-colors"
-                to="/leaderboard"
-              >
-                <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                  >leaderboard</span
-                >
-                <span>View Leaderboard</span>
+              <RouterLink class="app-action-secondary py-3" to="/leaderboard">
+                <AppIcon class="text-[20px]" name="leaderboard" />
+                View Leaderboard
               </RouterLink>
             </div>
           </div>
         </section>
-        <!-- Club Key Metrics Grid (2x2) -->
-        <section class="grid grid-cols-2 gap-space-sm">
-          <div
-            class="p-space-md rounded-xl bg-surface-container flex flex-col justify-between shadow-sm"
-          >
-            <div class="flex items-center justify-between">
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Active Players</span>
-              <div
-                class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"
-              >
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">group</span>
-              </div>
+
+        <section aria-labelledby="club-stats" class="space-y-space-sm">
+          <h2 id="club-stats" class="font-label-badge text-label-badge uppercase tracking-widest text-on-surface-variant">
+            Club at a glance
+          </h2>
+          <dl class="grid grid-cols-2 gap-space-sm lg:grid-cols-4 lg:gap-space-md">
+            <div v-for="stat in clubStats" :key="stat.label" class="app-panel min-w-0 p-space-md">
+              <dt class="flex items-center justify-between gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                {{ stat.label }}
+                <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <AppIcon class="text-[18px]" :name="stat.icon" />
+                </span>
+              </dt>
+              <dd class="mt-space-sm">
+                <span class="block font-label-numeric-lg text-label-numeric-lg text-on-surface">{{ stat.value }}</span>
+                <span class="font-label-badge text-label-badge text-secondary">{{ stat.note }}</span>
+              </dd>
             </div>
-            <div class="mt-space-sm">
-              <span class="font-label-numeric-lg text-label-numeric-lg text-on-surface">142</span>
-              <div class="flex items-center gap-1 mt-0.5">
-                <span class="material-symbols-outlined text-primary text-[14px]" aria-hidden="true"
-                  >trending_up</span
-                >
-                <span class="font-label-badge text-label-badge text-primary">+12 this week</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-space-md rounded-xl bg-surface-container flex flex-col justify-between shadow-sm"
-          >
-            <div class="flex items-center justify-between">
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Matches Played</span>
-              <div
-                class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"
-              >
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                  >sports_esports</span
-                >
-              </div>
-            </div>
-            <div class="mt-space-sm">
-              <span class="font-label-numeric-lg text-label-numeric-lg text-on-surface">890</span>
-              <div class="flex items-center gap-1 mt-0.5">
-                <span class="material-symbols-outlined text-primary text-[14px]" aria-hidden="true"
-                  >bolt</span
-                >
-                <span class="font-label-badge text-label-badge text-on-surface-variant"
-                  >Club points rules</span
-                >
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-space-md rounded-xl bg-surface-container flex flex-col justify-between shadow-sm"
-          >
-            <div class="flex items-center justify-between">
-              <span class="font-body-sm text-body-sm text-on-surface-variant"
-                >Seasons Finished</span
-              >
-              <div
-                class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"
-              >
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                  >workspace_premium</span
-                >
-              </div>
-            </div>
-            <div class="mt-space-sm">
-              <span class="font-label-numeric-lg text-label-numeric-lg text-on-surface">4</span>
-              <div class="flex items-center gap-1 mt-0.5">
-                <span
-                  class="material-symbols-outlined text-secondary text-[14px]"
-                  aria-hidden="true"
-                  >history_edu</span
-                >
-                <span class="font-label-badge text-label-badge text-on-surface-variant"
-                  >Archive cataloged</span
-                >
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-space-md rounded-xl bg-surface-container flex flex-col justify-between shadow-sm"
-          >
-            <div class="flex items-center justify-between">
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Upcoming Events</span>
-              <div
-                class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"
-              >
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">event</span>
-              </div>
-            </div>
-            <div class="mt-space-sm">
-              <span class="font-label-numeric-lg text-label-numeric-lg text-on-surface">6</span>
-              <div class="flex items-center gap-1 mt-0.5">
-                <span class="material-symbols-outlined text-primary text-[14px]" aria-hidden="true"
-                  >flag</span
-                >
-                <span class="font-label-badge text-label-badge text-primary"
-                  >Rapid &amp; Blitz next</span
-                >
-              </div>
-            </div>
-          </div>
+          </dl>
         </section>
-        <!-- Current Active Season Card -->
-        <section
-          class="rounded-xl bg-surface-container p-space-md space-y-space-md shadow-md relative overflow-hidden"
-        >
-          <div class="flex items-start justify-between gap-space-xs">
-            <div class="space-y-0.5">
-              <div class="flex items-center gap-space-xs">
-                <span
-                  class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-badge text-label-badge uppercase tracking-wider"
-                  >Active</span
-                >
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >Mar 1 - May 30, 2025</span
-                >
+
+        <div class="grid gap-space-md lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-space-lg">
+          <section aria-labelledby="active-season" class="app-panel flex min-w-0 flex-col gap-space-md p-space-md sm:p-space-lg">
+            <div class="flex items-start justify-between gap-space-sm">
+              <div class="min-w-0">
+                <div class="mb-space-xs flex flex-wrap items-center gap-space-sm">
+                  <span class="rounded-full bg-secondary-container px-2 py-0.5 font-label-badge text-label-badge uppercase tracking-wider text-secondary">
+                    Active Season
+                  </span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">Mar 1 – May 30, 2025</span>
+                </div>
+                <h2 id="active-season" class="font-headline-md text-headline-md text-on-surface">
+                  Grandmaster Spring League
+                </h2>
               </div>
-              <h3 class="font-headline-sm text-headline-sm text-on-surface">
-                Grandmaster Spring League
-              </h3>
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                <AppIcon class="text-[22px]" name="military_tech" />
+              </span>
             </div>
-            <div
-              class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0"
-            >
-              <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                >military_tech</span
-              >
-            </div>
-          </div>
-          <div class="space-y-space-xs">
-            <div
-              class="flex items-center justify-between font-label-numeric-md text-label-numeric-md"
-            >
-              <span class="text-on-surface-variant">Season Completion</span>
-              <span class="text-primary font-bold">65%</span>
-            </div>
-            <div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+            <div class="space-y-space-xs rounded-xl bg-surface-container-low px-space-md py-space-sm">
+              <div class="flex justify-between gap-space-sm font-label-numeric-md text-label-numeric-md">
+                <span class="text-on-surface-variant">Season completion</span>
+                <span class="font-label-numeric-lg text-label-numeric-lg text-primary">65%</span>
+              </div>
               <div
-                class="h-full bg-primary rounded-full transition-all duration-500"
-                style="width: 65%"
-              ></div>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-2 gap-space-xs py-space-xs px-space-sm rounded-lg bg-surface-container-low text-center"
-          >
-            <div>
-              <p class="font-label-numeric-md text-label-numeric-md text-on-surface">64</p>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">Players</p>
-            </div>
-            <div>
-              <p class="font-label-numeric-md text-label-numeric-md text-on-surface">182</p>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">Completed Matches</p>
-            </div>
-          </div>
-          <RouterLink
-            class="w-full py-2.5 rounded-lg bg-surface-container-high text-primary font-title-md text-title-md flex items-center justify-center gap-space-xs hover:bg-surface-bright active:scale-[0.98] transition-colors"
-            to="/leaderboard"
-          >
-            <span>View Standings</span>
-            <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-              >chevron_right</span
-            >
-          </RouterLink>
-        </section>
-        <!-- Featured Top 3 Leaderboard Podium -->
-        <section class="space-y-space-sm">
-          <div class="flex items-center justify-between">
-            <div class="space-y-0.5">
-              <h3 class="font-headline-sm text-headline-sm text-on-surface">Leaderboard Leaders</h3>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Current seasonal standings
-              </p>
-            </div>
-            <RouterLink
-              class="font-label-numeric-md text-label-numeric-md text-primary flex items-center gap-1 hover:underline"
-              to="/leaderboard"
-            >
-              <span>Full Board</span>
-              <span class="material-symbols-outlined text-[16px]" aria-hidden="true"
-                >arrow_forward</span
+                class="h-2 overflow-hidden rounded-full bg-surface-container-highest"
+                role="progressbar"
+                aria-label="Season completion"
+                :aria-valuenow="65"
               >
+                <div class="h-full w-[65%] rounded-full bg-primary"></div>
+              </div>
+            </div>
+            <dl class="grid flex-1 grid-cols-2 gap-space-sm">
+              <div class="flex min-w-0 flex-col justify-center gap-space-xs rounded-xl bg-surface-container-low p-space-sm sm:px-space-md">
+                <dt class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                  <AppIcon class="shrink-0 text-[16px] text-primary" name="group" />
+                  Players
+                </dt>
+                <dd class="font-label-numeric-lg text-label-numeric-lg">64</dd>
+              </div>
+              <div class="flex min-w-0 flex-col justify-center gap-space-xs rounded-xl bg-surface-container-low p-space-sm sm:px-space-md">
+                <dt class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                  <AppIcon class="shrink-0 text-[16px] text-primary" name="sports_esports" />
+                  Completed matches
+                </dt>
+                <dd class="font-label-numeric-lg text-label-numeric-lg">182</dd>
+              </div>
+            </dl>
+            <RouterLink class="app-action-secondary self-start" to="/leaderboard">
+              View Standings
+              <AppIcon class="text-[18px]" name="chevron_right" />
             </RouterLink>
-          </div>
-          <!-- Visual Podium Arrangement (2nd, 1st, 3rd) -->
-          <div class="grid grid-cols-3 gap-2 pt-space-md items-end">
-            <!-- 2nd Place -->
-            <div
-              class="flex flex-col items-center bg-surface-container rounded-t-xl p-space-sm pb-space-md text-center shadow-sm"
-            >
-              <div class="relative mb-2">
-                <div
-                  class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-headline-sm text-headline-sm"
-                >
-                  YM
-                </div>
-                <span
-                  class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-variant text-on-surface flex items-center justify-center font-label-badge text-label-badge shadow"
-                  >2</span
-                >
+          </section>
+
+          <section aria-labelledby="club-leaders" class="app-panel flex min-w-0 flex-col gap-space-md p-space-md sm:p-space-lg">
+            <div class="flex flex-wrap items-start justify-between gap-space-sm">
+              <div class="min-w-0">
+                <p class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Spring League 2025</p>
+                <h2 id="club-leaders" class="mt-1 font-headline-md text-headline-md text-on-surface">Season Leaderboard</h2>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Top players by club points</p>
               </div>
-              <p class="font-title-md text-title-md text-on-surface truncate w-full">Youssef M.</p>
-              <p class="font-label-numeric-md text-label-numeric-md text-primary mt-1">280 pts</p>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">12W</span>
+              <RouterLink class="inline-flex items-center gap-space-xs rounded-lg px-space-xs py-space-xs font-label-numeric-md text-label-numeric-md text-primary hover:underline" to="/leaderboard">
+                Full Leaderboard
+                <AppIcon class="text-[16px]" name="arrow_forward" />
+              </RouterLink>
             </div>
-            <!-- 1st Place -->
-            <div
-              class="flex flex-col items-center bg-surface-container-high rounded-t-xl p-space-sm pb-space-lg text-center shadow-md relative -translate-y-2"
-            >
-              <div
-                class="absolute -top-3 px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-badge text-label-badge flex items-center gap-1"
+            <ol class="mt-auto grid grid-cols-3 items-end gap-space-xs sm:gap-space-sm" role="list">
+              <li
+                v-for="leader in leaders"
+                :key="leader.rank"
+                class="row-start-1 flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl border border-t-2 bg-linear-to-b to-surface-container-low px-1.5 py-space-sm text-center"
+                :class="leader.card"
               >
-                <span
-                  class="material-symbols-outlined text-[13px]"
-                  style="font-variation-settings: 'FILL' 1"
-                  aria-hidden="true"
-                  >workspace_premium</span
-                >
-                <span>Leader</span>
-              </div>
-              <div class="relative mb-2 mt-2">
-                <div
-                  class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-sm text-headline-sm"
-                >
-                  AC
-                </div>
-                <span
-                  class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-badge text-label-badge shadow font-bold"
-                  >1</span
-                >
-              </div>
-              <p class="font-title-md text-title-md text-on-surface truncate w-full font-bold">
-                Adam Chen
-              </p>
-              <p class="font-label-numeric-md text-label-numeric-md text-primary mt-1 font-bold">
-                330 pts
-              </p>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">15W</span>
-            </div>
-            <!-- 3rd Place -->
-            <div
-              class="flex flex-col items-center bg-surface-container rounded-t-xl p-space-sm pb-space-md text-center shadow-sm"
-            >
-              <div class="relative mb-2">
-                <div
-                  class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-headline-sm text-headline-sm"
-                >
-                  OF
-                </div>
-                <span
-                  class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-badge text-label-badge shadow"
-                  >3</span
-                >
-              </div>
-              <p class="font-title-md text-title-md text-on-surface truncate w-full">Omar F.</p>
-              <p class="font-label-numeric-md text-label-numeric-md text-primary mt-1">250 pts</p>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">10W</span>
-            </div>
-          </div>
-        </section>
-        <!-- Upcoming Confirmed Match Card -->
-        <section class="space-y-space-sm">
-          <div class="flex items-center justify-between">
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">Featured Showdown</h3>
-            <span
-              class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-badge text-label-badge flex items-center gap-1"
-            >
-              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-              Confirmed
-            </span>
-          </div>
-          <div class="p-space-md rounded-xl bg-surface-container shadow-md space-y-space-md">
-            <!-- Players Pairing -->
-            <div class="flex items-center justify-between gap-space-xs">
-              <!-- White Player -->
-              <div class="flex flex-col items-start min-w-0 flex-1">
-                <div class="flex items-center gap-1.5">
+                <div class="relative mb-space-xs">
+                  <img :src="leader.image" alt="" class="rounded-full object-cover" :class="leader.portrait" loading="lazy" />
                   <span
-                    class="w-3.5 h-3.5 rounded-full bg-white flex-shrink-0 shadow-sm"
-                    title="Playing White"
-                  ></span>
-                  <span class="font-title-md text-title-md text-on-surface truncate">M. Vance</span>
+                    class="absolute -right-1 -bottom-1 grid size-5 place-items-center rounded-full font-label-badge text-label-badge"
+                    :class="leader.medal"
+                    :aria-label="`Rank ${leader.rank}`"
+                  >{{ leader.rank }}</span>
                 </div>
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >210 pts • White</span
-                >
+                <span class="font-title-md text-body-sm leading-tight font-semibold text-on-surface [overflow-wrap:anywhere] sm:text-body-md">
+                  {{ leader.name }}
+                </span>
+                <span class="font-label-numeric-md text-label-numeric-md whitespace-nowrap tabular-nums">
+                  {{ leader.points }} pts
+                </span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">{{ leader.wins }} wins</span>
+              </li>
+            </ol>
+          </section>
+        </div>
+
+        <div class="grid gap-space-md lg:grid-cols-2 lg:gap-space-lg">
+          <section aria-labelledby="featured-match" class="app-panel min-w-0 space-y-space-md p-space-md sm:p-space-lg">
+            <div class="flex flex-wrap items-center justify-between gap-space-xs">
+              <h2 id="featured-match" class="font-headline-sm text-headline-sm text-on-surface">Featured Showdown</h2>
+              <span class="rounded-full bg-secondary-container px-2 py-0.5 font-label-badge text-label-badge text-secondary">Confirmed</span>
+            </div>
+            <div class="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-space-xs rounded-xl bg-surface-container-low p-space-sm sm:p-space-md">
+              <div class="min-w-0">
+                <span class="block font-title-md text-title-md">M. Vance</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">210 pts · White</span>
               </div>
-              <!-- VS Glyph -->
-              <div
-                class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-label-badge text-label-badge flex-shrink-0"
-              >
-                VS
-              </div>
-              <!-- Black Player -->
-              <div class="flex flex-col items-end min-w-0 flex-1 text-right">
-                <div class="flex items-center gap-1.5 justify-end">
-                  <span class="font-title-md text-title-md text-on-surface truncate"
-                    >E. Rostova</span
-                  >
-                  <span
-                    class="w-3.5 h-3.5 rounded-full bg-surface-container-lowest flex-shrink-0 shadow-sm"
-                    title="Playing Black"
-                  ></span>
-                </div>
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >195 pts • Black</span
-                >
+              <span class="rounded-full bg-surface-container-high px-2 py-1 font-label-badge text-label-badge text-primary">VS</span>
+              <div class="min-w-0 text-right">
+                <span class="block font-title-md text-title-md">E. Rostova</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">195 pts · Black</span>
               </div>
             </div>
-            <!-- Match Details Bar -->
-            <div
-              class="pt-space-sm flex items-center justify-between bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface-variant font-body-sm text-body-sm"
-            >
-              <div class="flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px] text-primary" aria-hidden="true"
-                  >schedule</span
-                >
-                <span>Tomorrow, 18:30</span>
+            <div class="flex flex-wrap items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+              <span class="inline-flex items-center gap-1">
+                <AppIcon class="text-[16px] text-primary" name="schedule" />
+                Tomorrow, 18:30 · Board 1 · 60+30 Classical
+              </span>
+              <RouterLink class="font-title-md text-body-sm text-primary hover:underline" to="/matches">All Matches</RouterLink>
+            </div>
+          </section>
+
+          <section aria-labelledby="club-events" class="app-panel min-w-0 space-y-space-md p-space-md sm:p-space-lg">
+            <div class="flex flex-wrap items-center justify-between gap-space-xs">
+              <h2 id="club-events" class="font-headline-sm text-headline-sm text-on-surface">Club Events</h2>
+              <RouterLink class="font-label-numeric-md text-label-numeric-md text-primary hover:underline" to="/events">View All</RouterLink>
+            </div>
+            <div class="flex items-center gap-space-sm sm:gap-space-md">
+              <div class="grid size-14 shrink-0 place-content-center rounded-lg bg-surface-container-high text-center">
+                <span class="font-label-badge text-label-badge text-primary">APR</span>
+                <span class="font-headline-md text-headline-md leading-none">12</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span
-                  class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-badge text-label-badge"
-                  >Board 1</span
-                >
-                <span>60+30 Classical</span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-title-md text-title-md text-on-surface">Spring Rapid Open 2025</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Saturday · 5 Rounds Swiss</p>
+                <div class="mt-space-xs flex flex-wrap items-center gap-space-xs font-label-badge text-label-badge text-on-surface-variant">
+                  <div class="h-1.5 w-20 overflow-hidden rounded-full bg-surface-container-highest" aria-hidden="true">
+                    <div class="h-full w-3/4 rounded-full bg-primary"></div>
+                  </div>
+                  <span>48/64 registered</span>
+                </div>
               </div>
             </div>
+            <RouterLink class="app-action-secondary" aria-label="View Event: Spring Rapid Open" to="/events/spring-rapid-open">
+              View Event
+              <AppIcon class="text-[16px]" name="arrow_forward" />
+            </RouterLink>
+          </section>
+        </div>
+
+        <section aria-labelledby="featured-tactic" class="app-panel overflow-hidden sm:grid sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div class="relative min-h-40 overflow-hidden bg-surface-container-lowest">
+            <img class="absolute inset-0 size-full object-cover" src="/images/1b168b55344f.webp" alt="" loading="lazy" />
           </div>
-        </section>
-        <!-- Upcoming Club Events Preview -->
-        <section class="space-y-space-sm">
-          <div class="flex items-center justify-between">
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">Club Events</h3>
-            <RouterLink
-              class="font-label-numeric-md text-label-numeric-md text-primary flex items-center gap-1 hover:underline"
-              to="/events"
-            >
-              <span>View All</span>
-              <span class="material-symbols-outlined text-[16px]" aria-hidden="true"
-                >chevron_right</span
-              >
+          <div class="space-y-space-sm p-space-md sm:p-space-lg lg:p-space-xl">
+            <div class="flex flex-wrap items-center gap-space-sm font-label-badge text-label-badge">
+              <span class="uppercase tracking-wider text-primary">Master Tactics</span>
+              <span class="text-on-surface-variant">3 min read</span>
+            </div>
+            <h2 id="featured-tactic" class="font-headline-md text-headline-md text-on-surface">The Greek Gift Sacrifice</h2>
+            <p class="max-w-xl font-body-md text-body-md text-on-surface-variant">
+              Learn how Bxh7+ dismantles castled kings and forces relentless mating nets in classical setups.
+            </p>
+            <RouterLink class="app-action-secondary mt-space-sm" to="/chess-tricks">
+              Analyze Tactic
+              <AppIcon class="text-[16px]" name="menu_book" />
             </RouterLink>
           </div>
-          <div
-            class="p-space-md rounded-xl bg-surface-container shadow-sm flex items-center gap-space-md"
-          >
-            <!-- Calendar Icon Block -->
-            <div
-              class="w-14 h-14 rounded-lg bg-surface-container-high flex flex-col items-center justify-center flex-shrink-0 text-center"
-            >
-              <span class="font-label-badge text-label-badge text-primary uppercase">APR</span>
-              <span class="font-headline-md text-headline-md text-on-surface leading-none">12</span>
-            </div>
-            <!-- Details -->
-            <div class="flex-1 min-w-0 space-y-1">
-              <h4 class="font-title-md text-title-md text-on-surface truncate">
-                Spring Rapid Open 2025
-              </h4>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Saturday • 5 Rounds Swiss
-              </p>
-              <div class="flex items-center gap-2 pt-0.5">
-                <div class="w-20 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
-                  <div class="h-full bg-primary rounded-full" style="width: 75%"></div>
-                </div>
-                <span class="font-label-badge text-label-badge text-on-surface-variant"
-                  >48/64 registered</span
-                >
-              </div>
-            </div>
-            <!-- Registration Trigger -->
-            <RouterLink
-              aria-label="Register for Spring Rapid Open"
-              class="w-9 h-9 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors flex-shrink-0"
-              to="/events/spring-rapid-open"
-            >
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
-            </RouterLink>
-          </div>
-        </section>
-        <!-- Educational Chess Tricks Teaser -->
-        <section
-          class="p-space-md rounded-xl bg-surface-container shadow-md relative overflow-hidden space-y-space-sm"
-        >
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true"
-                >psychology</span
-              >
-              <span class="font-label-badge text-label-badge uppercase tracking-wider text-primary"
-                >Master Tactics</span
-              >
-            </div>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">3 min read</span>
-          </div>
-          <div class="flex gap-space-md items-center">
-            <div
-              class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest relative"
-            >
-              <img
-                class="w-full h-full object-cover"
-                data-alt="Close up top-down view of a classic chess tactic on a dark vinyl chess board showing a bishop sacrificing itself on the h7 square against a castled black king with tactical green motion lines and arrows"
-                src="/images/1b168b55344f.webp"
-                alt=""
-              />
-            </div>
-            <div class="flex-1 min-w-0 space-y-1">
-              <h4 class="font-title-md text-title-md text-on-surface">The Greek Gift Sacrifice</h4>
-              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
-                Learn how Bxh7+ dismantles castled kings and forces relentless mating nets in
-                classical setups.
-              </p>
-            </div>
-          </div>
-          <RouterLink
-            class="w-full py-2 rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md flex items-center justify-center gap-1 text-center hover:bg-surface-bright transition-colors"
-            to="/chess-tricks"
-          >
-            <span>Analyze Tactic</span>
-            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">menu_book</span>
-          </RouterLink>
         </section>
       </div>
     </main>

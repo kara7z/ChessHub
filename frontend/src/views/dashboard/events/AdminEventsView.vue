@@ -1,47 +1,21 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
   <DashboardLayout>
-    <main class="w-full pt-16 px-margin-desktop bg-surface">
+    <main class="w-full pt-16 px-margin md:px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-margin-desktop">
-        <!-- Dynamic Gradient Ambient Backdrop (Local Inset) -->
-        <div
-          class="relative w-full overflow-hidden rounded-xl bg-surface-container-low mb-space-xl p-space-lg shadow-sm"
+        <DashboardPageHeader
+          section="Events"
+          title="Event Management Desk"
+          description="Coordinate competitive tournaments, live master simuls, ranked rating fixtures, and official club gatherings with real-time capacity monitoring."
+          class="mb-space-md"
         >
-          <div
-            class="absolute -right-20 -top-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
-          ></div>
-          <div
-            class="absolute right-72 -bottom-20 w-64 h-64 bg-secondary-container/30 rounded-full blur-2xl pointer-events-none"
-          ></div>
-          <!-- Header & Action Row -->
-          <div class="relative flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-            <div class="flex flex-col gap-space-xs">
-              <div
-                class="flex items-center gap-space-xs text-outline font-body-sm text-body-sm tracking-wide uppercase"
-              >
-                <span>Dashboard</span>
-                <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
-                  >chevron_right</span
-                >
-                <span class="text-primary font-semibold">Events Console</span>
-              </div>
-              <h1
-                class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold"
-              >
-                Event Management Desk
-              </h1>
-              <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-                Coordinate competitive tournaments, live master simuls, ranked rating fixtures, and
-                official club gatherings with real-time capacity monitoring.
-              </p>
-            </div>
-            <!-- Action Cluster -->
-            <div class="flex items-center gap-space-sm self-start md:self-auto shrink-0">
+          <template #actions>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md hover:bg-surface-variant transition-colors shadow-sm"
+                class="dashboard-action"
                 type="button"
                 disabled
                 title="Design preview"
@@ -52,7 +26,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 <span>Export Events CSV</span>
               </button>
               <RouterLink
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary-container font-title-md text-title-md hover:bg-primary transition-all shadow-md"
+                class="dashboard-primary-action"
                 to="/dashboard/events/create"
               >
                 <span class="material-symbols-outlined text-[20px] font-bold" aria-hidden="true"
@@ -60,14 +34,13 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 >
                 <span>Create New Event</span>
               </RouterLink>
-            </div>
-          </div>
-        </div>
+          </template>
+        </DashboardPageHeader>
         <!-- KPI Metric Row -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+        <div class="dashboard-metrics mb-space-xl">
           <!-- Total Events -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -98,7 +71,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Published & Live -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -127,7 +100,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Registrations -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -158,7 +131,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Avg Attendance Rate -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-all"
+            class="dashboard-metric group"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -187,7 +160,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </div>
         <!-- Filtration Deck -->
-        <div class="p-space-md rounded-xl bg-surface-container-low mb-space-md shadow-sm">
+        <div class="dashboard-toolbar mb-space-md">
           <div
             class="flex flex-col lg:flex-row gap-space-md items-stretch lg:items-center justify-between"
           >
@@ -267,7 +240,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </div>
         <!-- Event Ledger Data Table -->
-        <div class="w-full overflow-hidden rounded-xl bg-surface-container-low shadow-sm">
+        <div class="dashboard-table w-full">
           <div class="w-full overflow-x-auto">
             <table class="w-full text-left border-collapse min-w-[1000px]">
               <thead>

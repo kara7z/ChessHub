@@ -1,93 +1,27 @@
 <script setup lang="ts">
 import ClubLayout from '../../components/layout/ClubLayout.vue'
+import SettingsContextBar from '../../components/navigation/SettingsContextBar.vue'
+import SettingsSidebar from '../../components/navigation/SettingsSidebar.vue'
 </script>
 
 <template>
   <ClubLayout academy>
     <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
       <div class="flex flex-col w-full">
-        <div class="w-full px-margin-desktop py-space-xl">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
-            <aside
-              class="lg:col-span-3 flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-xl shadow-md"
-            >
-              <div class="px-space-md pt-space-xs pb-space-sm">
-                <span
-                  class="font-label-badge text-label-badge uppercase tracking-widest text-outline"
-                  >Account Terminal</span
-                >
-              </div>
-              <nav class="flex flex-col gap-space-xs">
-                <RouterLink
-                  class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-surface-container-highest text-primary shadow-sm"
-                  to="/settings/profile"
-                >
-                  <div class="flex items-center gap-space-sm">
-                    <span
-                      class="material-symbols-outlined text-[20px]"
-                      style="font-variation-settings: 'FILL' 1"
-                      aria-hidden="true"
-                      >person</span
-                    >
-                    <span class="font-title-md text-title-md">Profile</span>
-                  </div>
-                  <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                </RouterLink>
-                <RouterLink
-                  class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                  to="/settings/security"
-                >
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >shield_lock</span
-                  >
-                  <span class="font-title-md text-title-md">Security</span>
-                </RouterLink>
-                <RouterLink
-                  class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                  to="/settings/notifications"
-                >
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >notifications_active</span
-                  >
-                  <span class="font-title-md text-title-md">Notifications</span>
-                </RouterLink>
-                <RouterLink
-                  class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                  to="/settings/appearance"
-                >
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >palette</span
-                  >
-                  <span class="font-title-md text-title-md">Appearance</span>
-                </RouterLink>
-              </nav>
-              <div
-                class="mt-space-md p-space-md rounded-lg bg-surface-container flex flex-col gap-space-xs"
-              >
-                <div class="flex items-center justify-between">
-                  <span class="font-label-badge text-label-badge uppercase text-outline"
-                    >FIDE Sync</span
-                  >
-                  <span
-                    class="font-label-badge text-label-badge text-primary bg-secondary-container px-space-sm py-space-xs rounded-full"
-                    >VERIFIED</span
-                  >
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">
-                  Rating &amp; title updates sync every 24h with official federation records.
-                </p>
-              </div>
-            </aside>
-            <section class="lg:col-span-9 flex flex-col gap-space-lg">
+        <div class="w-full px-margin pb-space-xl md:px-margin-desktop">
+          <SettingsContextBar />
+          <div class="grid grid-cols-1 items-start gap-space-lg lg:grid-cols-12">
+            <SettingsSidebar />
+            <section class="flex min-w-0 flex-col gap-space-lg lg:col-span-9">
               <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md">
                 <div class="flex flex-col gap-space-xs">
                   <span
                     class="font-label-badge text-label-badge uppercase tracking-widest text-primary"
                     >01 / Player Dossier</span
                   >
-                  <h2 class="font-headline-lg text-headline-lg text-on-surface">
+                  <h1 class="app-page-title">
                     Profile Settings
-                  </h2>
+                  </h1>
                   <p class="font-body-md text-body-md text-on-surface-variant">
                     Manage your public tournament identity, biographical notes, and competitive
                     tier.
@@ -104,7 +38,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <div
-                class="bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-lg"
+                class="app-panel flex flex-col items-start justify-between gap-space-lg p-space-lg sm:flex-row sm:items-center"
               >
                 <div class="flex items-center gap-space-lg">
                   <div class="relative shrink-0">
@@ -164,7 +98,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <form
-                class="bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col gap-space-lg"
+                class="app-panel flex flex-col gap-space-lg p-space-lg"
                 id="profile-form"
                 @submit.prevent=""
               >

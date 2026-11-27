@@ -158,7 +158,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Player Pairings & Acceptance Status Card -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-lg"
+              class="dashboard-panel flex flex-col gap-space-lg p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -319,7 +319,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- CRUCIAL: Official Result Validation Section -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-lg"
+              class="dashboard-panel flex flex-col gap-space-lg p-space-lg"
             >
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -526,7 +526,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-4 flex flex-col gap-space-lg">
             <!-- Active Standings Impact Preview Widget -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <span
@@ -595,7 +595,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Audit Timeline Card -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">

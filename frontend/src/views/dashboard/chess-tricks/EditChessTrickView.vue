@@ -115,7 +115,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           >
             <!-- Basic Details Panel -->
             <section
-              class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-xs">
@@ -209,7 +209,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </section>
             <!-- FEN Configuration Field -->
             <section
-              class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-xs">
@@ -292,7 +292,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </section>
             <!-- Tactical Breakdown & Solution -->
             <section
-              class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-xs">
@@ -375,7 +375,7 @@ The classical Greek gift sacrifice initiates a direct assault on the castled mon
             </section>
             <!-- Publication State & Final Form Actions -->
             <section
-              class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-xs">

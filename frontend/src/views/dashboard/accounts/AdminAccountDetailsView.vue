@@ -178,7 +178,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-8 flex flex-col gap-space-lg">
             <!-- Competitive Club Metrics Panel -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg shadow-md flex flex-col gap-space-md relative overflow-hidden"
+              class="dashboard-panel relative flex flex-col gap-space-md overflow-hidden p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-sm">
@@ -408,7 +408,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Personal & Contact Information -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -538,7 +538,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Recent Match Activity -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-sm">
@@ -830,7 +830,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-4 flex flex-col gap-space-lg">
             <!-- Administrative Moderation Actions Form -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center gap-space-sm">
                 <span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true"

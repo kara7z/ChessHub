@@ -1,38 +1,16 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
   <DashboardLayout>
     <main class="w-full pt-16 px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-space-xl">
-        <!-- Top Navigation & Action Bar -->
-        <div
-          class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-space-lg pb-space-md"
-        >
-          <div class="flex flex-col gap-space-xs">
-            <div class="flex items-center gap-space-xs font-body-sm text-body-sm text-outline">
-              <RouterLink class="hover:text-on-surface transition-colors" to="/dashboard"
-                >Dashboard</RouterLink
-              >
-              <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
-                >chevron_right</span
-              >
-              <span class="text-on-surface font-title-md text-title-md">Seasons</span>
-            </div>
-            <div class="flex items-baseline gap-space-md">
-              <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                Competitive Seasons
-              </h1>
-              <span
-                class="font-label-badge text-label-badge uppercase tracking-wider px-space-xs py-0.5 rounded bg-surface-container-high text-outline"
-                >Season Manager v2.4</span
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-space-sm">
+        <DashboardPageHeader section="Seasons" title="Competitive Seasons" badge="Season Manager v2.4">
+          <template #actions>
             <button
-              class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all text-body-md font-body-md shadow-sm"
+              class="dashboard-action"
               type="button"
               disabled
               title="Design preview"
@@ -43,7 +21,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               <span>Export Standings</span>
             </button>
             <RouterLink
-              class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary-container font-headline-sm text-title-md hover:bg-primary transition-all shadow-md group"
+              class="dashboard-primary-action group"
               to="/dashboard/seasons/create"
             >
               <span
@@ -53,8 +31,8 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               >
               <span>Create New Season</span>
             </RouterLink>
-          </div>
-        </div>
+          </template>
+        </DashboardPageHeader>
         <!-- Operational Explanatory Notice -->
         <div
           class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm mb-space-lg"
@@ -87,7 +65,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Active Season Spotlight Hero Card -->
         <div
-          class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-xl mb-space-xl"
+          class="dashboard-panel relative mb-space-xl overflow-hidden p-space-lg"
         >
           <div
             class="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"
@@ -310,7 +288,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="xl:col-span-9 flex flex-col gap-space-md">
             <!-- Filter Ribbon -->
             <div
-              class="flex flex-wrap items-center justify-between gap-space-md bg-surface-container-lowest p-space-xs rounded-xl"
+              class="dashboard-toolbar flex flex-wrap items-center justify-between gap-space-md"
             >
               <div
                 class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0"
@@ -391,7 +369,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               </div>
             </div>
             <!-- Seasons Data Table -->
-            <div class="overflow-hidden rounded-xl bg-surface-container-low shadow-sm">
+            <div class="dashboard-table">
               <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                   <thead>

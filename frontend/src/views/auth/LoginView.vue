@@ -11,7 +11,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
       <div class="w-full max-w-md">
         <div class="flex flex-col w-full">
           <div
-            class="bg-surface-container rounded-xl p-space-xl shadow-xl relative overflow-hidden"
+            class="app-panel relative overflow-hidden p-space-lg sm:p-space-xl"
           >
             <div
               class="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-primary/10 blur-3xl pointer-events-none"
@@ -92,7 +92,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                     >
                     <input
                       autocomplete="email"
-                      class="w-full bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg pl-10 pr-space-md py-3 font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors"
+                      class="app-field py-3 pr-space-md pl-10"
                       id="email"
                       name="email"
                       placeholder="grandmaster@chesshub.academy"
@@ -114,7 +114,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                     >
                     <input
                       autocomplete="current-password"
-                      class="w-full bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg pl-10 pr-11 py-3 font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors"
+                      class="app-field py-3 pr-11 pl-10"
                       id="password"
                       name="password"
                       placeholder="Enter your password"
@@ -157,7 +157,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                 </div>
                 <div class="flex flex-col gap-space-sm pt-space-sm">
                   <button
-                    class="w-full bg-primary-container hover:bg-primary text-on-primary-container font-title-md text-title-md py-3 rounded-lg transition-colors flex items-center justify-center gap-space-sm cursor-pointer shadow-sm"
+                    class="app-action-primary w-full py-3"
                     id="login-submit-btn"
                     type="submit"
                     disabled
@@ -193,7 +193,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
                 <div class="h-px flex-1 bg-surface-container-high"></div>
               </div>
               <RouterLink
-                class="w-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-title-md text-title-md py-3 rounded-lg transition-colors flex items-center justify-center gap-space-sm"
+                class="app-action-secondary w-full py-3"
                 data-path="register"
                 to="/register"
               >

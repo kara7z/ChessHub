@@ -110,7 +110,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-8 flex flex-col gap-space-lg">
             <!-- Card: General Profile -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-sm"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -229,7 +229,7 @@ Official Spring 2025 Championship Cycle. Rated under rapid clock parameters (15m
             </div>
             <!-- Card: Calendar & Window Schedules -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-sm"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -318,7 +318,7 @@ Official Spring 2025 Championship Cycle. Rated under rapid clock parameters (15m
             </div>
             <!-- Card: Tiebreak Arbitration Suite -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-sm"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -565,7 +565,7 @@ Official Spring 2025 Championship Cycle. Rated under rapid clock parameters (15m
             </div>
             <!-- Emergency Arbiter Actions: Danger Zone -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md relative overflow-hidden"
+              class="dashboard-panel relative flex flex-col gap-space-md overflow-hidden p-space-lg"
             >
               <div class="w-1.5 absolute left-0 top-0 bottom-0 bg-error"></div>
               <div class="flex items-center justify-between">

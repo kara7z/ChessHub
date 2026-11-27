@@ -4,11 +4,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout academy>
-    <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
+    <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)] px-margin md:px-margin-tablet lg:px-margin-desktop">
       <div class="flex flex-col w-full">
-        <section
-          class="w-full px-margin md:px-margin-tablet xl:px-margin-desktop pt-space-xl pb-space-lg"
-        >
+        <section class="w-full pt-space-xl pb-space-lg">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
             <div class="space-y-space-xs">
               <div
@@ -19,8 +17,8 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 <span>/</span>
                 <span>Live Feed</span>
               </div>
-              <div class="flex items-center gap-space-md">
-                <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+              <div class="flex flex-wrap items-center gap-space-sm md:gap-space-md">
+                <h1 class="app-page-title">
                   Notifications
                 </h1>
                 <span
@@ -34,7 +32,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <div class="flex items-center gap-space-sm">
               <button
-                class="inline-flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors font-title-md text-body-md shadow-sm cursor-pointer"
+                class="app-action-secondary"
                 id="mark-all-read-btn"
                 type="button"
                 disabled
@@ -48,12 +46,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
           </div>
         </section>
-        <section class="w-full px-margin md:px-margin-tablet xl:px-margin-desktop pb-space-xl">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-            <div class="lg:col-span-8 flex flex-col gap-space-lg">
+        <section class="w-full pb-space-xl">
+          <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-space-xl items-start">
+            <div class="flex min-w-0 flex-col gap-space-lg">
               <div
                 aria-label="Notification categories"
-                class="flex flex-wrap items-center gap-space-sm bg-surface-container-low p-space-sm rounded-xl shadow-sm"
+                class="app-panel flex flex-wrap items-center gap-space-sm p-space-sm"
                 role="tablist"
               >
                 <button
@@ -135,7 +133,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                   <div class="flex items-center gap-space-sm shrink-0 sm:pl-space-md">
                     <button
-                      class="action-accept px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-title-md text-body-md transition-colors cursor-pointer"
+                      class="app-action-primary action-accept py-space-xs"
                       type="button"
                       disabled
                       title="Design preview"
@@ -353,7 +351,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </p>
               </div>
             </div>
-            <aside class="lg:col-span-4 flex flex-col gap-space-lg">
+            <aside class="flex min-w-0 flex-col gap-space-lg">
               <div
                 class="p-space-lg rounded-xl bg-surface-container shadow-sm flex flex-col gap-space-md"
               >

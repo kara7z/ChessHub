@@ -88,7 +88,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             <form class="flex flex-col gap-space-lg" id="edit-workshop-form" @submit.prevent="">
               <!-- Panel 1: Curriculum & Instructorship -->
               <section
-                class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm"
+                class="dashboard-panel flex flex-col gap-space-md p-space-lg"
               >
                 <div class="flex items-center justify-between pb-space-xs">
                   <div class="flex items-center gap-space-sm">
@@ -207,7 +207,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               </section>
               <!-- Panel 2: Multimedia & Imagery -->
               <section
-                class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm"
+                class="dashboard-panel flex flex-col gap-space-md p-space-lg"
               >
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-space-sm">
@@ -281,7 +281,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               </section>
               <!-- Panel 3: Chronometry, Seating & Logistics -->
               <section
-                class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm"
+                class="dashboard-panel flex flex-col gap-space-md p-space-lg"
               >
                 <div class="flex items-center justify-between pb-space-xs">
                   <div class="flex items-center gap-space-sm">

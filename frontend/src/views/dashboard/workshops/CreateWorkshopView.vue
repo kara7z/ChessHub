@@ -65,7 +65,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-7 flex flex-col gap-space-xl">
             <!-- Section 1: Workshop Identity -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-sm"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-sm">
                 <div class="flex items-center gap-space-sm">
@@ -436,7 +436,7 @@ A clinical exploration of sharp Sicilian lines with an emphasis on Yugoslav &amp
             </div>
             <!-- Section 2: Logistics & Seat Allocation -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-sm"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-sm">
                 <div class="flex items-center gap-space-sm">
@@ -646,7 +646,7 @@ A clinical exploration of sharp Sicilian lines with an emphasis on Yugoslav &amp
           <div class="lg:col-span-5 flex flex-col gap-space-lg sticky top-20">
             <!-- Live Card Preview Card -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-xs">
@@ -778,7 +778,7 @@ A clinical exploration of sharp Sicilian lines with an emphasis on Yugoslav &amp
             </div>
             <!-- Workshop Delivery Standards Card -->
             <div
-              class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-sm"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center gap-space-sm pb-space-xs">
                 <span

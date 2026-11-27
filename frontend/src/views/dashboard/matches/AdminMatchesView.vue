@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
@@ -15,32 +16,15 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             class="absolute top-24 -left-16 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl pointer-events-none"
           ></div>
         </div>
-        <!-- Header Section -->
-        <section
-          class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg mb-space-xl pt-space-md"
+        <DashboardPageHeader
+          section="Matches"
+          title="Competitive Matches Desk"
+          description="Schedule fixtures, manage player invitations, monitor board pairings, and record official results with FIDE-compliant arbitration standards."
+          class="mb-space-md"
         >
-          <div class="flex flex-col gap-space-xs max-w-3xl">
-            <div
-              class="flex items-center gap-space-xs text-outline font-label-badge text-label-badge uppercase tracking-widest"
-            >
-              <span>Dashboard</span>
-              <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
-                >chevron_right</span
-              >
-              <span class="text-primary font-semibold">Matches</span>
-            </div>
-            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
-              Competitive Matches Desk
-            </h1>
-            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Schedule fixtures, manage player invitations, monitor board pairings, and record
-              official results with FIDE-compliant arbitration standards.
-            </p>
-          </div>
-          <!-- Top Right Action -->
-          <div class="flex items-center gap-space-sm shrink-0">
+          <template #actions>
             <button
-              class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-title-md text-title-md transition-colors shadow-sm"
+              class="dashboard-action"
               type="button"
               disabled
               title="Design preview"
@@ -49,22 +33,22 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               <span>Export PGN / CSV</span>
             </button>
             <RouterLink
-              class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-md text-title-md font-semibold hover:bg-primary-fixed-dim transition-all shadow-md active:scale-95"
+              class="dashboard-primary-action"
               id="schedule-match-trigger"
               to="/dashboard/matches/create"
             >
               <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
                 >add_circle</span
               >
-              <span>+ Schedule New Match</span>
+              <span>Schedule New Match</span>
             </RouterLink>
-          </div>
-        </section>
+          </template>
+        </DashboardPageHeader>
         <!-- Summary KPI Cards -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-space-xl">
+        <section class="dashboard-metrics mb-space-xl">
           <!-- Card 1 -->
           <div
-            class="bg-surface-container rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+            class="dashboard-metric group"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"
@@ -91,7 +75,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 2 -->
           <div
-            class="bg-surface-container rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+            class="dashboard-metric group"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-tertiary/10 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"
@@ -118,7 +102,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 3 -->
           <div
-            class="bg-surface-container rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+            class="dashboard-metric group"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/20 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"
@@ -149,7 +133,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 4 -->
           <div
-            class="bg-surface-container rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+            class="dashboard-metric group"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"
@@ -179,7 +163,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </section>
         <!-- Filter & Controls Toolbar -->
         <section
-          class="bg-surface-container rounded-xl p-space-md mb-space-lg shadow-sm flex flex-col gap-space-md"
+          class="dashboard-toolbar mb-space-lg flex flex-col gap-space-md"
         >
           <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center">
             <!-- Search Input -->
@@ -322,7 +306,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </section>
         <!-- Main Match Management Table Section -->
-        <section class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+        <section class="dashboard-table flex flex-col">
           <div class="overflow-x-auto w-full">
             <table class="w-full text-left border-collapse min-w-[1020px]">
               <thead>
@@ -1159,7 +1143,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Table Footer / Pagination -->
           <div
-            class="flex flex-col sm:flex-row items-center justify-between px-space-lg py-space-md bg-surface-container-lowest gap-space-md"
+            class="flex flex-col sm:flex-row items-center justify-between px-space-xs sm:px-space-lg py-space-md bg-surface-container-lowest gap-space-md"
           >
             <div class="flex items-center gap-space-sm text-outline font-body-sm text-body-sm">
               <span>Rows per page:</span>
@@ -1172,7 +1156,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               </select>
               <span>Showing 1 to 5 of 221 entries</span>
             </div>
-            <div class="flex items-center gap-space-xs">
+            <div class="flex flex-wrap items-center justify-center gap-space-xs">
               <button
                 class="p-1 rounded hover:bg-surface-container-high text-outline hover:text-on-surface disabled:opacity-40"
                 disabled

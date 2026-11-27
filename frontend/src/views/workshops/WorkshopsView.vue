@@ -4,8 +4,8 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
-      <div class="flex flex-col w-full pb-space-xl">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
+      <div class="flex w-full flex-col pb-space-xl lg:pt-space-sm">
         <!-- Dynamic Ambient Glow Backdrop -->
         <div class="relative w-full overflow-hidden">
           <div
@@ -27,7 +27,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     >Grandmaster Academy Curriculum</span
                   >
                 </div>
-                <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                <h1 class="app-page-title lg:text-display-lg">
                   Masterclasses &amp; Workshops
                 </h1>
                 <p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
@@ -37,7 +37,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Academic Key Stats Pill -->
               <div
-                class="flex items-center gap-space-md bg-surface-container-high px-space-md py-space-sm rounded-xl shadow-sm"
+                class="flex items-center gap-space-md bg-surface-container-high px-space-md py-space-sm rounded-xl shadow-sm lg:shrink-0"
               >
                 <div class="flex flex-col">
                   <span
@@ -62,7 +62,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Navigation Segment Tabs -->
             <div class="flex items-center justify-between gap-space-md mt-space-lg">
-              <div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-inner">
+              <div class="flex flex-wrap items-center gap-1 bg-surface-container-low p-1 rounded-xl shadow-inner">
                 <span
                   class="px-space-md py-space-xs rounded-lg font-title-md text-title-md bg-surface-container-high text-primary shadow-sm flex items-center gap-space-xs"
                 >
@@ -75,9 +75,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     >24</span
                   >
                 </span>
-                <span
+                <RouterLink
                   class="px-space-md py-space-xs rounded-lg font-title-md text-title-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-space-xs"
-                  data-path="my-workshops"
+                  to="/my-workshops"
                 >
                   <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
                     >verified_user</span
@@ -87,7 +87,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     class="ml-1 px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-label-badge font-label-badge"
                     >2</span
                   >
-                </span>
+                </RouterLink>
               </div>
               <div
                 class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"
@@ -98,30 +98,40 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
           </div>
           <!-- Filter Control Bar -->
-          <div class="bg-surface-container-low p-space-md rounded-xl mt-space-md shadow-sm">
-            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-space-md items-center">
+          <div class="app-panel mt-space-md p-space-md">
+            <div class="grid grid-cols-1 gap-space-md md:grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))] lg:items-end">
               <!-- Search Input -->
-              <div class="md:col-span-2 lg:col-span-3 relative">
-                <span
-                  class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-space-md top-1/2 -translate-y-1/2"
-                  aria-hidden="true"
-                  >search</span
-                >
-                <input
-                  class="w-full pl-10 pr-space-md py-space-xs rounded-lg bg-surface-container text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary"
-                  placeholder="Search repertoire, tactic, theme..."
-                  type="text"
-                />
-              </div>
-              <!-- Filter: Difficulty -->
-              <div class="md:col-span-2 lg:col-span-3 relative">
+              <div>
                 <label
                   class="block font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant mb-1"
+                  for="workshop-search"
+                  >Search Workshops</label
+                >
+                <div class="relative">
+                  <span
+                    class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-space-md top-1/2 -translate-y-1/2"
+                    aria-hidden="true"
+                    >search</span
+                  >
+                  <input
+                    class="app-field py-space-xs pr-space-md pl-10"
+                    id="workshop-search"
+                    placeholder="Search repertoire, tactic, theme..."
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Filter: Difficulty -->
+              <div>
+                <label
+                  class="block font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant mb-1"
+                  for="workshop-difficulty"
                   >Difficulty Level</label
                 >
                 <div class="relative">
                   <select
                     class="w-full appearance-none px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer pr-10"
+                    id="workshop-difficulty"
                   >
                     <option selected>All skill levels</option>
                     <option>Beginner (1200 - 1500)</option>
@@ -136,14 +146,16 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <!-- Filter: Topic Category -->
-              <div class="md:col-span-2 lg:col-span-3 relative">
+              <div>
                 <label
                   class="block font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant mb-1"
+                  for="workshop-topic"
                   >Topic Category</label
                 >
                 <div class="relative">
                   <select
                     class="w-full appearance-none px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer pr-10"
+                    id="workshop-topic"
                   >
                     <option selected>All Topics</option>
                     <option>Openings Repertoire</option>
@@ -160,14 +172,16 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <!-- Filter: Instructor -->
-              <div class="md:col-span-2 lg:col-span-3 relative">
+              <div>
                 <label
                   class="block font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant mb-1"
+                  for="workshop-instructor"
                   >Lead Instructor</label
                 >
                 <div class="relative">
                   <select
                     class="w-full appearance-none px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer pr-10"
+                    id="workshop-instructor"
                   >
                     <option selected>All Master Lecturers</option>
                     <option>GM Tariq Al-Mansoor (2615)</option>
@@ -192,7 +206,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           >
             <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[380px]">
               <!-- Left Panel: Content & Booking Mechanics -->
-              <div class="lg:col-span-7 p-space-lg flex flex-col justify-between relative z-10">
+              <div class="lg:col-span-7 p-space-lg lg:p-space-xl flex flex-col justify-between relative z-10">
                 <div>
                   <div class="flex flex-wrap items-center gap-space-xs mb-space-sm">
                     <span
@@ -273,7 +287,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <div
-                  class="mt-space-lg pt-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-surface-container/60 -mx-space-lg -mb-space-lg p-space-lg"
+                  class="mt-space-lg flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-between gap-space-md bg-surface-container/60 -mx-space-lg -mb-space-lg p-space-lg lg:-mx-space-xl lg:-mb-space-xl lg:px-space-xl"
                 >
                   <!-- Capacity Status Gauge -->
                   <div class="flex flex-col gap-1 w-full sm:w-64">
@@ -296,9 +310,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     >
                   </div>
                   <!-- CTAs -->
-                  <div class="flex items-center gap-space-sm">
+                  <div class="flex flex-wrap items-center gap-space-sm">
                     <button
-                      class="px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-title-md text-title-md transition-colors flex items-center gap-space-xs shadow-sm"
+                      class="app-action-secondary"
                       type="button"
                       disabled
                       title="Design preview"
@@ -308,17 +322,15 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                       >
                       <span>Syllabus PGN</span>
                     </button>
-                    <button
-                      class="px-space-lg py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md transition-all shadow-md flex items-center gap-space-xs"
-                      type="button"
-                      disabled
-                      title="Design preview"
+                    <RouterLink
+                      class="app-action-primary px-space-lg"
+                      to="/workshops/strategy-masterclass"
                     >
                       <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
                         >how_to_reg</span
                       >
-                      <span>Reserve My Seat</span>
-                    </button>
+                      <span>View Workshop</span>
+                    </RouterLink>
                   </div>
                 </div>
               </div>
@@ -388,11 +400,11 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
           </div>
           <!-- Active Catalog Section Header -->
-          <div class="flex items-center justify-between mt-space-xl mb-space-md">
-            <div class="flex items-baseline gap-space-sm">
-              <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+          <div class="flex flex-wrap items-center justify-between gap-space-sm mt-space-xl mb-space-md">
+            <div class="flex flex-wrap items-baseline gap-space-sm">
+              <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
                 Active Curriculum Schedule
-              </h3>
+              </h2>
               <span class="font-body-sm text-body-sm text-on-surface-variant"
                 >Round-robin seminar series &amp; hands-on clinics</span
               >
@@ -417,7 +429,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
             <!-- Workshop Card 1: King's Indian -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container transition-all group"
+              class="app-panel group flex flex-col justify-between p-space-lg transition-colors hover:bg-surface-container-high"
             >
               <div>
                 <!-- Top Row: Badge + Duration -->
@@ -550,7 +562,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Workshop Card 2: Rook & Pawn Endgames -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container transition-all group"
+              class="app-panel group flex flex-col justify-between p-space-lg transition-colors hover:bg-surface-container-high"
             >
               <div>
                 <!-- Top Row: Badge + Duration -->
@@ -683,7 +695,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Workshop Card 3: Tactical Calculation (WAITLIST STATE) -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container transition-all group"
+              class="app-panel group flex flex-col justify-between p-space-lg transition-colors hover:bg-surface-container-high"
             >
               <div>
                 <!-- Top Row: Badge + Duration -->
@@ -821,7 +833,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Workshop Card 4: Chess Fundamentals -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container transition-all group"
+              class="app-panel group flex flex-col justify-between p-space-lg transition-colors hover:bg-surface-container-high"
             >
               <div>
                 <!-- Top Row: Badge + Duration -->
@@ -954,7 +966,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Workshop Card 5: Clock Management -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container transition-all group"
+              class="app-panel group flex flex-col justify-between p-space-lg transition-colors hover:bg-surface-container-high"
             >
               <div>
                 <!-- Top Row: Badge + Duration -->
@@ -1087,7 +1099,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Workshop Card 6: Crushing Anti-Sicilians -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container transition-all group"
+              class="app-panel group flex flex-col justify-between p-space-lg transition-colors hover:bg-surface-container-high"
             >
               <div>
                 <!-- Top Row: Badge + Duration -->

@@ -1,69 +1,23 @@
 <script setup lang="ts">
-import ClubLayout from '../../components/layout/ClubLayout.vue'
+import CompactLayout from '../../components/layout/CompactLayout.vue'
+import MatchesHeader from '../../components/navigation/MatchesHeader.vue'
 </script>
 
 <template>
-  <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
-      <div class="flex flex-col w-full">
-        <div class="w-full max-w-[1440px] mx-auto py-space-lg flex flex-col gap-space-lg">
-          <!-- Breadcrumb & Top Bar Navigation Hierarchy -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-            <div>
-              <div
-                class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm tracking-wider uppercase mb-1"
-              >
-                <span class="text-primary font-semibold">Federation Circuit</span>
-                <span>/</span>
-                <span>Player Dossier</span>
-                <span>/</span>
-                <span class="text-on-surface">Official Log</span>
-              </div>
-              <div class="flex flex-wrap items-baseline gap-space-sm md:gap-space-md">
-                <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                  Competitive Match Records
-                </h1>
-                <span
-                  class="font-label-badge text-label-badge bg-surface-container-high text-primary px-2.5 py-1 rounded"
-                  >FIDE SWISS REGISTERED</span
-                >
-              </div>
-            </div>
-            <!-- Segmented Sub-Navigation Switcher -->
-            <div class="flex flex-wrap items-center bg-surface-container-lowest p-1 rounded-lg">
-              <RouterLink
-                class="flex items-center gap-2 px-space-md py-2 rounded font-title-md text-title-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
-                data-path="upcoming-matches"
-                to="/matches"
-              >
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                  >calendar_clock</span
-                >
-                <span>Upcoming Matches</span>
-                <span
-                  class="bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded text-[11px] font-semibold"
-                  >3</span
-                >
-              </RouterLink>
-              <div
-                class="flex items-center gap-2 px-space-md py-2 rounded bg-surface-container-high text-primary font-title-md text-title-md shadow-sm"
-              >
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                  >receipt_long</span
-                >
-                <span>Match History</span>
-                <span
-                  class="bg-primary text-on-primary font-label-numeric-md text-body-sm px-2 py-0.2 rounded-full font-bold"
-                  >24</span
-                >
-              </div>
-            </div>
-          </div>
+  <CompactLayout>
+    <main class="flex-1 flex flex-col relative w-full pt-16 bg-background">
+      <div class="flex w-full flex-col pb-8 lg:px-margin-desktop lg:pt-space-lg">
+        <MatchesHeader description="Competitive Match Records">
+          <span class="max-w-36 rounded-full bg-surface-container-high px-3 py-1.5 text-center font-label-badge text-label-badge text-primary">
+            FIDE Swiss Registered
+          </span>
+        </MatchesHeader>
+        <div class="mt-space-sm flex w-full flex-col gap-space-lg px-margin lg:gap-space-xl lg:px-0">
           <!-- Performance Metric Bento Row (Engineered Monospace & Tabular Data) -->
           <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-space-sm">
             <!-- Metric: Matches Played -->
             <div
-              class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all"
+              class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group"
             >
               <div class="flex items-center justify-between text-on-surface-variant">
                 <span class="font-body-sm text-body-sm uppercase tracking-wider font-semibold"
@@ -85,7 +39,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Metric: Victories -->
             <div
-              class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all"
+              class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group"
             >
               <div class="flex items-center justify-between text-primary">
                 <span class="font-body-sm text-body-sm uppercase tracking-wider font-semibold"
@@ -110,7 +64,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Metric: Draws -->
             <div
-              class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all"
+              class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group"
             >
               <div class="flex items-center justify-between text-amber-400">
                 <span class="font-body-sm text-body-sm uppercase tracking-wider font-semibold"
@@ -135,7 +89,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Metric: Defeats -->
             <div
-              class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all"
+              class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group"
             >
               <div class="flex items-center justify-between text-error">
                 <span class="font-body-sm text-body-sm uppercase tracking-wider font-semibold"
@@ -158,7 +112,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Metric: Win Rate -->
             <div
-              class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all"
+              class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group"
             >
               <div class="flex items-center justify-between text-on-surface-variant">
                 <span class="font-body-sm text-body-sm uppercase tracking-wider font-semibold"
@@ -181,7 +135,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Metric: Total Points Earned -->
             <div
-              class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all"
+              class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group"
             >
               <div class="flex items-center justify-between text-primary">
                 <span class="font-body-sm text-body-sm uppercase tracking-wider font-semibold"
@@ -226,17 +180,17 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           </div>
           <!-- Filter Console: Analytical Multi-Parameter Toolbar -->
           <div
-            class="bg-surface-container-low p-space-md rounded-xl shadow-sm flex flex-col gap-space-md"
+            class="app-panel flex flex-col gap-space-md rounded-2xl p-space-md"
           >
             <div
-              class="flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md"
+              class="flex flex-col items-stretch justify-between gap-space-sm"
             >
               <!-- Filter Controls Primary Cluster -->
               <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:flex xl:items-center gap-space-sm flex-grow"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[repeat(3,minmax(0,1.3fr))_repeat(3,minmax(0,1fr))] gap-space-sm"
               >
                 <!-- Season Selector -->
-                <div class="flex flex-col gap-1 min-w-[200px]">
+                <div class="flex min-w-0 flex-col gap-1">
                   <label
                     class="text-[11px] font-label-badge uppercase tracking-wider text-on-surface-variant font-semibold"
                     >Tournament Season</label
@@ -258,7 +212,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Opponent Search Bar -->
-                <div class="flex flex-col gap-1 min-w-[220px]">
+                <div class="flex min-w-0 flex-col gap-1">
                   <label
                     class="text-[11px] font-label-badge uppercase tracking-wider text-on-surface-variant font-semibold"
                     >Search Opponent</label
@@ -277,7 +231,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Date Range Selector -->
-                <div class="flex flex-col gap-1 min-w-[190px]">
+                <div class="flex min-w-0 flex-col gap-1">
                   <label
                     class="text-[11px] font-label-badge uppercase tracking-wider text-on-surface-variant font-semibold"
                     >Timeframe</label
@@ -297,7 +251,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Result Filter -->
-                <div class="flex flex-col gap-1 min-w-[150px]">
+                <div class="flex min-w-0 flex-col gap-1">
                   <label
                     class="text-[11px] font-label-badge uppercase tracking-wider text-on-surface-variant font-semibold"
                     >Outcome</label
@@ -319,7 +273,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Color Allocation Filter -->
-                <div class="flex flex-col gap-1 min-w-[150px]">
+                <div class="flex min-w-0 flex-col gap-1">
                   <label
                     class="text-[11px] font-label-badge uppercase tracking-wider text-on-surface-variant font-semibold"
                     >Pieces Played</label
@@ -340,7 +294,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Match Status Filter -->
-                <div class="flex flex-col gap-1 min-w-[150px]">
+                <div class="flex min-w-0 flex-col gap-1">
                   <label
                     class="text-[11px] font-label-badge uppercase tracking-wider text-on-surface-variant font-semibold"
                     >Status</label
@@ -361,19 +315,6 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     >
                   </div>
                 </div>
-              </div>
-              <!-- Filter Reset Action -->
-              <div class="flex xl:flex-col justify-end xl:justify-end self-end gap-2">
-                <button
-                  class="px-space-md py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-body-sm text-body-sm flex items-center justify-center gap-1.5 transition-all"
-                  disabled
-                  title="Design preview"
-                >
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true"
-                    >restart_alt</span
-                  >
-                  <span>Reset</span>
-                </button>
               </div>
             </div>
             <!-- Active Filter Pill Tags Row -->
@@ -406,13 +347,26 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               >
                 Clear all
               </button>
+              <button
+                class="px-space-md py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-body-sm text-body-sm flex items-center justify-center gap-1.5 transition-all sm:ml-auto"
+                disabled
+                title="Design preview"
+              >
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true"
+                  >restart_alt</span
+                >
+                <span>Reset</span>
+              </button>
             </div>
           </div>
           <!-- Match List Matrix Header -->
           <div
-            class="flex items-center justify-between px-space-xs text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider"
+            class="flex flex-wrap items-center justify-between gap-space-xs text-on-surface-variant font-body-sm text-body-sm"
           >
-            <span>Official Match Record Log (24 verified fixtures)</span>
+            <div>
+              <h2 class="font-headline-sm text-headline-sm text-on-surface">Official Match Record Log</h2>
+              <p>24 verified fixtures</p>
+            </div>
             <div class="flex items-center gap-space-md">
               <span>Sort by: Most Recent</span>
               <button
@@ -427,10 +381,10 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
           </div>
           <!-- Match Fixtures Stream -->
-          <div class="flex flex-col gap-space-sm">
+          <div class="match-records flex flex-col gap-space-sm">
             <!-- CARD 1: VICTORY (White Wins: Alex Rivera VS Tariq Al-Mansoor) -->
             <div
-              class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md transition-all shadow-sm flex flex-col xl:flex-row items-center justify-between gap-space-md"
+              class="app-panel flex flex-col items-center gap-space-md rounded-2xl p-space-md transition-colors hover:bg-surface-container-high"
             >
               <!-- Left Section: Meta, Round & Context Badge -->
               <div class="flex items-center gap-space-md w-full xl:w-72 shrink-0">
@@ -463,7 +417,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Tactical Split -->
               <div
-                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="match-pairing flex w-full flex-col items-center gap-3 px-2"
               >
                 <!-- White Side (You - Winner) -->
                 <div
@@ -585,7 +539,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- CARD 2: DRAW (White: David Kim VS Black: Alex Rivera) -->
             <div
-              class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md transition-all shadow-sm flex flex-col xl:flex-row items-center justify-between gap-space-md"
+              class="app-panel flex flex-col items-center gap-space-md rounded-2xl p-space-md transition-colors hover:bg-surface-container-high"
             >
               <!-- Left Section: Meta, Round & Context Badge -->
               <div class="flex items-center gap-space-md w-full xl:w-72 shrink-0">
@@ -618,7 +572,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Tactical Split -->
               <div
-                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="match-pairing flex w-full flex-col items-center gap-3 px-2"
               >
                 <!-- White Side (Opponent) -->
                 <div
@@ -740,7 +694,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- CARD 3: DEFEAT (White: Alex Rivera VS Black: Adam Chen GM) -->
             <div
-              class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md transition-all shadow-sm flex flex-col xl:flex-row items-center justify-between gap-space-md"
+              class="app-panel flex flex-col items-center gap-space-md rounded-2xl p-space-md transition-colors hover:bg-surface-container-high"
             >
               <!-- Left Section: Meta, Round & Context Badge -->
               <div class="flex items-center gap-space-md w-full xl:w-72 shrink-0">
@@ -771,7 +725,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Tactical Split -->
               <div
-                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="match-pairing flex w-full flex-col items-center gap-3 px-2"
               >
                 <!-- White Side (You - Loss) -->
                 <div
@@ -891,7 +845,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- CARD 4: CANCELLED / DECLINED MATCH (Excluded from competitive stats) -->
             <div
-              class="bg-surface-container-lowest/80 opacity-75 hover:opacity-100 rounded-xl p-space-md transition-all shadow-none flex flex-col xl:flex-row items-center justify-between gap-space-md"
+              class="bg-surface-container-lowest/80 opacity-75 hover:opacity-100 rounded-2xl p-space-md transition-opacity flex flex-col items-center gap-space-md"
             >
               <!-- Left Section: Meta, Round & Context Badge -->
               <div class="flex items-center gap-space-md w-full xl:w-72 shrink-0">
@@ -925,7 +879,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Status Notification -->
               <div
-                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="match-pairing flex w-full flex-col items-center gap-3 px-2"
               >
                 <!-- White Side (You) -->
                 <div
@@ -1069,5 +1023,40 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
         </div>
       </div>
     </main>
-  </ClubLayout>
+  </CompactLayout>
 </template>
+
+<style scoped>
+@media (width >= 64rem) {
+  .match-records > div {
+    display: grid;
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  }
+
+  .match-records > div > :last-child {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .match-pairing {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  .match-pairing > div {
+    width: 100%;
+    padding-inline: 0;
+  }
+}
+
+@media (width >= 80rem) {
+  .match-records > div {
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) minmax(0, 12rem);
+  }
+
+  .match-records > div > :last-child {
+    grid-column: 3;
+    width: 100%;
+  }
+}
+</style>

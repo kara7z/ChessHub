@@ -92,7 +92,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-8 flex flex-col gap-space-lg">
             <!-- Core Metadata Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -214,7 +214,7 @@ Official Summer championship division. Games conducted at Classical FIDE Standar
             </div>
             <!-- Schedule & Timeline Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -393,7 +393,7 @@ Official Summer championship division. Games conducted at Classical FIDE Standar
           <div class="lg:col-span-4 flex flex-col gap-space-lg">
             <!-- Scoring Configuration Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden"
+              class="dashboard-panel relative flex flex-col gap-space-md overflow-hidden p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <span

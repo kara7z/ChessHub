@@ -4,7 +4,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full">
         <!-- Dynamic Atmospheric Cover Banner -->
         <div class="relative w-full h-72 md:h-80 overflow-hidden bg-surface-container-lowest">
@@ -28,7 +28,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             >
           </div>
           <!-- Action Tray Top-Right -->
-          <div class="absolute top-6 right-margin-desktop flex items-center gap-space-sm z-10">
+          <div class="absolute inset-x-margin top-6 z-10 flex flex-wrap items-center justify-end gap-space-sm md:left-auto md:right-margin-desktop">
             <button
               class="flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-high/90 hover:bg-surface-container-highest backdrop-blur-md rounded-lg text-on-surface font-title-md text-title-md transition-all shadow-md"
               type="button"
@@ -83,7 +83,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               <!-- Player Name and High-Level Title Info -->
               <div class="flex flex-col pb-1">
                 <div class="flex flex-wrap items-center gap-space-sm">
-                  <h1 class="font-headline-lg text-headline-lg text-on-surface">Adam Chen</h1>
+                  <h1 class="app-page-title">Adam Chen</h1>
                   <span class="font-title-md text-title-md text-on-surface-variant"
                     >@adam_chen</span
                   >
@@ -378,7 +378,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
             <!-- Performance Analytics (7 Cols) -->
             <div
-              class="lg:col-span-7 p-space-lg bg-surface-container-low rounded-xl shadow-md flex flex-col justify-between gap-space-lg"
+              class="app-panel flex flex-col justify-between gap-space-lg p-space-lg lg:col-span-7"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-xs">
@@ -554,7 +554,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Season Trophy Shelf (5 Cols) -->
             <div
-              class="lg:col-span-5 p-space-lg bg-surface-container-low rounded-xl shadow-md flex flex-col justify-between gap-space-md"
+              class="app-panel flex flex-col justify-between gap-space-md p-space-lg lg:col-span-5"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-xs">

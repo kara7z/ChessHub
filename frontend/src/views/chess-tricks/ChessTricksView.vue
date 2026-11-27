@@ -4,7 +4,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full">
         <!-- Subtle ambient decorative glow (contained) -->
         <div class="relative w-full overflow-hidden">
@@ -18,7 +18,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
           <section class="pt-8 pb-10 max-w-7xl mx-auto w-full">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
               <div class="max-w-3xl">
-                <div class="flex items-center gap-2 mb-3">
+                <div class="flex flex-wrap items-center gap-2 mb-3">
                   <span
                     class="font-label-badge text-label-badge text-primary uppercase tracking-widest bg-secondary-container/60 px-2 py-0.5 rounded"
                     >Tactical Codex</span
@@ -35,7 +35,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     248 Verified Patterns
                   </span>
                 </div>
-                <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight mb-3">
+                <h1 class="app-page-title mb-3 lg:text-display-lg">
                   Chess Tricks &amp; Tactical Patterns
                 </h1>
                 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
@@ -44,18 +44,18 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </p>
               </div>
               <!-- Quick Stats Callout -->
-              <div class="flex items-center gap-3 bg-surface-container-low p-2 rounded-xl">
-                <div class="px-4 py-2 bg-surface-container rounded-lg text-center min-w-24">
+              <div class="grid grid-cols-3 gap-2 bg-surface-container-low p-2 rounded-xl lg:gap-3">
+                <div class="px-2 py-2 bg-surface-container rounded-lg text-center sm:min-w-24 sm:px-4">
                   <div class="font-label-numeric-lg text-label-numeric-lg text-primary">94.8%</div>
                   <div class="font-body-sm text-body-sm text-on-surface-variant">
                     Success Metric
                   </div>
                 </div>
-                <div class="px-4 py-2 bg-surface-container rounded-lg text-center min-w-24">
+                <div class="px-2 py-2 bg-surface-container rounded-lg text-center sm:min-w-24 sm:px-4">
                   <div class="font-label-numeric-lg text-label-numeric-lg text-on-surface">32</div>
                   <div class="font-body-sm text-body-sm text-on-surface-variant">Study Themes</div>
                 </div>
-                <div class="px-4 py-2 bg-surface-container rounded-lg text-center min-w-24">
+                <div class="px-2 py-2 bg-surface-container rounded-lg text-center sm:min-w-24 sm:px-4">
                   <div class="font-label-numeric-lg text-label-numeric-lg text-secondary">
                     Stockfish 17
                   </div>
@@ -67,7 +67,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Tactical Filters & Search Bar -->
             <div
-              class="mt-8 pt-6 bg-surface-container-low rounded-xl p-4 flex flex-col xl:flex-row gap-4 items-stretch xl:items-center justify-between shadow-sm"
+              class="app-panel mt-8 flex flex-col items-stretch justify-between gap-4 p-4 xl:flex-row xl:items-center"
             >
               <!-- Categories -->
               <div class="flex flex-wrap items-center gap-2">
@@ -115,7 +115,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               <!-- Right Side: Difficulty & Search -->
               <div class="flex flex-wrap items-center gap-3">
                 <!-- Difficulty Chips -->
-                <div class="flex items-center gap-1.5 bg-surface-container-lowest p-1 rounded-lg">
+                <div class="flex flex-wrap items-center gap-1.5 bg-surface-container-lowest p-1 rounded-lg">
                   <button
                     class="px-2.5 py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all"
                     type="button"
@@ -142,7 +142,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </button>
                 </div>
                 <!-- Search Input -->
-                <div class="relative min-w-64 flex-1 sm:flex-initial">
+                <div class="relative min-w-0 w-full sm:w-64">
                   <span
                     class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline"
                     aria-hidden="true"
@@ -227,13 +227,13 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             >
               <!-- Left Side: Interactive High-Fidelity SVG Chessboard (7 cols) -->
               <div
-                class="lg:col-span-7 p-6 lg:p-8 flex flex-col items-center justify-between bg-surface-container-lowest"
+                class="lg:col-span-7 min-w-0 p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-between bg-surface-container-lowest"
               >
                 <!-- Tactical Assessment Bar (Top of Board) -->
                 <div
-                  class="w-full max-w-[520px] flex items-center justify-between mb-3 text-body-sm font-body-sm"
+                  class="w-full max-w-[520px] flex flex-wrap items-center justify-between gap-2 mb-3 text-body-sm font-body-sm"
                 >
-                  <div class="flex items-center gap-2">
+                  <div class="flex flex-wrap items-center gap-2">
                     <span class="inline-block w-2.5 h-2.5 rounded-full bg-primary"></span>
                     <span class="font-semibold text-on-surface">White to Move</span>
                     <span class="text-outline">|</span>
@@ -1067,7 +1067,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 <div class="w-full max-w-[520px] mt-4 flex flex-col gap-3">
                   <!-- Move Control Toolbar -->
                   <div
-                    class="flex items-center justify-between bg-surface-container p-2 rounded-xl"
+                    class="flex flex-wrap items-center justify-between gap-2 bg-surface-container p-2 rounded-xl"
                   >
                     <div class="flex items-center gap-1">
                       <button
@@ -1170,7 +1170,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Right Side: Step-by-Step Tactical Lesson (5 cols) -->
               <div
-                class="lg:col-span-5 p-6 lg:p-8 flex flex-col justify-between bg-surface-container"
+                class="lg:col-span-5 min-w-0 p-4 sm:p-6 lg:p-8 flex flex-col justify-between bg-surface-container"
               >
                 <div>
                   <!-- Lesson Header & Abstract -->
@@ -1378,7 +1378,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
                 <!-- Bottom Action Buttons in Right Panel -->
                 <div
-                  class="pt-6 mt-6 bg-surface-container-high/40 p-4 rounded-xl flex items-center justify-between gap-3"
+                  class="mt-6 bg-surface-container-high/40 p-4 rounded-xl flex flex-wrap items-center justify-between gap-3"
                 >
                   <button
                     class="flex-1 py-2.5 px-4 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-title-md text-title-md text-center transition-colors"
@@ -1432,7 +1432,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <!-- Card 1: Blackburne Shilling -->
               <div
-                class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all group shadow-md"
+                class="app-panel group flex flex-col overflow-hidden transition-colors hover:bg-surface-container-high"
               >
                 <!-- Mini Board Visualization -->
                 <div
@@ -1553,7 +1553,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Card 2: Lucena Position -->
               <div
-                class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all group shadow-md"
+                class="app-panel group flex flex-col overflow-hidden transition-colors hover:bg-surface-container-high"
               >
                 <div
                   class="relative w-full aspect-video bg-surface-container-lowest p-4 flex items-center justify-center overflow-hidden"
@@ -1672,7 +1672,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Card 3: Smothered Mate -->
               <div
-                class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all group shadow-md"
+                class="app-panel group flex flex-col overflow-hidden transition-colors hover:bg-surface-container-high"
               >
                 <div
                   class="relative w-full aspect-video bg-surface-container-lowest p-4 flex items-center justify-center overflow-hidden"
@@ -1791,7 +1791,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Card 4: Fried Liver Attack -->
               <div
-                class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all group shadow-md"
+                class="app-panel group flex flex-col overflow-hidden transition-colors hover:bg-surface-container-high"
               >
                 <div
                   class="relative w-full aspect-video bg-surface-container-lowest p-4 flex items-center justify-center overflow-hidden"

@@ -83,7 +83,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <!-- Left Column: Form Core Configuration (7 cols) -->
           <div class="col-span-12 lg:col-span-7 flex flex-col gap-space-lg">
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg"
+              class="dashboard-panel flex flex-col gap-space-lg p-space-lg"
             >
               <!-- Player Assignments Section -->
               <div class="flex flex-col gap-space-md">
@@ -404,7 +404,7 @@ Table rescheduled due to hall maintenance</textarea>
           <div class="col-span-12 lg:col-span-5 flex flex-col gap-space-lg">
             <!-- Player Notification Preview Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-xs">
@@ -540,7 +540,7 @@ Table rescheduled due to hall maintenance</textarea>
             </div>
             <!-- Tournament Hall Blueprint / Visual Context -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <span class="font-title-md text-title-md text-on-surface font-semibold"

@@ -1,90 +1,20 @@
 <script setup lang="ts">
 import ClubLayout from '../../components/layout/ClubLayout.vue'
+import SettingsContextBar from '../../components/navigation/SettingsContextBar.vue'
+import SettingsSidebar from '../../components/navigation/SettingsSidebar.vue'
 </script>
 
 <template>
   <ClubLayout academy>
     <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
       <div class="flex flex-col w-full">
-        <div class="w-full max-w-[1440px] mx-auto px-margin-desktop py-space-xl">
-          <div class="flex flex-col lg:flex-row gap-space-xl items-start">
-            <aside
-              class="w-full lg:w-[260px] shrink-0 bg-surface-container-low rounded-xl p-space-md shadow-md"
-            >
-              <div class="px-space-sm pb-space-md mb-space-sm">
-                <span
-                  class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
-                  >Account Terminal</span
-                >
-                <h2 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs">
-                  Settings
-                </h2>
-              </div>
-              <nav aria-label="Settings Navigation" class="flex flex-col gap-space-xs">
-                <RouterLink
-                  class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                  data-path="settings-profile"
-                  to="/settings/profile"
-                >
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >person</span
-                  >
-                  <span class="font-title-md text-body-md">Profile</span>
-                </RouterLink>
-                <RouterLink
-                  class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-surface-container-highest text-primary shadow-sm transition-colors"
-                  data-path="settings-appearance"
-                  to="/settings/appearance"
-                >
-                  <div class="flex items-center gap-space-md">
-                    <span
-                      class="material-symbols-outlined text-[20px]"
-                      style="font-variation-settings: 'FILL' 1"
-                      aria-hidden="true"
-                      >palette</span
-                    >
-                    <span class="font-title-md text-body-md">Appearance</span>
-                  </div>
-                  <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                </RouterLink>
-                <RouterLink
-                  class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                  data-path="settings-security"
-                  to="/settings/security"
-                >
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >shield</span
-                  >
-                  <span class="font-title-md text-body-md">Security</span>
-                </RouterLink>
-                <RouterLink
-                  class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                  data-path="settings-notifications"
-                  to="/settings/notifications"
-                >
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >notifications</span
-                  >
-                  <span class="font-title-md text-body-md">Notifications</span>
-                </RouterLink>
-              </nav>
-              <div class="mt-space-xl pt-space-md bg-surface-container rounded-lg p-space-md">
-                <div class="flex items-center gap-space-sm text-primary mb-space-xs">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                    >verified_user</span
-                  >
-                  <span class="font-label-badge text-label-badge uppercase tracking-wider"
-                    >FIDE Synced</span
-                  >
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">
-                  Preferences are synchronized across your tournament boards and analysis terminals.
-                </p>
-              </div>
-            </aside>
-            <section class="flex-1 min-w-0 w-full flex flex-col gap-space-xl">
+        <div class="w-full px-margin pb-space-xl md:px-margin-desktop">
+          <SettingsContextBar />
+          <div class="grid grid-cols-1 items-start gap-space-lg lg:grid-cols-12">
+            <SettingsSidebar />
+            <section class="flex min-w-0 flex-col gap-space-xl lg:col-span-9">
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-md"
+                class="app-panel flex flex-col justify-between gap-space-md p-space-lg sm:flex-row sm:items-center"
               >
                 <div>
                   <div class="flex items-center gap-space-sm mb-space-xs">
@@ -96,7 +26,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                       >v2.4 Terminal</span
                     >
                   </div>
-                  <h1 class="font-headline-lg text-headline-lg text-on-surface">Appearance</h1>
+                  <h1 class="app-page-title">Appearance</h1>
                   <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
                     Calibrate your board contrast, low-light interface theme, and federation
                     language.
@@ -123,7 +53,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+                class="app-panel flex flex-col gap-space-lg p-space-lg"
               >
                 <div class="flex items-center justify-between gap-space-md">
                   <div>
@@ -256,7 +186,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+                class="app-panel flex flex-col gap-space-lg p-space-lg"
               >
                 <div class="flex items-center justify-between gap-space-md">
                   <div>

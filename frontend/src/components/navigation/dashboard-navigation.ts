@@ -8,3 +8,9 @@ export const dashboardNavigation = [
   { to: '/dashboard/chess-tricks', label: 'Chess tricks', icon: 'lightbulb' },
   { to: '/dashboard/activity-logs', label: 'Activity logs', icon: 'history_edu' },
 ]
+
+export function findDashboardSection(path: string) {
+  return dashboardNavigation.find(
+    ({ to }) => path === to || (to !== '/dashboard' && path.startsWith(`${to}/`)),
+  )
+}

@@ -70,6 +70,128 @@
   padding-top: env(safe-area-inset-top, 0px);
 }
 
+@utility app-frame {
+  @apply mx-auto w-full max-w-7xl;
+}
+
+@utility app-page-title {
+  @apply font-headline-lg text-headline-lg-mobile tracking-tight text-on-surface md:text-headline-lg;
+}
+
+@utility app-panel {
+  @apply rounded-xl bg-surface-container shadow-sm ring-1 ring-inset ring-outline-variant/25;
+}
+
+@utility app-action-primary {
+  @apply inline-flex items-center justify-center gap-space-xs rounded-lg bg-primary-container px-space-md py-space-sm font-title-md text-title-md text-on-primary-container shadow-sm transition-colors hover:bg-primary;
+}
+
+@utility app-action-secondary {
+  @apply inline-flex items-center justify-center gap-space-xs rounded-lg bg-surface-container-high px-space-md py-space-sm font-title-md text-title-md text-on-surface shadow-sm transition-colors hover:bg-surface-bright;
+}
+
+@utility app-field {
+  @apply w-full rounded-lg bg-surface-container-lowest font-body-md text-body-md text-on-surface placeholder:text-outline transition-colors focus:bg-surface-container-low;
+}
+
+@utility navbar-profile-gradient {
+  background-image:
+    radial-gradient(ellipse 4rem 1.5rem at calc(100% - var(--navbar-profile-inset, 2rem)) 38%, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent),
+    radial-gradient(ellipse 4rem 1.5rem at calc(100% - var(--navbar-profile-inset, 2rem)) 75%, color-mix(in srgb, var(--color-secondary-container) 20%, transparent), transparent);
+}
+
+#app {
+  isolation: isolate;
+  min-height: 100dvh;
+}
+
+#app::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 35%, transparent 28%, rgb(0 0 0 / 58%) 100%),
+    radial-gradient(ellipse at 14% 8%, color-mix(in srgb, var(--color-primary) 11%, transparent), transparent 52%),
+    radial-gradient(ellipse at 90% 28%, color-mix(in srgb, var(--color-secondary-container) 42%, transparent), transparent 46%),
+    radial-gradient(ellipse at 26% 100%, color-mix(in srgb, var(--color-outline-variant) 24%, transparent), transparent 62%),
+    linear-gradient(145deg, var(--color-background), var(--color-surface-container-lowest) 75%);
+  content: '';
+  pointer-events: none;
+}
+
+.page-layout > main {
+  background-color: transparent;
+}
+
+@media (width >= 64rem) {
+  .page-layout > main {
+    @apply app-frame;
+  }
+}
+
+.dashboard-workspace > main {
+  padding-inline: var(--spacing-margin);
+}
+
+.dashboard-workspace > main h1 {
+  @apply app-page-title;
+}
+
+@media (width >= 48rem) {
+  .dashboard-workspace > main {
+    padding-inline: var(--spacing-margin-desktop);
+  }
+}
+
+@utility dashboard-action {
+  @apply app-action-secondary;
+}
+
+@utility dashboard-primary-action {
+  @apply app-action-primary;
+}
+
+@utility dashboard-panel {
+  @apply app-panel;
+}
+
+@utility dashboard-metrics {
+  @apply grid grid-cols-1 gap-gutter sm:grid-cols-2 xl:grid-cols-4;
+}
+
+@utility dashboard-metric {
+  @apply dashboard-panel relative flex flex-col justify-between overflow-hidden p-space-md transition-colors hover:bg-surface-container-high lg:p-space-lg;
+}
+
+@utility dashboard-toolbar {
+  @apply dashboard-panel p-space-md;
+}
+
+@utility dashboard-table {
+  @apply dashboard-panel overflow-hidden;
+
+  & table > thead > tr {
+    background-color: var(--color-surface-container-lowest);
+  }
+
+  & table > tbody > tr {
+    transition: background-color 150ms ease;
+  }
+
+  & table > tbody > tr:nth-child(odd) {
+    background-color: var(--color-surface-container);
+  }
+
+  & table > tbody > tr:nth-child(even) {
+    background-color: var(--color-surface-container-low);
+  }
+
+  & table > tbody > tr:hover,
+  & table > tbody > tr:focus-within {
+    background-color: var(--color-surface-container-high);
+  }
+}
+
 .preview-disclosure[data-open] {
   display: block;
 }
@@ -85,7 +207,7 @@
 }
 
 @media (width < 64rem) {
-  .dashboard-sidebar:not([data-open]) {
-    display: none;
+  #app {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
   }
 }

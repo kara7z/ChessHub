@@ -1,24 +1,13 @@
 <script setup lang="ts">
 import CompactLayout from '../../components/layout/CompactLayout.vue'
+import MatchesHeader from '../../components/navigation/MatchesHeader.vue'
 </script>
 
 <template>
-  <CompactLayout title="Matches">
-    <main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-background">
-      <div class="flex flex-col w-full pb-8">
-        <!-- Sub-Header & Controls Container -->
-        <div class="px-margin flex flex-col gap-space-sm pt-space-sm pb-space-xs">
-          <div class="flex items-center justify-between gap-space-sm">
-            <div>
-              <p
-                class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight"
-              >
-                My Matches
-              </p>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Round 6 Pairings &amp; League Fixtures
-              </p>
-            </div>
+  <CompactLayout>
+    <main class="flex-1 flex flex-col relative w-full pt-16 bg-background">
+      <div class="flex w-full flex-col pb-8 lg:px-margin-desktop lg:pt-space-lg">
+        <MatchesHeader description="Round 6 Pairings &amp; League Fixtures">
             <!-- Season Selector Dropdown Pill -->
             <div class="relative inline-flex items-center">
               <button
@@ -78,39 +67,12 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
                 </button>
               </div>
             </div>
-          </div>
-          <!-- Navigation Tabs -->
-          <div
-            class="flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-lowest mt-1"
-          >
-            <RouterLink
-              class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high text-primary font-headline-sm text-headline-sm text-center shadow-sm flex items-center justify-center gap-1.5 transition-all"
-              id="tab-upcoming"
-              to="/matches"
-            >
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
-                >event_upcoming</span
-              >
-              <span class="font-title-md text-title-md">Upcoming Matches</span>
-            </RouterLink>
-            <RouterLink
-              class="flex-1 py-2 px-3 rounded-lg text-on-surface-variant hover:text-on-surface font-title-md text-title-md text-center flex items-center justify-center gap-2 transition-all"
-              id="tab-history"
-              to="/matches/history"
-            >
-              <span>Match History</span>
-              <span
-                class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-badge text-label-badge"
-                >24</span
-              >
-            </RouterLink>
-          </div>
-        </div>
+        </MatchesHeader>
         <!-- Main Content Feed -->
-        <div class="px-margin flex flex-col gap-space-lg mt-space-sm">
+        <div class="px-margin flex flex-col gap-space-lg mt-space-sm lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-space-xl lg:px-0">
           <!-- FEATURED NEXT SCHEDULED MATCH CARD -->
           <section
-            class="flex flex-col relative rounded-2xl bg-surface-container p-space-md shadow-md overflow-hidden"
+            class="app-panel relative flex flex-col overflow-hidden rounded-2xl p-space-md lg:p-space-lg"
           >
             <!-- Ambient subtle board glow -->
             <div
@@ -362,7 +324,7 @@ import CompactLayout from '../../components/layout/CompactLayout.vue'
             </div>
           </section>
           <!-- FILTER & SEARCH TOOLBAR -->
-          <section class="flex flex-col gap-space-xs mt-space-xs">
+          <section class="flex flex-col gap-space-xs mt-space-xs lg:col-span-2">
             <div class="flex items-center gap-space-sm">
               <!-- Search Input -->
               <div class="relative flex-1">

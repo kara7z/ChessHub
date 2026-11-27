@@ -67,7 +67,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-8 flex flex-col gap-space-lg min-w-0">
             <!-- Primary Core Specs Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+              class="dashboard-panel flex flex-col gap-space-lg p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -150,11 +150,11 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                           aria-hidden="true"
                           >photo_camera</span
                         >
-                        <span class="font-label-badge text-label-badge text-on-surface"
+                        <span class="font-label-badge text-label-badge text-on-surface [overflow-wrap:anywhere]"
                           >spring_swiss_banner_2025_hdr.png</span
                         >
                       </div>
-                      <div class="flex items-center gap-space-xs">
+                      <div class="flex flex-wrap items-center gap-space-xs">
                         <button
                           class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-title-md text-title-md flex items-center gap-space-xs shadow transition-colors"
                           type="button"
@@ -274,7 +274,7 @@ Arbiter panel: GM #1440 (Chief Arbiter), IA Viktor Vance. Strict zero-tolerance 
             </div>
             <!-- Schedule, Capacity & Logistics Grid -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg"
+              class="dashboard-panel flex flex-col gap-space-lg p-space-lg"
             >
               <div class="flex items-center gap-space-sm pb-space-xs">
                 <span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true"
@@ -467,7 +467,7 @@ Arbiter panel: GM #1440 (Chief Arbiter), IA Viktor Vance. Strict zero-tolerance 
           <div class="lg:col-span-4 flex flex-col gap-space-lg min-w-0">
             <!-- Registered Players Roster & Broadcast Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-sm">
@@ -638,7 +638,7 @@ Arbiter panel: GM #1440 (Chief Arbiter), IA Viktor Vance. Strict zero-tolerance 
             </div>
             <!-- Quick Tournament Summary Metrics -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <span class="font-title-md text-title-md text-on-surface">Arbitration Specs</span>
               <div class="grid grid-cols-2 gap-space-sm">

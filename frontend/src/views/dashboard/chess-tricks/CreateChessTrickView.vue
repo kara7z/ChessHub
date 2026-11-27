@@ -49,7 +49,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="xl:col-span-7 flex flex-col gap-6">
             <!-- Section 1: Pattern Identity -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-5 shadow-sm"
+              class="dashboard-panel flex flex-col gap-5 p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
@@ -212,7 +212,7 @@ Named after Sire de Légal (1702–1792), this classic snare exploits an absolut
             </div>
             <!-- Section 2: FEN & Tactical Mechanics -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-5 shadow-sm"
+              class="dashboard-panel flex flex-col gap-5 p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2.5">

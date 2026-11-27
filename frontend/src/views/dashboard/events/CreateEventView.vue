@@ -48,7 +48,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-7 flex flex-col gap-space-lg">
             <!-- Section 1: Core Details -->
             <section
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -190,9 +190,9 @@ Annual 7-round Swiss system blitz open. Open to all registered club members and 
                       >
                     </div>
                   </div>
-                  <div class="flex flex-col gap-1 w-full">
-                    <div class="flex items-center justify-between">
-                      <span class="font-title-md text-title-md text-on-surface font-medium"
+                  <div class="flex min-w-0 flex-1 flex-col gap-1 w-full">
+                    <div class="flex flex-wrap items-center justify-between gap-1">
+                      <span class="font-title-md text-title-md text-on-surface font-medium [overflow-wrap:anywhere]"
                         >blitz_tournament_hero.webp</span
                       >
                       <span
@@ -203,7 +203,7 @@ Annual 7-round Swiss system blitz open. Open to all registered club members and 
                     <p class="font-body-sm text-body-sm text-outline">
                       Recommended dimension 1920x1080 (16:9). JPG, WebP or PNG up to 8MB.
                     </p>
-                    <div class="flex items-center gap-space-sm mt-space-xs">
+                    <div class="flex flex-wrap items-center gap-space-sm mt-space-xs">
                       <button
                         class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-colors flex items-center gap-1"
                         type="button"
@@ -233,7 +233,7 @@ Annual 7-round Swiss system blitz open. Open to all registered club members and 
             </section>
             <!-- Section 2: Logistics & Schedule -->
             <section
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -564,7 +564,7 @@ Annual 7-round Swiss system blitz open. Open to all registered club members and 
             </div>
             <!-- Official Tournament Arbitration Rules Card -->
             <div
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center gap-space-sm pb-space-xs">
                 <span

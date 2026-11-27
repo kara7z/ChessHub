@@ -10,7 +10,7 @@ import PublicLayout from '../../components/layout/PublicLayout.vue'
       <div class="w-full max-w-md">
         <div class="flex flex-col w-full">
           <div
-            class="relative w-full bg-surface-container rounded-xl p-space-xl shadow-xl overflow-hidden"
+            class="app-panel relative w-full overflow-hidden p-space-lg sm:p-space-xl"
           >
             <div
               class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/10 blur-2xl pointer-events-none"
@@ -70,7 +70,7 @@ import PublicLayout from '../../components/layout/PublicLayout.vue'
                       >mail</span
                     >
                     <input
-                      class="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg pl-10 pr-4 py-3 focus:outline-none focus:bg-surface-container-low transition-colors"
+                      class="app-field py-3 pr-4 pl-10"
                       id="email"
                       name="email"
                       placeholder="grandmaster@chesshub.academy"
@@ -80,7 +80,7 @@ import PublicLayout from '../../components/layout/PublicLayout.vue'
                   </div>
                 </div>
                 <button
-                  class="w-full bg-primary-container hover:bg-primary text-on-primary-container font-title-md text-title-md rounded-lg py-3 px-space-lg flex items-center justify-center gap-space-sm transition-colors shadow-md cursor-pointer"
+                  class="app-action-primary w-full py-3"
                   type="submit"
                   disabled
                   title="Design preview"

@@ -10,7 +10,7 @@ import PublicLayout from '../../components/layout/PublicLayout.vue'
       <div class="w-full max-w-md">
         <div class="flex flex-col w-full">
           <div
-            class="relative w-full rounded-xl bg-surface-container text-on-surface shadow-xl p-space-xl overflow-hidden"
+            class="app-panel relative w-full overflow-hidden p-space-lg text-on-surface sm:p-space-xl"
           >
             <div
               class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-error/10 blur-2xl pointer-events-none"

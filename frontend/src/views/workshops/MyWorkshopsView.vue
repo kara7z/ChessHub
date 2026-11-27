@@ -23,7 +23,7 @@ const workshopToCancel = ref('')
                   >FIDE ID: 2849102</span
                 >
               </div>
-              <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">
+              <h1 class="app-page-title">
                 My Workshops
               </h1>
               <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">

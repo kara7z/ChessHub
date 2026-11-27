@@ -1,18 +1,16 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { dashboardNavigation } from './dashboard-navigation'
+import { dashboardNavigation, findDashboardSection } from './dashboard-navigation'
 
 const route = useRoute()
-
-function isCurrentSection(path: string) {
-  return route.path === path || (path !== '/dashboard' && route.path.startsWith(`${path}/`))
-}
+const section = computed(() => findDashboardSection(route.matched.at(-1)?.path ?? route.path))
 </script>
 
 <template>
   <aside
     id="dashboard-sidebar"
-    class="dashboard-sidebar fixed left-0 top-0 z-50 flex h-full w-64 flex-col justify-between overflow-y-auto bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    class="fixed left-0 top-0 z-50 hidden h-full w-64 flex-col justify-between overflow-y-auto bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] lg:flex"
   >
     <div>
       <div class="flex h-16 items-center justify-between px-margin">
@@ -31,15 +29,6 @@ function isCurrentSection(path: string) {
             >
           </div>
         </div>
-        <button
-          v-preview-disclosure="'dashboard-sidebar'"
-          aria-label="Close dashboard navigation"
-          class="p-space-xs text-outline hover:text-on-surface lg:hidden"
-          data-preview-dismiss
-          type="button"
-        >
-          <span class="material-symbols-outlined text-[20px]" aria-hidden="true">menu_open</span>
-        </button>
       </div>
       <div class="px-margin pb-space-xs pt-space-md">
         <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -52,7 +41,7 @@ function isCurrentSection(path: string) {
           :key="to"
           :to="to"
           :class="
-            isCurrentSection(to)
+            section?.to === to
               ? 'bg-primary-container font-semibold text-on-primary-container'
               : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
           "

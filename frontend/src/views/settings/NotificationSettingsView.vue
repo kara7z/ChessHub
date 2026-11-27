@@ -1,110 +1,20 @@
 <script setup lang="ts">
 import ClubLayout from '../../components/layout/ClubLayout.vue'
+import SettingsContextBar from '../../components/navigation/SettingsContextBar.vue'
+import SettingsSidebar from '../../components/navigation/SettingsSidebar.vue'
 </script>
 
 <template>
   <ClubLayout academy>
     <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
       <div class="flex flex-col w-full">
-        <div
-          class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl"
-        >
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-            <aside class="lg:col-span-3 lg:sticky lg:top-24 space-y-space-lg">
-              <div class="bg-surface-container-low rounded-xl p-space-md shadow-md">
-                <div class="px-space-sm pb-space-md flex items-center justify-between">
-                  <span
-                    class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
-                    >01 / Settings</span
-                  >
-                  <span
-                    class="font-label-badge text-label-badge text-primary bg-primary/10 px-space-sm py-0.5 rounded-full"
-                    >v2.4</span
-                  >
-                </div>
-                <nav aria-label="Settings Navigation" class="space-y-space-xs">
-                  <RouterLink
-                    class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                    data-path="settings-profile"
-                    to="/settings/profile"
-                  >
-                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                      >person</span
-                    >
-                    <span class="truncate">Profile</span>
-                  </RouterLink>
-                  <RouterLink
-                    class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                    data-path="settings-security"
-                    to="/settings/security"
-                  >
-                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                      >shield</span
-                    >
-                    <span class="truncate">Security</span>
-                  </RouterLink>
-                  <RouterLink
-                    aria-current="page"
-                    class="flex items-center justify-between gap-space-md px-space-md py-space-sm rounded-lg bg-surface-container-highest text-primary font-title-md text-body-md shadow-sm"
-                    data-path="settings-notifications"
-                    to="/settings/notifications"
-                  >
-                    <div class="flex items-center gap-space-md min-w-0">
-                      <span
-                        class="material-symbols-outlined text-[20px]"
-                        style="font-variation-settings: 'FILL' 1"
-                        aria-hidden="true"
-                        >notifications</span
-                      >
-                      <span class="truncate">Notifications</span>
-                    </div>
-                    <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                  </RouterLink>
-                  <RouterLink
-                    class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
-                    data-path="settings-appearance"
-                    to="/settings/appearance"
-                  >
-                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                      >palette</span
-                    >
-                    <span class="truncate">Appearance</span>
-                  </RouterLink>
-                </nav>
-              </div>
+        <div class="w-full px-margin pb-space-xl md:px-margin-desktop">
+          <SettingsContextBar />
+          <div class="grid grid-cols-1 items-start gap-space-lg lg:grid-cols-12">
+            <SettingsSidebar />
+            <section class="min-w-0 space-y-space-xl lg:col-span-9">
               <div
-                class="bg-surface-container-low rounded-xl p-space-lg shadow-md relative overflow-hidden"
-              >
-                <div
-                  class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-primary/10 blur-xl pointer-events-none"
-                ></div>
-                <div class="flex items-center gap-space-sm mb-space-sm">
-                  <span
-                    class="material-symbols-outlined text-primary text-[18px]"
-                    aria-hidden="true"
-                    >bolt</span
-                  >
-                  <span
-                    class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface"
-                    >Alert Relay</span
-                  >
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-                  Real-time WebSocket &amp; SMTP dispatch active for FIDE rated pairings.
-                </p>
-                <div
-                  class="flex items-center justify-between bg-surface-container rounded-lg px-space-md py-space-sm"
-                >
-                  <span class="font-body-sm text-body-sm text-outline">Avg. Latency</span>
-                  <span class="font-label-numeric-md text-label-numeric-md text-primary"
-                    >42 ms</span
-                  >
-                </div>
-              </div>
-            </aside>
-            <section class="lg:col-span-9 space-y-space-xl">
-              <div
-                class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col md:flex-row md:items-center justify-between gap-space-lg relative overflow-hidden"
+                class="app-panel relative flex flex-col justify-between gap-space-lg overflow-hidden p-space-lg md:flex-row md:items-center"
               >
                 <div
                   class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none"
@@ -121,9 +31,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                       >Match &amp; Event Alerts</span
                     >
                   </div>
-                  <h2 class="font-headline-lg text-headline-lg text-on-surface">
+                  <h1 class="app-page-title">
                     Notification Preferences
-                  </h2>
+                  </h1>
                   <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
                     Configure how ChessHub delivers tournament pairings, round countdowns, validated
                     FIDE result slips, and masterclass schedule updates.
@@ -161,7 +71,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 </div>
               </div>
               <div
-                class="bg-surface-container rounded-xl p-space-lg shadow-md relative overflow-hidden"
+                class="app-panel relative overflow-hidden p-space-lg"
               >
                 <div
                   class="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent pointer-events-none"
@@ -213,7 +123,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
                 <div
-                  class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-lg"
+                  class="app-panel flex flex-col justify-between gap-space-lg p-space-lg"
                 >
                   <div class="flex items-start gap-space-md">
                     <div
@@ -284,7 +194,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <div
-                  class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-lg"
+                  class="app-panel flex flex-col justify-between gap-space-lg p-space-lg"
                 >
                   <div class="flex items-start gap-space-md">
                     <div
@@ -355,7 +265,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <div
-                  class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-lg"
+                  class="app-panel flex flex-col justify-between gap-space-lg p-space-lg"
                 >
                   <div class="flex items-start gap-space-md">
                     <div
@@ -402,7 +312,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <div
-                  class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-lg"
+                  class="app-panel flex flex-col justify-between gap-space-lg p-space-lg"
                 >
                   <div class="flex items-start gap-space-md">
                     <div

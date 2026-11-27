@@ -1,43 +1,23 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
   <DashboardLayout>
     <main class="w-full pt-16 px-margin-desktop bg-surface">
       <div class="flex flex-col w-full">
-        <!-- Top Command & Breadcrumb Context -->
-        <div class="flex flex-col gap-space-xs pt-space-md pb-space-lg">
-          <div class="flex items-center gap-space-xs text-outline font-body-sm text-body-sm">
-            <span class="hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
-            <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
-              >chevron_right</span
-            >
-            <span class="text-primary font-title-md text-title-md font-semibold">Accounts</span>
-            <span
-              class="ml-space-sm px-space-xs py-[2px] rounded bg-surface-container-high text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider"
-              >Arbiter Desk</span
-            >
-          </div>
-          <div
-            class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mt-space-xs"
-          >
-            <div>
-              <h1
-                class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold"
-              >
-                Account Management
-              </h1>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-2xl">
-                Manage club player accounts, verification dossiers, and role privileges across Swiss
-                and Round Robin ladders.
-              </p>
-            </div>
-            <!-- Bulk & Global Exports -->
-            <div class="flex items-center gap-space-sm flex-wrap">
+        <DashboardPageHeader
+          section="Accounts"
+          title="Account Management"
+          badge="Arbiter Desk"
+          description="Manage club player accounts, verification dossiers, and role privileges across Swiss and Round Robin ladders."
+          class="mb-space-md"
+        >
+          <template #actions>
               <div class="relative inline-block text-left" id="batchDropdownContainer">
                 <button
-                  class="flex items-center gap-space-xs px-space-md py-space-sm rounded bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors text-title-md font-title-md shadow-sm"
+                  class="dashboard-action"
                   id="batchBtn"
                   type="button"
                   v-preview-disclosure="'batchMenu'"
@@ -53,7 +33,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                   >
                 </button>
                 <div
-                  class="hidden absolute right-0 mt-2 w-56 rounded bg-surface-container-highest shadow-xl z-30 p-space-xs flex flex-col gap-1 preview-disclosure preview-disclosure-flex"
+                  class="hidden absolute left-0 mt-2 w-56 rounded-lg bg-surface-container-highest shadow-xl z-30 p-space-xs flex flex-col gap-1 preview-disclosure preview-disclosure-flex"
                   id="batchMenu"
                 >
                   <button
@@ -93,7 +73,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 </div>
               </div>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors text-title-md font-title-md shadow-sm"
+                class="dashboard-action"
                 type="button"
                 disabled
                 title="Design preview"
@@ -104,7 +84,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 <span>Export CSV</span>
               </button>
               <button
-                class="flex items-center gap-space-xs px-space-md py-space-sm rounded bg-primary text-on-primary hover:bg-primary-fixed-dim transition-colors text-title-md font-title-md shadow-sm font-semibold"
+                class="dashboard-primary-action"
                 type="button"
                 disabled
                 title="Design preview"
@@ -114,14 +94,13 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 >
                 <span>Invite Competitor</span>
               </button>
-            </div>
-          </div>
-        </div>
+          </template>
+        </DashboardPageHeader>
         <!-- Metric Gauges Row -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+        <div class="dashboard-metrics mb-space-lg">
           <!-- Stat 1 -->
           <div
-            class="relative overflow-hidden rounded bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -152,7 +131,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Stat 2 -->
           <div
-            class="relative overflow-hidden rounded bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -181,7 +160,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Stat 3 -->
           <div
-            class="relative overflow-hidden rounded bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -210,7 +189,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Stat 4 -->
           <div
-            class="relative overflow-hidden rounded bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -246,7 +225,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Filters & Controls Bar -->
         <div
-          class="rounded bg-surface-container p-space-md flex flex-col gap-space-md shadow-sm mb-space-sm"
+          class="dashboard-toolbar mb-space-sm flex flex-col gap-space-md"
         >
           <!-- Search and Direct Filters -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-sm items-center">
@@ -380,7 +359,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </div>
         <!-- Main Standings & User Ledger Table -->
-        <div class="rounded bg-surface-container-low overflow-hidden shadow-md flex flex-col">
+        <div class="dashboard-table flex flex-col">
           <div class="overflow-x-auto w-full">
             <table class="w-full text-left border-collapse">
               <!-- Table Head -->
@@ -1050,7 +1029,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Table Bottom Navigation & Pagination -->
           <div
-            class="bg-surface-container-lowest px-space-lg py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md"
+            class="bg-surface-container-lowest px-space-xs sm:px-space-lg py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md"
           >
             <div class="flex items-center gap-space-sm text-outline font-body-sm text-body-sm">
               <span
@@ -1081,7 +1060,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               </div>
             </div>
             <!-- Pagination Buttons -->
-            <div class="flex items-center gap-1">
+            <div class="flex flex-wrap items-center justify-center gap-1">
               <button
                 class="w-8 h-8 rounded bg-surface-container-high text-outline hover:text-on-surface flex items-center justify-center disabled:opacity-40 transition-colors"
                 disabled

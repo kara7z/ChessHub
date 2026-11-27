@@ -1,203 +1,20 @@
 <script setup lang="ts">
 import ClubLayout from '../../components/layout/ClubLayout.vue'
+import SettingsContextBar from '../../components/navigation/SettingsContextBar.vue'
+import SettingsSidebar from '../../components/navigation/SettingsSidebar.vue'
 </script>
 
 <template>
   <ClubLayout>
     <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full pb-space-xl">
-        <!-- Top Utility Context Bar -->
-        <div
-          class="flex flex-col md:flex-row md:items-center justify-between gap-space-md py-space-lg"
-        >
-          <div
-            class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm"
-          >
-            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">chess</span>
-            <span>Federation Portal</span>
-            <span class="text-outline-variant">/</span>
-            <span class="text-on-surface font-title-md text-title-md">Player Configuration</span>
-            <span class="text-outline-variant">/</span>
-            <span
-              class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-badge text-label-badge uppercase tracking-wider"
-              >CH-2044</span
-            >
-          </div>
-          <!-- Rating & Status Monospace Capsule -->
-          <div
-            class="flex items-center gap-space-md self-start md:self-auto bg-surface-container-low px-space-md py-space-xs rounded-xl shadow-sm"
-          >
-            <div class="flex items-center gap-space-xs">
-              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span
-                class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider"
-                >FIDE Blitz</span
-              >
-              <span class="font-label-numeric-md text-label-numeric-md text-on-surface">2148</span>
-            </div>
-            <div class="h-3 w-px bg-surface-container-highest"></div>
-            <div class="flex items-center gap-space-xs">
-              <span
-                class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider"
-                >Sync State</span
-              >
-              <span class="font-label-numeric-md text-label-numeric-md text-secondary"
-                >Verified</span
-              >
-            </div>
-          </div>
-        </div>
-        <!-- Master Layout: 12-Column Spatial Distribution -->
-        <div class="grid grid-cols-12 gap-space-lg items-start">
-          <!-- LEFT: Settings Sidebar Column (3 cols) -->
-          <aside class="col-span-12 lg:col-span-3 flex flex-col gap-space-md">
-            <!-- Player Mini-Card Navigation Header -->
-            <div
-              class="bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-md shadow-sm"
-            >
-              <div
-                class="relative w-12 h-12 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-inner"
-              >
-                <img
-                  class="w-full h-full object-cover"
-                  data-alt="Moody cinematic portrait of a competitive grandmaster looking intensely sideways against dark studio lighting with soft verdant rim highlights, ultra-sharp detail"
-                  src="/images/3b19de57057c.webp"
-                  alt=""
-                />
-                <div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full"></div>
-              </div>
-              <div class="flex flex-col min-w-0">
-                <div class="flex items-center gap-space-xs">
-                  <span class="font-title-md text-title-md text-on-surface truncate"
-                    >Alex Rivera</span
-                  >
-                  <span
-                    class="px-1.5 py-0.2 rounded bg-surface-container-highest text-primary font-label-badge text-label-badge uppercase"
-                    >FM</span
-                  >
-                </div>
-                <span class="font-body-sm text-body-sm text-on-surface-variant truncate"
-                  >@alex_rivera</span
-                >
-              </div>
-            </div>
-            <!-- Navigation Tabs -->
-            <nav
-              class="bg-surface-container-low rounded-xl p-space-xs flex flex-col gap-1 shadow-sm"
-            >
-              <RouterLink
-                class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-surface-container text-primary font-title-md text-title-md transition-all"
-                to="/settings"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <span
-                    class="material-symbols-outlined text-[20px]"
-                    style="font-variation-settings: 'FILL' 1"
-                    aria-hidden="true"
-                    >tune</span
-                  >
-                  <span>General</span>
-                </div>
-                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              </RouterLink>
-              <RouterLink
-                class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-all"
-                to="/settings/profile"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >badge</span
-                  >
-                  <span>Profile</span>
-                </div>
-                <span class="font-label-badge text-label-badge text-outline">Public</span>
-              </RouterLink>
-              <RouterLink
-                class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-all"
-                to="/settings/security"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >lock_clock</span
-                  >
-                  <span>Security</span>
-                </div>
-                <span class="w-2 h-2 rounded-full bg-secondary"></span>
-              </RouterLink>
-              <RouterLink
-                class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-all"
-                to="/settings/notifications"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >notifications_active</span
-                  >
-                  <span>Notifications</span>
-                </div>
-                <span
-                  class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-badge text-label-badge"
-                  >3</span
-                >
-              </RouterLink>
-              <RouterLink
-                class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-all"
-                to="/settings/appearance"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true"
-                    >palette</span
-                  >
-                  <span>Appearance</span>
-                </div>
-                <span class="font-label-badge text-label-badge text-outline-variant">Dark</span>
-              </RouterLink>
-            </nav>
-            <!-- Tactical Analytics Micro-Card -->
-            <div
-              class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm"
-            >
-              <div class="flex items-center justify-between">
-                <span
-                  class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider"
-                  >Tournament Tier</span
-                >
-                <span class="text-primary font-label-badge text-label-badge">Swiss Master</span>
-              </div>
-              <div class="flex items-end justify-between pt-space-xs">
-                <span class="font-headline-md text-headline-md text-on-surface">Round VII</span>
-                <span class="font-label-numeric-md text-label-numeric-md text-primary"
-                  >Completed</span
-                >
-              </div>
-              <!-- Sparkline Visualization -->
-              <div class="w-full h-8 pt-1">
-                <svg
-                  class="w-full h-full text-primary"
-                  fill="none"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 160 30"
-                >
-                  <path
-                    d="M0 24 L25 18 L50 22 L75 12 L100 15 L125 7 L160 3"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  ></path>
-                  <path
-                    d="M0 24 L25 18 L50 22 L75 12 L100 15 L125 7 L160 3 L160 30 L0 30 Z"
-                    fill="currentColor"
-                    fill-opacity="0.1"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-          </aside>
-          <!-- RIGHT: Configuration Engine (9 cols) -->
-          <div class="col-span-12 lg:col-span-9 flex flex-col gap-space-lg">
+        <SettingsContextBar />
+        <div class="grid grid-cols-1 items-start gap-space-lg lg:grid-cols-12">
+          <SettingsSidebar />
+          <div class="flex min-w-0 flex-col gap-space-lg lg:col-span-9">
             <!-- Section Title & Meta Header -->
             <div
-              class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm bg-surface-container-low p-space-lg rounded-xl shadow-sm"
+              class="app-panel flex flex-col justify-between gap-space-sm p-space-lg sm:flex-row sm:items-end"
             >
               <div>
                 <div class="flex items-center gap-space-xs mb-1">
@@ -211,7 +28,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     >Federation Master Config</span
                   >
                 </div>
-                <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                <h1 class="app-page-title">
                   Account Settings
                 </h1>
                 <p class="font-body-md text-body-md text-on-surface-variant mt-1">
@@ -230,7 +47,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Module 1: Profile & Identity Specification -->
             <section
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg"
+              class="app-panel flex flex-col gap-space-lg p-space-lg"
             >
               <div class="flex items-center justify-between pb-space-xs">
                 <div class="flex items-center gap-space-sm">
@@ -431,7 +248,7 @@ Active club player focusing on English Opening and tactical endgames.</textarea>
             </section>
             <!-- Module 2: Security Quick View & 2FA Engine -->
             <section
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="app-panel flex flex-col gap-space-md p-space-lg"
               id="security"
             >
               <div class="flex items-center justify-between pb-space-xs">
@@ -557,7 +374,7 @@ Active club player focusing on English Opening and tactical endgames.</textarea>
             </section>
             <!-- Module 3: Match & Club Notification Dispatch Rules -->
             <section
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="app-panel flex flex-col gap-space-md p-space-lg"
               id="notifications"
             >
               <div class="flex items-center justify-between pb-space-xs">
@@ -640,7 +457,7 @@ Active club player focusing on English Opening and tactical endgames.</textarea>
             </section>
             <!-- Module 4: Appearance & Language Configuration -->
             <section
-              class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              class="app-panel flex flex-col gap-space-md p-space-lg"
               id="appearance"
             >
               <div class="flex items-center justify-between pb-space-xs">
@@ -786,7 +603,7 @@ Active club player focusing on English Opening and tactical endgames.</textarea>
                   Cancel
                 </button>
                 <button
-                  class="px-space-xl py-space-sm rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-title-md text-title-md transition-all shadow-md flex items-center gap-space-xs"
+                  class="app-action-primary px-space-xl"
                   id="saveBtn"
                   type="button"
                   disabled

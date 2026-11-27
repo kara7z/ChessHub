@@ -1,36 +1,20 @@
 <script setup lang="ts">
 import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
+import DashboardPageHeader from '../../../components/layout/DashboardPageHeader.vue'
 </script>
 
 <template>
   <DashboardLayout>
     <main class="w-full pt-16 px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-16">
-        <!-- Sub-header Breadcrumb & Operational Actions Strip -->
-        <div
-          class="flex flex-col md:flex-row md:items-center justify-between gap-space-md py-space-md"
+        <DashboardPageHeader
+          section="Workshops"
+          title="Workshop Management Desk"
+          description="Manage masterclasses, tactical clinics, and instructional seminars for club players."
         >
-          <div class="flex flex-col">
-            <div
-              class="flex items-center gap-space-xs text-outline font-body-sm text-body-sm mb-space-xs"
-            >
-              <span class="hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
-              <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
-                >chevron_right</span
-              >
-              <span class="text-primary font-semibold">Workshops</span>
-            </div>
-            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-              Workshop Management Desk
-            </h1>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-0.5">
-              Manage masterclasses, tactical clinics, and instructional seminars for club players.
-            </p>
-          </div>
-          <!-- Quick Administrative Controls -->
-          <div class="flex items-center gap-space-sm self-start md:self-auto">
+          <template #actions>
             <button
-              class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-title-md shadow-sm transition-all"
+              class="dashboard-action"
               type="button"
               disabled
               title="Design preview"
@@ -41,7 +25,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               <span>Export CSV</span>
             </button>
             <button
-              class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-title-md text-title-md font-semibold shadow-md shadow-primary/10 transition-all hover:scale-[1.01] active:scale-[0.99]"
+              class="dashboard-primary-action"
               type="button"
               disabled
               title="Design preview"
@@ -51,13 +35,13 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               >
               <span>Create New Workshop</span>
             </button>
-          </div>
-        </div>
+          </template>
+        </DashboardPageHeader>
         <!-- Metric Snapshot Cards (Bento Style 4-up) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter mt-space-md">
+        <div class="dashboard-metrics mt-space-md">
           <!-- Card 1: Total Workshops -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container p-space-lg shadow-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -bottom-4 w-28 h-28 bg-primary/5 rounded-full blur-2xl pointer-events-none"
@@ -94,7 +78,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 2: Registered Learners -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container p-space-lg shadow-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -bottom-4 w-28 h-28 bg-secondary/5 rounded-full blur-2xl pointer-events-none"
@@ -132,7 +116,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 3: Average Fill Rate -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container p-space-lg shadow-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -bottom-4 w-28 h-28 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"
@@ -167,7 +151,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 4: Accredited Instructors -->
           <div
-            class="relative overflow-hidden rounded-xl bg-surface-container p-space-lg shadow-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -bottom-4 w-28 h-28 bg-tertiary-container/10 rounded-full blur-2xl pointer-events-none"
@@ -216,7 +200,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Filtration Matrix & Analytical Search Strip -->
         <div
-          class="mt-space-xl p-space-md bg-surface-container rounded-xl shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md"
+          class="dashboard-toolbar mt-space-xl flex flex-col items-stretch justify-between gap-space-md lg:flex-row lg:items-center"
         >
           <!-- Search Bar -->
           <div class="relative flex-1">
@@ -226,7 +210,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
               >search</span
             >
             <input
-              class="w-full pl-11 pr-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md outline-none focus:bg-surface-container-low transition-colors shadow-inner"
+              class="app-field py-2.5 pr-space-md pl-11 shadow-inner"
               placeholder="Search workshops by title, instructor, or topic..."
               type="text"
             />
@@ -298,7 +282,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </div>
         <!-- Masterclass & Workshop Management Data Table -->
-        <div class="mt-space-md bg-surface-container rounded-xl overflow-hidden shadow-sm">
+        <div class="dashboard-table mt-space-md">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
               <thead>
@@ -1083,7 +1067,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Instructor Quick Allocation Drawer / Assistant Card -->
         <div
-          class="mt-space-lg rounded-xl bg-surface-container p-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md"
+          class="dashboard-panel mt-space-lg flex flex-col items-start justify-between gap-space-md p-space-lg md:flex-row md:items-center"
         >
           <div class="flex items-center gap-space-md">
             <div

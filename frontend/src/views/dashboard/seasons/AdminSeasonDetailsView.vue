@@ -114,7 +114,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter py-space-md">
           <!-- Card 1: Registered Players -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-primary/5 blur-xl pointer-events-none"
@@ -147,7 +147,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 2: Matches Played -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-secondary/5 blur-xl pointer-events-none"
@@ -180,7 +180,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 3: Current Leader -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-tertiary/5 blur-xl pointer-events-none"
@@ -231,7 +231,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Card 4: Round Completion Rate -->
           <div
-            class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md relative overflow-hidden group hover:bg-surface-container transition-colors"
+            class="dashboard-metric group"
           >
             <div
               class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-secondary-container/20 blur-xl pointer-events-none"

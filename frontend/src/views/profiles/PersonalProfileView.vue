@@ -36,7 +36,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                   <div class="min-w-0 space-y-space-xs">
                     <div class="flex flex-wrap items-center gap-space-sm">
-                      <h1 class="font-headline-lg text-headline-lg text-on-surface truncate">
+                      <h1 class="app-page-title truncate">
                         Alex Rivera
                       </h1>
                       <span

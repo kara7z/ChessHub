@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppIcon from '../ui/AppIcon.vue'
+import ChessHubBrand from '../ui/ChessHubBrand.vue'
 
 const sections = [
   {
@@ -22,46 +22,40 @@ const sections = [
 </script>
 
 <template>
-  <footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl px-margin-desktop">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-space-xl">
-      <div class="max-w-sm">
-        <div class="flex items-center gap-space-sm mb-space-sm">
-          <div
-            class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center"
-          >
-            <AppIcon class="text-primary text-[20px]" name="shield" />
+  <footer
+    class="mt-space-xl hidden w-full bg-surface-container-lowest py-space-xl lg:block"
+  >
+    <div class="app-frame @container px-margin-desktop">
+      <div class="flex flex-col justify-between gap-space-xl @min-[48rem]:flex-row">
+        <div class="max-w-sm">
+          <RouterLink class="group mb-space-sm inline-flex" to="/">
+            <ChessHubBrand />
+          </RouterLink>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            The tournament-grade digital arena for grandmasters, tacticians, and competitive club
+            players worldwide.
+          </p>
+        </div>
+        <div class="grid grid-cols-3 gap-space-xl">
+          <div v-for="section of sections" :key="section.title" class="flex flex-col gap-space-xs">
+            <span class="font-title-md text-title-md text-on-surface">{{ section.title }}</span>
+            <RouterLink
+              v-for="link of section.links"
+              :key="link.to"
+              :to="link.to"
+              class="font-body-sm text-body-sm text-on-surface-variant transition-colors hover:text-on-surface"
+            >{{ link.label }}</RouterLink>
           </div>
-          <span class="font-headline-sm text-headline-sm text-on-surface">ChessHub</span>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">
-          The tournament-grade digital arena for grandmasters, tacticians, and competitive club
-          players worldwide.
-        </p>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-space-xl">
-        <div v-for="section of sections" :key="section.title" class="flex flex-col gap-space-xs">
-          <span class="font-title-md text-title-md text-on-surface">{{ section.title }}</span>
-          <RouterLink
-            v-for="link of section.links"
-            :key="link.to"
-            :to="link.to"
-            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-            >{{ link.label }}</RouterLink
-          >
-        </div>
-        <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
-          <span class="font-title-md text-title-md text-on-surface">Club Desk</span>
-          <span>arbiter@chesshub.io</span>
-          <span>+1 (800) CHESS-HUB</span>
-          <span>UTC Standard Hall</span>
+          <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+            <span class="font-title-md text-title-md text-on-surface">Club Desk</span>
+            <span>arbiter@chesshub.io</span>
+            <span>+1 (800) CHESS-HUB</span>
+            <span>UTC Standard Hall</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="max-w-7xl mx-auto mt-space-xl pt-space-md flex flex-col sm:flex-row items-center justify-between text-on-surface-variant font-body-sm text-body-sm"
-    >
-      <span>© 2025 ChessHub Federation. Engineered for tactical precision.</span>
-      <div class="flex gap-space-md mt-space-xs sm:mt-0">
+      <div class="mt-space-xl flex items-center justify-between gap-space-sm border-t border-outline-variant/30 pt-space-md font-body-sm text-body-sm text-on-surface-variant">
+        <span>© 2025 ChessHub Federation. Engineered for tactical precision.</span>
         <span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">
           FIDE Swiss Compliant
         </span>

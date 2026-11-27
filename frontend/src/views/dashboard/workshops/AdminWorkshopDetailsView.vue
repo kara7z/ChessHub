@@ -176,7 +176,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
           <!-- Enrollment -->
           <div
-            class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-md relative overflow-hidden"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -200,7 +200,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Available Seats -->
           <div
-            class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-md"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -228,7 +228,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Attendance Readiness -->
           <div
-            class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-md"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
@@ -260,7 +260,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Materials Status -->
           <div
-            class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-md"
+            class="dashboard-metric"
           >
             <div class="flex items-center justify-between">
               <span class="font-label-badge text-label-badge uppercase tracking-wider text-outline"

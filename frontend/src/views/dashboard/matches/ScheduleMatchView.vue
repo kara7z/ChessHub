@@ -53,7 +53,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <div class="lg:col-span-7 flex flex-col gap-space-lg">
             <!-- Form Section 1: Season & League Context -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-sm">
@@ -104,7 +104,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Form Section 2: Player Selection & Pairings -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-sm">
@@ -236,7 +236,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Form Section 3: Match Schedule & Venue -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center gap-space-sm">
                 <span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true"
@@ -358,7 +358,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </div>
             <!-- Form Section 4: Arbiter & Protocol Notes -->
             <div
-              class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md"
+              class="dashboard-panel flex flex-col gap-space-md p-space-lg"
             >
               <div class="flex items-center gap-space-sm">
                 <span class="material-symbols-outlined text-primary text-[20px]" aria-hidden="true"

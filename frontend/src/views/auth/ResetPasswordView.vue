@@ -11,7 +11,7 @@ import PasswordToggle from '../../components/ui/PasswordToggle.vue'
       <div class="w-full max-w-md">
         <div class="flex flex-col w-full">
           <div
-            class="relative bg-surface-container rounded-xl shadow-xl p-space-lg overflow-hidden"
+            class="app-panel relative overflow-hidden p-space-lg sm:p-space-xl"
           >
             <div
               class="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"
