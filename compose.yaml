@@ -1,0 +1,76 @@
+services:
+  database:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: ${CHESSHUB_DB_NAME:-chesshub}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      CHESSHUB_DB_USER: ${CHESSHUB_DB_USER:-chesshub_app}
+      CHESSHUB_DB_PASSWORD: ${CHESSHUB_DB_PASSWORD:?Set CHESSHUB_DB_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${CHESSHUB_DB_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./dev/postgres/01-application-role.sh:/docker-entrypoint-initdb.d/01-application-role.sh:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - PGPASSWORD="$$CHESSHUB_DB_PASSWORD" psql -h 127.0.0.1 -U "$$CHESSHUB_DB_USER" -d "$$POSTGRES_DB" -qAtc 'SELECT 1' >/dev/null
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  api:
+    image: maven:3.9-eclipse-temurin-21
+    working_dir: /workspace
+    command: ["mvn", "-B", "-ntp", "spring-boot:run"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/${CHESSHUB_DB_NAME:-chesshub}
+      SPRING_DATASOURCE_USERNAME: ${CHESSHUB_DB_USER:-chesshub_app}
+      SPRING_DATASOURCE_PASSWORD: ${CHESSHUB_DB_PASSWORD:?Set CHESSHUB_DB_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${CHESSHUB_API_PORT:-8080}:8080"
+    volumes:
+      - ./backend:/workspace:ro
+      - backend-build:/workspace/target
+      - maven-cache:/root/.m2
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      # The scaffold has no public endpoints; a 401 confirms Spring Security is serving requests.
+      test:
+        - CMD-SHELL
+        - >-
+          test "$$(curl --silent --output /dev/null --write-out '%{http_code}'
+          --header 'Accept: application/json' http://127.0.0.1:8080/)" = 401
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 2m
+
+  web:
+    image: node:24-bookworm-slim
+    working_dir: /workspace/frontend
+    command: ["sh", "-c", "npm ci && exec npm run dev -- --host 0.0.0.0 --strictPort"]
+    environment:
+      API_PROXY_TARGET: http://api:8080
+    ports:
+      - "127.0.0.1:${CHESSHUB_WEB_PORT:-5173}:5173"
+    volumes:
+      - ./frontend:/workspace/frontend:ro
+      - frontend-dependencies:/workspace/frontend/node_modules
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5173/').then(r => { if (!r.ok) process.exit(1) }).catch(() => process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 1m
+
+volumes:
+  postgres-data:
+  backend-build:
+  maven-cache:
+  frontend-dependencies:

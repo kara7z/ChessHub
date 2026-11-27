@@ -1,5 +1,23 @@
 # Contributing to ChessHub
 
+## Local development
+
+1. Copy `.env.example` to `.env` and fill in distinct local-only values for
+   `POSTGRES_PASSWORD` and `CHESSHUB_DB_PASSWORD`. Keep `.env` out of Git.
+2. Run `docker compose up --wait` from the repository root.
+3. Open `http://127.0.0.1:5173`. Vite forwards `/api` to Spring Boot. The
+   backend scaffold returns HTTP 401 until its authentication features exist.
+
+The database port is available only on loopback. Use `CHESSHUB_DB_USER` and
+`CHESSHUB_DB_PASSWORD` for application connections; `POSTGRES_PASSWORD` is for
+local database administration. PostgreSQL applies its initialization script
+only when its data volume is empty. If you change a password after first
+startup, update the PostgreSQL role as well as `.env`.
+
+Run `docker compose down` to stop the stack while keeping its PostgreSQL data.
+For host builds, use Java 21 and Maven (`mvn -f backend/pom.xml clean verify`)
+and Node.js 24 or newer (`npm ci` and `npm run build` in `frontend/`).
+
 ## Branches
 
 `main` is the protected default branch and should stay releasable. Start work
