@@ -63,6 +63,7 @@ services:
       - ./frontend/index.html:/workspace/frontend/index.html:ro
       - ./frontend/vite.config.ts:/workspace/frontend/vite.config.ts:ro
       - ./frontend/tsconfig.json:/workspace/frontend/tsconfig.json:ro
+      - ./frontend/public:/workspace/frontend/public:ro
       - ./frontend/src:/workspace/frontend/src:ro
       - frontend-dependencies:/workspace/frontend/node_modules
     depends_on:
