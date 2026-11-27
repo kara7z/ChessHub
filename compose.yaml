@@ -30,7 +30,8 @@ services:
     ports:
       - "127.0.0.1:${CHESSHUB_API_PORT:-8080}:8080"
     volumes:
-      - ./backend:/workspace:ro
+      - ./backend/pom.xml:/workspace/pom.xml:ro
+      - ./backend/src:/workspace/src:ro
       - backend-build:/workspace/target
       - maven-cache:/root/.m2
     depends_on:
@@ -57,7 +58,12 @@ services:
     ports:
       - "127.0.0.1:${CHESSHUB_WEB_PORT:-5173}:5173"
     volumes:
-      - ./frontend:/workspace/frontend:ro
+      - ./frontend/package.json:/workspace/frontend/package.json:ro
+      - ./frontend/package-lock.json:/workspace/frontend/package-lock.json:ro
+      - ./frontend/index.html:/workspace/frontend/index.html:ro
+      - ./frontend/vite.config.ts:/workspace/frontend/vite.config.ts:ro
+      - ./frontend/tsconfig.json:/workspace/frontend/tsconfig.json:ro
+      - ./frontend/src:/workspace/frontend/src:ro
       - frontend-dependencies:/workspace/frontend/node_modules
     depends_on:
       api:
