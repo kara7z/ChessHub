@@ -1,1 +1,85 @@
 @import 'tailwindcss';
+@import './styles/grandmaster-dark.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: Geist;
+  src: url('./assets/fonts/geist-latin.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('./assets/fonts/inter-latin.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  src: url('./assets/fonts/material-symbols.woff2') format('woff2');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-body-md);
+  }
+
+  .material-symbols-outlined {
+    display: inline-block;
+    direction: ltr;
+    font-family: 'Material Symbols Outlined';
+    font-feature-settings: 'liga';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@utility bg-chess-grid {
+  background-image:
+    linear-gradient(to right, rgb(66 73 58 / 14%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(66 73 58 / 14%) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.preview-disclosure[data-open] {
+  display: block;
+}
+
+.preview-disclosure-flex[data-open] {
+  display: flex;
+}
+
+@media (width < 48rem) {
+  .dashboard-sidebar:not([data-open]) {
+    display: none;
+  }
+}
