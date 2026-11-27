@@ -4,14 +4,14 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full text-on-surface pb-space-xl">
         <!-- Top Auxiliary Utility Bar / Breadcrumbs -->
         <div
           class="flex flex-wrap items-center justify-between gap-space-md py-space-md mb-space-md"
         >
           <nav
-            class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"
+            class="flex flex-wrap items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"
           >
             <RouterLink
               class="hover:text-primary transition-colors flex items-center gap-1"
@@ -31,7 +31,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             <span class="text-outline text-xs">/</span>
             <span class="text-primary font-semibold tracking-wide">Match #CH-2025-084</span>
           </nav>
-          <div class="flex items-center gap-space-sm">
+          <div class="flex flex-wrap items-center gap-space-sm">
             <button
               class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-title-md text-title-md shadow-sm transition-all"
               type="button"
@@ -53,15 +53,15 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               >
               <span>Match History</span>
             </RouterLink>
-            <span
+            <RouterLink
               class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md shadow-md transition-all"
-              data-path="leaderboard"
+              to="/leaderboard"
             >
               <span class="material-symbols-outlined text-[18px]" aria-hidden="true"
                 >leaderboard</span
               >
               <span>Standings</span>
-            </span>
+            </RouterLink>
           </div>
         </div>
         <!-- Primary Headline Match Card -->

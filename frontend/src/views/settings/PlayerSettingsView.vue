@@ -4,7 +4,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full pb-space-xl">
         <!-- Top Utility Context Bar -->
         <div
@@ -194,7 +194,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
           </aside>
           <!-- RIGHT: Configuration Engine (9 cols) -->
-          <main class="col-span-12 lg:col-span-9 flex flex-col gap-space-lg">
+          <div class="col-span-12 lg:col-span-9 flex flex-col gap-space-lg">
             <!-- Section Title & Meta Header -->
             <div
               class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm bg-surface-container-low p-space-lg rounded-xl shadow-sm"
@@ -663,7 +663,7 @@ Active club player focusing on English Opening and tactical endgames.</textarea>
                     class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider"
                     >Visual Interface Theme</label
                   >
-                  <div class="grid grid-cols-2 gap-space-sm">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
                     <!-- Dark Mode Option (Active) -->
                     <div
                       class="bg-surface-container-high p-space-sm rounded-lg flex items-center justify-between cursor-pointer shadow-sm"
@@ -797,7 +797,7 @@ Active club player focusing on English Opening and tactical endgames.</textarea>
                 </button>
               </div>
             </div>
-          </main>
+          </div>
         </div>
       </div>
     </main>

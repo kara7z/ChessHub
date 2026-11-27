@@ -4,7 +4,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
 
 <template>
   <DashboardLayout>
-    <main class="w-full pt-16 px-margin-desktop bg-surface">
+    <main class="w-full pt-16 px-margin md:px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-margin-desktop">
         <!-- Top Breadcrumbs & Quick Navigation Meta -->
         <div
@@ -297,7 +297,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Navigation Tabs -->
         <div
-          class="flex items-center gap-space-lg mb-space-lg bg-surface-container-low px-space-md py-space-xs rounded-xl"
+          class="flex flex-wrap items-center gap-space-xs sm:gap-space-lg mb-space-lg bg-surface-container-low px-space-md py-space-xs rounded-xl"
         >
           <button
             class="flex items-center gap-space-xs py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary-container font-title-md text-title-md font-semibold transition-colors"
@@ -1009,7 +1009,8 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                     >terminal</span
                   >
                   <div class="flex flex-col">
-                    <span class="font-body-md text-body-md text-on-surface leading-tight"
+                    <span
+                      class="font-body-md text-body-md text-on-surface leading-tight [overflow-wrap:anywhere]"
                       >sicilian_najdorf_complete.pgn</span
                     >
                     <span class="font-body-sm text-body-sm text-outline"
@@ -1038,7 +1039,8 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                     >picture_as_pdf</span
                   >
                   <div class="flex flex-col">
-                    <span class="font-body-md text-body-md text-on-surface leading-tight"
+                    <span
+                      class="font-body-md text-body-md text-on-surface leading-tight [overflow-wrap:anywhere]"
                       >repertoire_companion_handout.pdf</span
                     >
                     <span class="font-body-sm text-body-sm text-outline"

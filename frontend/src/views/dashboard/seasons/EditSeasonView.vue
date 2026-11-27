@@ -4,7 +4,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
 
 <template>
   <DashboardLayout>
-    <main class="w-full pt-16 px-margin-desktop bg-surface">
+    <main class="w-full pt-16 px-margin md:px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-margin-desktop">
         <!-- Dynamic Status & Header Bar -->
         <div class="flex flex-col gap-space-sm pt-space-md mb-space-lg">

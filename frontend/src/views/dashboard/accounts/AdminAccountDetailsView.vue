@@ -4,7 +4,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
 
 <template>
   <DashboardLayout>
-    <main class="w-full pt-16 px-margin-desktop bg-surface">
+    <main class="w-full pt-16 px-margin md:px-margin-desktop bg-surface">
       <div class="flex flex-col w-full">
         <!-- Sub-Navigation / Dossier Context Header -->
         <div
@@ -438,7 +438,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                     class="font-label-badge text-label-badge uppercase tracking-wider text-outline"
                     >Electronic Mail</span
                   >
-                  <div class="flex items-center justify-between gap-space-xs">
+                  <div class="flex flex-wrap items-center justify-between gap-space-xs">
                     <span class="font-title-md text-title-md text-on-surface select-all"
                       >alex.rivera@example.com</span
                     >
@@ -600,7 +600,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                         </span>
                       </div>
                       <div
-                        class="flex items-center gap-space-sm text-body-sm font-body-sm text-outline"
+                        class="flex flex-wrap items-center gap-space-sm text-body-sm font-body-sm text-outline"
                       >
                         <span>Spring League • Board 2</span>
                         <span>•</span>
@@ -665,7 +665,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                         </span>
                       </div>
                       <div
-                        class="flex items-center gap-space-sm text-body-sm font-body-sm text-outline"
+                        class="flex flex-wrap items-center gap-space-sm text-body-sm font-body-sm text-outline"
                       >
                         <span>Spring League • Board 1</span>
                         <span>•</span>
@@ -730,7 +730,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                         </span>
                       </div>
                       <div
-                        class="flex items-center gap-space-sm text-body-sm font-body-sm text-outline"
+                        class="flex flex-wrap items-center gap-space-sm text-body-sm font-body-sm text-outline"
                       >
                         <span>Spring League • Board 3</span>
                         <span>•</span>
@@ -795,7 +795,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                         </span>
                       </div>
                       <div
-                        class="flex items-center gap-space-sm text-body-sm font-body-sm text-outline"
+                        class="flex flex-wrap items-center gap-space-sm text-body-sm font-body-sm text-outline"
                       >
                         <span>Spring League • Board 1</span>
                         <span>•</span>

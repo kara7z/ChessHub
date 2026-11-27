@@ -28,8 +28,8 @@ const profileLinks = [
     "
   >
     <div
-      class="h-16 w-full px-margin-desktop flex items-center justify-between"
-      :class="{ 'gap-space-lg': academy }"
+      class="h-16 w-full px-margin md:px-margin-desktop flex items-center justify-between"
+      :class="{ 'gap-space-sm md:gap-space-lg': academy }"
     >
       <div class="flex items-center gap-space-lg">
         <RouterLink class="group flex items-center gap-space-sm" to="/">

@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import ClubLayout from '../../components/layout/ClubLayout.vue'
+
+const workshopToCancel = ref('')
 </script>
 
 <template>
@@ -185,6 +188,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     class="px-space-md py-space-sm rounded-lg bg-surface-container-highest text-error hover:bg-error-container hover:text-on-error-container font-title-md text-body-md transition-colors"
                     type="button"
                     v-preview-disclosure="'cancel-modal'"
+                    @click="workshopToCancel = 'Mastering the Sicilian Najdorf'"
                   >
                     Cancel Registration
                   </button>
@@ -272,6 +276,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                     class="px-space-md py-space-sm rounded-lg bg-surface-container-highest text-error hover:bg-error-container hover:text-on-error-container font-title-md text-body-md transition-colors"
                     type="button"
                     v-preview-disclosure="'cancel-modal'"
+                    @click="workshopToCancel = 'Rook Endgame Precision & Lucena'"
                   >
                     Cancel Registration
                   </button>
@@ -429,6 +434,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
         <div
           class="hidden fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center p-margin preview-disclosure preview-disclosure-flex"
           id="cancel-modal"
+          aria-labelledby="cancel-workshop-heading"
+          aria-modal="true"
+          role="dialog"
         >
           <div
             class="bg-surface-container-high rounded-xl p-space-lg max-w-md w-full shadow-2xl space-y-space-md"
@@ -442,13 +450,17 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 >
               </div>
               <div class="space-y-space-xs">
-                <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                <h3
+                  class="font-headline-sm text-headline-sm text-on-surface"
+                  id="cancel-workshop-heading"
+                >
                   Cancel Registration?
                 </h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Are you sure you want to withdraw your seat from
-                  <span class="text-on-surface font-semibold" id="modal-workshop-title"></span>?
-                  Your spot will be released to the waitlist.
+                  <span class="text-on-surface font-semibold" id="modal-workshop-title">{{
+                    workshopToCancel
+                  }}</span>? Your spot will be released to the waitlist.
                 </p>
               </div>
             </div>

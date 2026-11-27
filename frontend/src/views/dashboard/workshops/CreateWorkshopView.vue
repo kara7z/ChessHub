@@ -4,7 +4,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
 
 <template>
   <DashboardLayout>
-    <main class="w-full pt-16 px-margin-desktop bg-surface">
+    <main class="w-full pt-16 px-margin md:px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-16">
         <!-- Dynamic Status & Header Bar -->
         <div
@@ -32,7 +32,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             </p>
           </div>
           <!-- Quick State & Actions -->
-          <div class="flex items-center gap-space-sm shrink-0">
+          <div class="flex flex-wrap items-center gap-space-sm">
             <span
               class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-outline text-label-badge font-label-badge tracking-wider uppercase"
             >
@@ -298,7 +298,7 @@ A clinical exploration of sharp Sicilian lines with an emphasis on Yugoslav &amp
                       >check_circle</span
                     >
                     <input
-                      class="bg-transparent text-on-surface font-body-md text-body-md flex-1 focus:outline-none"
+                      class="min-w-0 bg-transparent text-on-surface font-body-md text-body-md flex-1 focus:outline-none"
                       type="text"
                       value="Calculate King's pawn sacrifices (e6/f5 strikes)"
                     />
@@ -322,7 +322,7 @@ A clinical exploration of sharp Sicilian lines with an emphasis on Yugoslav &amp
                       >check_circle</span
                     >
                     <input
-                      class="bg-transparent text-on-surface font-body-md text-body-md flex-1 focus:outline-none"
+                      class="min-w-0 bg-transparent text-on-surface font-body-md text-body-md flex-1 focus:outline-none"
                       type="text"
                       value="Master d5 and f5 tactical break timing"
                     />
@@ -346,7 +346,7 @@ A clinical exploration of sharp Sicilian lines with an emphasis on Yugoslav &amp
                       >check_circle</span
                     >
                     <input
-                      class="bg-transparent text-on-surface font-body-md text-body-md flex-1 focus:outline-none"
+                      class="min-w-0 bg-transparent text-on-surface font-body-md text-body-md flex-1 focus:outline-none"
                       type="text"
                       value="Defend accurately against opposite-side castling storms"
                     />

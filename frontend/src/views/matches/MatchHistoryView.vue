@@ -4,7 +4,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
 
 <template>
   <ClubLayout>
-    <main class="w-full pt-16 bg-surface px-margin-desktop">
+    <main class="w-full pt-16 bg-surface px-margin md:px-margin-desktop">
       <div class="flex flex-col w-full">
         <div class="w-full max-w-[1440px] mx-auto py-space-lg flex flex-col gap-space-lg">
           <!-- Breadcrumb & Top Bar Navigation Hierarchy -->
@@ -19,7 +19,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                 <span>/</span>
                 <span class="text-on-surface">Official Log</span>
               </div>
-              <div class="flex items-baseline gap-space-md">
+              <div class="flex flex-wrap items-baseline gap-space-sm md:gap-space-md">
                 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
                   Competitive Match Records
                 </h1>
@@ -30,7 +30,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
             </div>
             <!-- Segmented Sub-Navigation Switcher -->
-            <div class="flex items-center bg-surface-container-lowest p-1 rounded-lg">
+            <div class="flex flex-wrap items-center bg-surface-container-lowest p-1 rounded-lg">
               <RouterLink
                 class="flex items-center gap-2 px-space-md py-2 rounded font-title-md text-title-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
                 data-path="upcoming-matches"
@@ -463,10 +463,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Tactical Split -->
               <div
-                class="flex items-center justify-between flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
               >
                 <!-- White Side (You - Winner) -->
-                <div class="flex items-center gap-3 w-5/12 justify-end text-right">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-end text-right"
+                >
                   <div class="flex flex-col items-end min-w-0">
                     <div class="flex items-center gap-1.5">
                       <span class="font-title-md text-title-md text-on-surface font-bold truncate"
@@ -518,7 +520,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Black Side (Opponent - Defeated) -->
-                <div class="flex items-center gap-3 w-5/12 justify-start text-left">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-start text-left"
+                >
                   <div class="relative shrink-0">
                     <div
                       class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-semibold text-[13px]"
@@ -614,10 +618,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Tactical Split -->
               <div
-                class="flex items-center justify-between flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
               >
                 <!-- White Side (Opponent) -->
-                <div class="flex items-center gap-3 w-5/12 justify-end text-right">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-end text-right"
+                >
                   <div class="flex flex-col items-end min-w-0">
                     <div class="flex items-center gap-1.5">
                       <span class="font-title-md text-title-md text-on-surface font-medium truncate"
@@ -669,7 +675,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Black Side (You - Draw) -->
-                <div class="flex items-center gap-3 w-5/12 justify-start text-left">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-start text-left"
+                >
                   <div class="relative shrink-0">
                     <div
                       class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface shadow-sm font-bold text-[13px]"
@@ -763,10 +771,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Tactical Split -->
               <div
-                class="flex items-center justify-between flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
               >
                 <!-- White Side (You - Loss) -->
-                <div class="flex items-center gap-3 w-5/12 justify-end text-right">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-end text-right"
+                >
                   <div class="flex flex-col items-end min-w-0">
                     <div class="flex items-center gap-1.5">
                       <span class="font-title-md text-title-md text-on-surface font-bold truncate"
@@ -817,7 +827,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Black Side (Opponent - Winner GM) -->
-                <div class="flex items-center gap-3 w-5/12 justify-start text-left">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-start text-left"
+                >
                   <div class="relative shrink-0">
                     <div
                       class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-semibold text-[13px]"
@@ -913,10 +925,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
               </div>
               <!-- Center Section: Head-to-Head Status Notification -->
               <div
-                class="flex items-center justify-between flex-grow w-full max-w-2xl px-2 xl:px-6"
+                class="flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-0 flex-grow w-full max-w-2xl px-2 xl:px-6"
               >
                 <!-- White Side (You) -->
-                <div class="flex items-center gap-3 w-5/12 justify-end text-right">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-end text-right"
+                >
                   <div class="flex flex-col items-end min-w-0">
                     <div class="flex items-center gap-1.5">
                       <span class="font-title-md text-title-md text-on-surface-variant truncate"
@@ -950,7 +964,9 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   </div>
                 </div>
                 <!-- Black Side (Opponent) -->
-                <div class="flex items-center gap-3 w-5/12 justify-start text-left">
+                <div
+                  class="flex items-center gap-3 w-full lg:w-5/12 min-w-0 justify-start text-left"
+                >
                   <div
                     class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant text-[13px] shrink-0"
                   >

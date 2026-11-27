@@ -7,8 +7,12 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
     <main class="w-full pt-16 px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-space-xl">
         <!-- Micro Breadcrumbs and Context Line -->
-        <div class="flex items-center justify-between py-space-sm mb-space-md">
-          <div class="flex items-center gap-space-xs text-outline font-body-sm text-body-sm">
+        <div
+          class="flex flex-wrap items-center justify-between gap-space-xs py-space-sm mb-space-md"
+        >
+          <div
+            class="flex flex-wrap items-center gap-space-xs text-outline font-body-sm text-body-sm"
+          >
             <span class="hover:text-on-surface transition-colors cursor-pointer">Dashboard</span>
             <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
               >chevron_right</span
@@ -25,7 +29,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             >
             <span class="text-on-surface font-title-md text-title-md">Edit Fixture</span>
           </div>
-          <div class="flex items-center gap-space-sm">
+          <div class="flex flex-wrap items-center gap-space-sm">
             <span
               class="font-label-badge text-label-badge uppercase tracking-wider px-space-sm py-0.5 rounded bg-surface-container-high text-outline"
               >Tier 1 Swiss Board</span

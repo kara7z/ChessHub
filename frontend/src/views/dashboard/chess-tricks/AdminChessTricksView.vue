@@ -7,7 +7,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
     <main class="w-full pt-16 px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-space-xl">
         <!-- Subtle ambient glow background decoration -->
-        <div class="relative w-full">
+        <div class="relative w-full overflow-clip">
           <div
             class="absolute -top-16 -right-16 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10"
           ></div>

@@ -4,7 +4,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
 
 <template>
   <DashboardLayout>
-    <main class="w-full pt-16 px-margin-desktop bg-surface">
+    <main class="w-full pt-16 px-margin md:px-margin-desktop bg-surface">
       <div class="flex flex-col w-full pb-margin-desktop">
         <!-- Top Breadcrumb & Metadata Line -->
         <div class="flex flex-wrap items-center justify-between gap-space-md py-space-md">
@@ -281,9 +281,9 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Main Navigation Tabs -->
         <div
-          class="flex items-center justify-between border-b border-surface-container-highest pb-space-xs mb-space-lg"
+          class="flex flex-wrap items-center justify-between gap-space-xs border-b border-surface-container-highest pb-space-xs mb-space-lg"
         >
-          <div class="flex items-center gap-space-sm">
+          <div class="flex flex-wrap items-center gap-space-sm">
             <button
               class="tab-btn px-space-md py-space-sm font-title-md text-title-md rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-space-xs"
               type="button"
@@ -317,8 +317,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           <button
             class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-title-md text-title-md hover:bg-primary-fixed transition-colors shadow-sm"
             type="button"
-            disabled
-            title="Design preview"
+            v-preview-disclosure="'add-player-drawer'"
           >
             <span class="material-symbols-outlined text-[18px]" aria-hidden="true">person_add</span>
             <span>Add Player to Roster</span>
@@ -382,7 +381,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
           <!-- Participant Management Table -->
           <div class="w-full rounded-xl bg-surface-container-low overflow-hidden shadow-sm">
-            <div class="overflow-x-auto">
+            <div class="relative overflow-x-auto">
               <table class="w-full text-left" id="participants-table">
                 <thead>
                   <tr
@@ -978,174 +977,178 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         </div>
         <!-- Slide-out Drawer: Manually Add Player to Roster -->
         <div
-          class="fixed inset-y-0 right-0 w-full max-w-md bg-surface-container-low shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+          class="fixed inset-0 z-50 hidden justify-end bg-surface/80 backdrop-blur-sm preview-disclosure preview-disclosure-flex"
           id="add-player-drawer"
+          aria-labelledby="add-player-heading"
+          aria-modal="true"
+          role="dialog"
         >
-          <div class="p-space-lg bg-surface-container flex items-center justify-between">
-            <div class="flex items-center gap-space-sm">
-              <span class="material-symbols-outlined text-primary text-[24px]" aria-hidden="true"
-                >person_add</span
+          <div class="flex h-full w-full max-w-md flex-col bg-surface-container-low shadow-2xl">
+            <div class="p-space-lg bg-surface-container flex items-center justify-between">
+              <div class="flex items-center gap-space-sm">
+                <span class="material-symbols-outlined text-primary text-[24px]" aria-hidden="true"
+                  >person_add</span
+                >
+                <h2
+                  class="font-headline-sm text-headline-sm text-on-surface"
+                  id="add-player-heading"
+                >
+                  Add Player to Roster
+                </h2>
+              </div>
+              <button
+                class="p-space-xs text-outline hover:text-on-surface transition-colors"
+                type="button"
+                aria-label="Close add-player dialog"
+                v-preview-disclosure="'add-player-drawer'"
+                data-preview-dismiss
               >
-              <h2 class="font-headline-sm text-headline-sm text-on-surface">
-                Add Player to Roster
-              </h2>
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+              </button>
             </div>
-            <button
-              class="p-space-xs text-outline hover:text-on-surface transition-colors"
-              type="button"
-              disabled
-              title="Design preview"
-            >
-              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
-            </button>
-          </div>
-          <div class="p-space-lg flex-1 overflow-y-auto flex flex-col gap-space-lg">
-            <div class="flex flex-col gap-space-xs">
-              <label class="font-title-md text-title-md text-on-surface"
-                >Find Player by Handle or Name</label
-              >
-              <span class="font-body-sm text-body-sm text-outline"
-                >Search member database to append to the active Swiss bracket.</span
-              >
-              <div class="relative mt-space-xs">
+            <div class="p-space-lg flex-1 overflow-y-auto flex flex-col gap-space-lg">
+              <div class="flex flex-col gap-space-xs">
+                <label class="font-title-md text-title-md text-on-surface" for="drawer-search-input"
+                  >Find Player by Handle or Name</label
+                >
+                <span class="font-body-sm text-body-sm text-outline"
+                  >Search member database to append to the active Swiss bracket.</span
+                >
+                <div class="relative mt-space-xs">
+                  <span
+                    class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[18px]"
+                    aria-hidden="true"
+                    >search</span
+                  >
+                  <input
+                    class="w-full bg-surface-container pl-10 pr-space-md py-space-sm rounded-lg text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary font-body-md text-body-md"
+                    id="drawer-search-input"
+                    placeholder="Type @handle or full name..."
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Quick Suggestion Results List -->
+              <div class="flex flex-col gap-space-xs" id="drawer-search-results">
                 <span
-                  class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[18px]"
-                  aria-hidden="true"
-                  >search</span
+                  class="font-label-badge text-label-badge uppercase tracking-wider text-outline mb-space-xs"
+                  >Available Members</span
                 >
-                <input
-                  class="w-full bg-surface-container pl-10 pr-space-md py-space-sm rounded-lg text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary font-body-md text-body-md"
-                  id="drawer-search-input"
-                  placeholder="Type @handle or full name..."
-                  type="text"
-                />
+                <div
+                  class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-bold text-on-surface text-body-sm"
+                    >
+                      ML
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface leading-tight"
+                        >Magnus Lindqvist</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline">@magnus_l</span>
+                    </div>
+                  </div>
+                  <button
+                    class="text-primary hover:text-primary-fixed font-title-md text-title-md"
+                    type="button"
+                    disabled
+                    title="Design preview"
+                  >
+                    Select
+                  </button>
+                </div>
+                <div
+                  class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-bold text-on-surface text-body-sm"
+                    >
+                      CD
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface leading-tight"
+                        >Chloe Dupont</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline">@chloedupont</span>
+                    </div>
+                  </div>
+                  <button
+                    class="text-primary hover:text-primary-fixed font-title-md text-title-md"
+                    type="button"
+                    disabled
+                    title="Design preview"
+                  >
+                    Select
+                  </button>
+                </div>
+                <div
+                  class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-bold text-on-surface text-body-sm"
+                    >
+                      KS
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface leading-tight"
+                        >Kenji Sato</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline">@sato_kenji</span>
+                    </div>
+                  </div>
+                  <button
+                    class="text-primary hover:text-primary-fixed font-title-md text-title-md"
+                    type="button"
+                    disabled
+                    title="Design preview"
+                  >
+                    Select
+                  </button>
+                </div>
+              </div>
+              <!-- Registration Meta Toggle -->
+              <div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-sm">
+                <label class="flex items-center justify-between cursor-pointer">
+                  <span class="font-title-md text-title-md text-on-surface"
+                    >Mark Check-in Immediately</span
+                  >
+                  <input
+                    checked
+                    class="w-4 h-4 accent-primary rounded"
+                    id="drawer-instant-checkin"
+                    type="checkbox"
+                  />
+                </label>
+                <span class="font-body-sm text-body-sm text-outline"
+                  >Automatically grant attendance access for on-site registration.</span
+                >
               </div>
             </div>
-            <!-- Quick Suggestion Results List -->
-            <div class="flex flex-col gap-space-xs" id="drawer-search-results">
-              <span
-                class="font-label-badge text-label-badge uppercase tracking-wider text-outline mb-space-xs"
-                >Available Members</span
+            <!-- Drawer Footer Actions -->
+            <div class="p-space-lg bg-surface-container flex items-center justify-end gap-space-sm">
+              <button
+                class="px-space-md py-space-sm rounded-lg bg-surface-container-high text-outline hover:text-on-surface font-title-md text-title-md transition-colors"
+                type="button"
+                disabled
+                title="Design preview"
               >
-              <div
-                class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer"
+                Cancel
+              </button>
+              <button
+                class="px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-title-md text-title-md hover:bg-primary-fixed transition-colors"
+                type="button"
+                disabled
+                title="Design preview"
               >
-                <div class="flex items-center gap-space-sm">
-                  <div
-                    class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-bold text-on-surface text-body-sm"
-                  >
-                    ML
-                  </div>
-                  <div class="flex flex-col">
-                    <span class="font-title-md text-title-md text-on-surface leading-tight"
-                      >Magnus Lindqvist</span
-                    >
-                    <span class="font-body-sm text-body-sm text-outline">@magnus_l</span>
-                  </div>
-                </div>
-                <button
-                  class="text-primary hover:text-primary-fixed font-title-md text-title-md"
-                  type="button"
-                  disabled
-                  title="Design preview"
-                >
-                  Select
-                </button>
-              </div>
-              <div
-                class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <div
-                    class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-bold text-on-surface text-body-sm"
-                  >
-                    CD
-                  </div>
-                  <div class="flex flex-col">
-                    <span class="font-title-md text-title-md text-on-surface leading-tight"
-                      >Chloe Dupont</span
-                    >
-                    <span class="font-body-sm text-body-sm text-outline">@chloedupont</span>
-                  </div>
-                </div>
-                <button
-                  class="text-primary hover:text-primary-fixed font-title-md text-title-md"
-                  type="button"
-                  disabled
-                  title="Design preview"
-                >
-                  Select
-                </button>
-              </div>
-              <div
-                class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between cursor-pointer"
-              >
-                <div class="flex items-center gap-space-sm">
-                  <div
-                    class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-bold text-on-surface text-body-sm"
-                  >
-                    KS
-                  </div>
-                  <div class="flex flex-col">
-                    <span class="font-title-md text-title-md text-on-surface leading-tight"
-                      >Kenji Sato</span
-                    >
-                    <span class="font-body-sm text-body-sm text-outline">@sato_kenji</span>
-                  </div>
-                </div>
-                <button
-                  class="text-primary hover:text-primary-fixed font-title-md text-title-md"
-                  type="button"
-                  disabled
-                  title="Design preview"
-                >
-                  Select
-                </button>
-              </div>
+                Enroll Player
+              </button>
             </div>
-            <!-- Registration Meta Toggle -->
-            <div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-sm">
-              <label class="flex items-center justify-between cursor-pointer">
-                <span class="font-title-md text-title-md text-on-surface"
-                  >Mark Check-in Immediately</span
-                >
-                <input
-                  checked
-                  class="w-4 h-4 accent-primary rounded"
-                  id="drawer-instant-checkin"
-                  type="checkbox"
-                />
-              </label>
-              <span class="font-body-sm text-body-sm text-outline"
-                >Automatically grant attendance access for on-site registration.</span
-              >
-            </div>
-          </div>
-          <!-- Drawer Footer Actions -->
-          <div class="p-space-lg bg-surface-container flex items-center justify-end gap-space-sm">
-            <button
-              class="px-space-md py-space-sm rounded-lg bg-surface-container-high text-outline hover:text-on-surface font-title-md text-title-md transition-colors"
-              type="button"
-              disabled
-              title="Design preview"
-            >
-              Cancel
-            </button>
-            <button
-              class="px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-title-md text-title-md hover:bg-primary-fixed transition-colors"
-              type="button"
-              disabled
-              title="Design preview"
-            >
-              Enroll Player
-            </button>
           </div>
         </div>
-        <!-- Drawer Backdrop Overlay -->
-        <div
-          class="fixed inset-0 bg-surface/80 backdrop-blur-sm z-40 hidden transition-opacity"
-          id="drawer-backdrop"
-        ></div>
         <!-- Modal: Confirm Withdraw Player -->
         <div
           class="fixed inset-0 z-50 flex items-center justify-center p-space-md hidden preview-disclosure preview-disclosure-flex"
@@ -1191,6 +1194,9 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         <div
           class="fixed inset-0 z-50 flex items-center justify-center p-space-md hidden preview-disclosure preview-disclosure-flex"
           id="cancel-modal"
+          aria-label="Cancel entire event"
+          aria-modal="true"
+          role="dialog"
         >
           <div class="absolute inset-0 bg-surface/80 backdrop-blur-sm"></div>
           <div

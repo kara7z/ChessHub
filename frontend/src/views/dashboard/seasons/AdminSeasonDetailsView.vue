@@ -266,7 +266,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
           </div>
         </div>
         <!-- Tabbed Navigation Bar -->
-        <div class="flex items-center gap-space-xs pt-space-lg pb-space-sm">
+        <div class="flex flex-wrap items-center gap-space-xs pt-space-lg pb-space-sm">
           <RouterLink
             class="px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md flex items-center gap-space-xs shadow-sm"
             to="/dashboard"

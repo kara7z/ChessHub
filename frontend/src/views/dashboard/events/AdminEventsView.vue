@@ -192,7 +192,7 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
             class="flex flex-col lg:flex-row gap-space-md items-stretch lg:items-center justify-between"
           >
             <!-- Search -->
-            <div class="relative flex-1 min-w-[280px]">
+            <div class="relative flex-1 min-w-0 lg:min-w-[280px]">
               <span
                 class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[20px]"
                 aria-hidden="true"

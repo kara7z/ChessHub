@@ -8,8 +8,12 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
       <div class="flex flex-col w-full text-on-surface">
         <!-- Top Breadcrumbs Navigation Bar -->
         <section class="w-full bg-surface-container-lowest px-margin-desktop py-space-sm shadow-sm">
-          <div class="max-w-[1440px] mx-auto flex items-center justify-between text-body-sm">
-            <nav class="flex items-center gap-space-xs font-title-md text-on-surface-variant">
+          <div
+            class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-space-xs text-body-sm"
+          >
+            <nav
+              class="flex flex-wrap items-center gap-space-xs font-title-md text-on-surface-variant"
+            >
               <RouterLink
                 class="hover:text-primary transition-colors flex items-center gap-1"
                 data-path="home"

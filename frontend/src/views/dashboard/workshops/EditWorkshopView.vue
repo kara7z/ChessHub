@@ -481,7 +481,9 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
                 </div>
               </section>
               <!-- Form Submission Footer Actions -->
-              <div class="flex items-center justify-between pt-space-xs pb-space-lg">
+              <div
+                class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs pb-space-lg"
+              >
                 <span
                   class="px-space-lg py-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md"
                 >

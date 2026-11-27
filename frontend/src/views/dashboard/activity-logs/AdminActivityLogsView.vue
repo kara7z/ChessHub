@@ -9,8 +9,12 @@ import DashboardLayout from '../../../components/layout/DashboardLayout.vue'
         <!-- Interactive Navigation Fix Script to highlight 'Activity Logs' in sidebar shell -->
 
         <!-- Breadcrumbs & Tactical Overline -->
-        <div class="flex items-center justify-between pt-space-md mb-space-sm">
-          <div class="flex items-center gap-space-xs text-outline font-body-sm text-body-sm">
+        <div
+          class="flex flex-wrap items-center justify-between gap-space-xs pt-space-md mb-space-sm"
+        >
+          <div
+            class="flex flex-wrap items-center gap-space-xs text-outline font-body-sm text-body-sm"
+          >
             <span class="hover:text-on-surface cursor-pointer transition-colors">Dashboard</span>
             <span class="material-symbols-outlined text-[14px]" aria-hidden="true"
               >chevron_right</span

@@ -693,7 +693,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
         <div
           aria-labelledby="modal-title"
           aria-modal="true"
-          class="fixed inset-0 z-50 hidden items-center justify-center p-space-md bg-surface-container-lowest/80 backdrop-blur-md preview-disclosure"
+          class="fixed inset-0 z-50 hidden items-center justify-center p-space-md bg-surface-container-lowest/80 backdrop-blur-md preview-disclosure preview-disclosure-flex"
           id="cancel-modal"
           role="dialog"
         >

@@ -27,9 +27,9 @@ import AppIcon from '../ui/AppIcon.vue'
           <AppIcon class="text-[14px]" name="chevron_right" />
           <span class="text-on-surface font-title-md text-title-md">Console</span>
         </div>
-        <div class="flex items-center gap-space-lg">
+        <div class="flex items-center gap-space-sm md:gap-space-lg">
           <div
-            class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-low"
+            class="hidden sm:flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-low"
           >
             <AppIcon class="text-secondary text-[16px]" name="schedule" />
             <span

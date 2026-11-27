@@ -119,7 +119,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
             </div>
             <!-- Quick Status Badges Card -->
             <div
-              class="flex items-center gap-space-md p-space-sm bg-surface-container-high/90 backdrop-blur-md rounded-xl shadow-lg self-stretch sm:self-auto"
+              class="flex flex-wrap items-center gap-space-xs sm:gap-space-md p-space-sm bg-surface-container-high/90 backdrop-blur-md rounded-xl shadow-lg self-stretch sm:self-auto"
             >
               <div class="flex flex-col px-space-md py-1">
                 <span
@@ -131,7 +131,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   <span class="font-body-sm text-body-sm text-secondary">Grandmaster tier</span>
                 </div>
               </div>
-              <div class="w-px h-8 bg-surface-variant"></div>
+              <div class="hidden sm:block w-px h-8 bg-surface-variant"></div>
               <div class="flex flex-col px-space-md py-1">
                 <span
                   class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant"
@@ -144,7 +144,7 @@ import ClubLayout from '../../components/layout/ClubLayout.vue'
                   <span class="font-body-sm text-body-sm text-on-surface-variant">pts</span>
                 </div>
               </div>
-              <div class="w-px h-8 bg-surface-variant"></div>
+              <div class="hidden sm:block w-px h-8 bg-surface-variant"></div>
               <div class="flex flex-col px-space-md py-1">
                 <span
                   class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant"

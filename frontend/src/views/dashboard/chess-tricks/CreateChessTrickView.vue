@@ -1090,7 +1090,7 @@ If Black takes the queen with 1... Bxd1??, White executes 2. Bxf7+ Ke7 3. Nd5#. 
                 </div>
               </div>
               <!-- Interactive Move Step Controls -->
-              <div class="flex items-center justify-between px-2 pt-1">
+              <div class="flex flex-wrap items-center justify-between gap-space-xs px-2 pt-1">
                 <div class="flex items-center gap-1">
                   <button
                     class="p-2 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors"
