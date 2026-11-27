@@ -18,6 +18,25 @@ Run `docker compose down` to stop the stack while keeping its PostgreSQL data.
 For host builds, use Java 21 and Maven (`mvn -f backend/pom.xml clean verify`)
 and Node.js 24 or newer (`npm ci` and `npm run build` in `frontend/`).
 
+## Database migrations
+
+The API runs Flyway against PostgreSQL at startup and Hibernate validates the
+schema afterward. Put schema changes in `backend/src/main/resources/db/migration`
+as `V<next version>__<description>.sql`. Once a migration is applied, add a new
+migration for changes so the recorded checksum stays valid.
+
+The existing scaffold database can apply the initial migration in place if
+its schema is empty. Flyway refuses to adopt a nonempty, unversioned schema
+automatically; check its contents before deciding how to migrate it. Run
+`mvn -f backend/pom.xml verify` with Docker running to exercise migrations
+against a temporary PostgreSQL 18 database.
+
+## API errors
+
+API error responses contain `status`, `code`, `message` and `fieldErrors`.
+Each field error contains a `field` and a validation `code`. Clients should
+branch on `code` rather than the human-readable `message`.
+
 ## Branches
 
 `main` is the protected default branch and should stay releasable. Start work
