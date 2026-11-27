@@ -88,6 +88,28 @@ class MigrationTests {
                 .hasStackTraceContaining("Migration checksum mismatch for migration version 1");
     }
 
+    @Test
+    void refusesToAdoptAnUnversionedSchemaWithExistingData() throws SQLException {
+        try (var connection = database.createConnection(""); var statement = connection.createStatement()) {
+            statement.executeUpdate("CREATE SCHEMA unversioned");
+            statement.executeUpdate("CREATE TABLE unversioned.existing_data (id integer PRIMARY KEY)");
+            statement.executeUpdate("INSERT INTO unversioned.existing_data VALUES (42)");
+
+            assertThatThrownBy(() -> application().run("--spring.flyway.schemas=unversioned"))
+                    .hasRootCauseInstanceOf(FlywayException.class)
+                    .hasStackTraceContaining("non-empty schema");
+
+            try (var result = statement.executeQuery("""
+                    SELECT id, to_regclass('unversioned.flyway_schema_history') AS history
+                    FROM unversioned.existing_data
+                    """)) {
+                assertThat(result.next()).isTrue();
+                assertThat(result.getInt("id")).isEqualTo(42);
+                assertThat(result.getString("history")).isNull();
+            }
+        }
+    }
+
     private SpringApplicationBuilder application() {
         return new SpringApplicationBuilder(ChessHubApplication.class)
                 .web(WebApplicationType.NONE)

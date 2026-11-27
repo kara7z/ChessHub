@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.Base64;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,8 +24,10 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import tools.jackson.databind.json.JsonMapper;
@@ -66,6 +70,22 @@ class ApiErrorTests {
         assertThat(error.fieldErrors()).containsExactly(new ApiError.FieldIssue("password", "Size"));
         assertError(send("/api/v1/validation", PLAYER, "{\"password\":" + PRIVATE_DETAIL, csrf),
                 400, "INVALID_REQUEST");
+    }
+
+    @Test
+    void identifiesInvalidRequestParametersByTheirPublicNames() throws Exception {
+        var query = send("/api/v1/search?page-size=0", PLAYER, null);
+        assertThat(assertError(query, 400, "VALIDATION_FAILED").fieldErrors())
+                .containsExactly(new ApiError.FieldIssue("page-size", "Min"));
+        var path = send("/api/v1/records/0", PLAYER, null);
+        assertThat(assertError(path, 400, "VALIDATION_FAILED").fieldErrors())
+                .containsExactly(new ApiError.FieldIssue("record-id", "Min"));
+    }
+
+    @Test
+    void treatsInvalidControllerReturnValuesAsServerErrors() throws Exception {
+        var response = send("/api/v1/invalid-output", PLAYER, null);
+        assertThat(assertError(response, 500, "SERVER_ERROR").fieldErrors()).isEmpty();
     }
 
     @Test
@@ -132,6 +152,20 @@ class ApiErrorTests {
 
         @PostMapping("/api/v1/validation")
         void validate(@Valid @RequestBody ValidationRequest input) {
+        }
+
+        @GetMapping("/api/v1/search")
+        void search(@RequestParam("page-size") @Min(1) int pageSize) {
+        }
+
+        @GetMapping("/api/v1/records/{record-id}")
+        void record(@PathVariable("record-id") @Min(1) int recordId) {
+        }
+
+        @GetMapping("/api/v1/invalid-output")
+        @NotNull
+        String invalidOutput() {
+            return null;
         }
 
         @GetMapping("/api/v1/missing")
